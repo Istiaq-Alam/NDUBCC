@@ -434,3 +434,12 @@
     padding-right: 0;
     border-right: none;
 }
+
+
+@media (max-width: 600px) {
+    /* Map container fix */
+.map-container {
+  width: 90%;
+  overflow: hidden;
+}
+}
