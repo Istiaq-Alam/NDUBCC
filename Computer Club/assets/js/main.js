@@ -110,14 +110,14 @@
 // include.js
 
 // Load Header
-fetch('assets/header.html')
+fetch('/assets/header.html')
   .then(res => res.text())
   .then(text => {
     document.getElementById('header').innerHTML = text;
   });
 
 // Load Footer
-fetch('assets/footer.html')
+fetch('/assets/footer.html')
   .then(res => res.text())
   .then(text => {
     document.getElementById('footer').innerHTML = text;
