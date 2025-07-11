@@ -110,7 +110,7 @@
 // include.js
 
 // Load Header
-fetch('/Computer\ Club/assets/header.html')
+fetch('/ComputerClub/assets/header.html')
   .then(res => res.text())
   .then(text => {
     document.getElementById('header').innerHTML = text;
