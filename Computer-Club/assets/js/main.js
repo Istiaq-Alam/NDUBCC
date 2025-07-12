@@ -117,7 +117,7 @@ fetch('/ComputerClub/assets/header.html')
   });
 
 // Load Footer
-fetch('assets/footer.html')
+fetch('/ComputerClub/assets/footer.html')
   .then(res => res.text())
   .then(text => {
     document.getElementById('footer').innerHTML = text;
