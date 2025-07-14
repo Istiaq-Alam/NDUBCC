@@ -1,6 +1,6 @@
 # NDUBCC
 Notre Dame University Bangladesh Computer Club Website portal
-on going 0.10% progession 
+on going 15.10% progession 
 
 - 29-06-25 : Final template ready 
 - 30-06-25 : Template editing on going 
