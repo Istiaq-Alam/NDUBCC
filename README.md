@@ -19,3 +19,5 @@ on going 15.10% progession
 - 13-07-25 : Page banner & first deployment
 - 14-07-25 : Gallery setup
 - 15-07-25 : event.html fixed + cwf.html page completed 100%
+- 16-07-25 : Files and Folder Fixed
+- 17-07-25 : Event page connected with seminars
