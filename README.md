@@ -1,6 +1,6 @@
 <h1 align="center">NDUB Computer Club</h1>
 <p align="center">
-🚀 Official repository for the **NDUB Computer Club** website.  
+🚀 Official repository for the <b>NDUB Computer Club</b> website.  
 This project represents our university computer club, showcasing events, members, achievements, and activities. It is built with a modern web stack for performance and reliability.
 </p>
 
