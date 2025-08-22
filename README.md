@@ -29,15 +29,39 @@ This project represents our university computer club, showcasing events, members
 ## 📂 Project Structure
 
 ```
-NDUBCC/
-├── public/           # Static files (images, icons, etc.)
-├── src/              # Source code
-│   ├── components/   # UI components
-│   ├── pages/        # Website pages
-│   └── styles/       # CSS/Tailwind styles
-├── package.json      # Dependencies
-└── README.md         # Project info
+Computer-Club/
+├── index.html         # Home page
+├── about.html         # About the club
+├── committee.html     # Executive committee members
+├── events.html        # Events page
+├── 404.html           # Error page
+│
+├── assets/            # Static assets
+│ ├── css/             # Stylesheets
+│ │ ├── bootstrap.min.css
+│ │ └── style.css
+│ ├── js/              # JavaScript files
+│ │ └── main.js
+│ ├── img/             # Images (logos, event photos, members, etc.)
+│ ├── header.html      # Shared header
+│ └── footer.html      # Shared footer
+│
+├── programs/          # Programs & Events
+│ ├── fest/            # CSE Fest
+│ │ └── csefest.html
+│ ├── picnic/          # Annual Picnic
+│ │ └── picnic2025.html
+│ └── seminar/         # Seminars
+│ ├── Careers-in-Web-Development.html
+│ ├── Competitive-Programming/
+│ ├── cwf/             # Club With Future Seminar
+│ └── cst/             # Career Support Training
 
+└── Templates/         # Extra templates
+├── homeTemp.html
+├── eventsTemp.html
+├── contacte.html
+└── testimonial.html
 ```
 
 ---
