@@ -92,4 +92,3 @@ This project is licensed under the [MIT License](LICENSE).
 * Club Members & Volunteers
 * Open Source Community 🚀
 
-```
