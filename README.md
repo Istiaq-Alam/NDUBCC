@@ -52,15 +52,13 @@ Computer-Club/
 │ ├── picnic/          # Annual Picnic
 │ │ └── picnic2025.html
 │ └── seminar/         # Seminars
-│ ├── Careers-in-Web-Development.html
-│ ├── Competitive-Programming/
-│ ├── cwf/             # Club With Future Seminar
-│ └── cst/             # Career Support Training
-
+│   └── cwf/           # Club With Future Seminar
+│   └── cst/           # Career Support Training
+│
 └── Templates/         # Extra templates
 ├── homeTemp.html
 ├── eventsTemp.html
-├── contacte.html
+├── contact.html
 └── testimonial.html
 ```
 
