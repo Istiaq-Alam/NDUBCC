@@ -1,4 +1,4 @@
-# NDUB Computer Club (NDUBCC)
+<h1 align="center">NDUB Computer Club</h1>
 
 🚀 Official repository for the **NDUB Computer Club** website.  
 This project represents our university computer club, showcasing events, members, achievements, and activities. It is built with a modern web stack for performance and reliability.
