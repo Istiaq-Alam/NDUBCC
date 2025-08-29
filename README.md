@@ -76,7 +76,7 @@ Live Website 👉 [NDUBCC Website](https://ndubcc.vercel.app)
 
 ## 👥 Contributors
 
-* [@Istiaq-Alam](https://github.com/Istiaq-Alam) (Maintainer)
+* [@Istiaq-Alam](https://github.com/Istiaq-Alam) (Design & Maintainer)
 * Creative & Design Secretary, NDUB Computer Club
 
 ---
