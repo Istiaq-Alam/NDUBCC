@@ -11,9 +11,9 @@ const ads = [
         img: "assets/img/carousel-1.jpg"
     },
     {
-        title: "🎤 Guest Speaker Series",
-        text: "Learn from industry experts about AI, Cybersecurity, and Web Trends.",
-        img: "assets/img/carousel-2.jpg"
+        title: "🚀 12th Executive Committee",
+        text: "Notre Dame University Computer Club have Announced our 12th Executive Committee member",
+        img: "assets/img/executive/Executive-Committe.jpg"
     },
     {
         title: "📢 Club Registration Open",
