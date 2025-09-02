@@ -954,44 +954,7 @@
 
     <!-- Template Javascript -->
     <script src="assets/js/main.js"></script>
-    <script>
-       // List of ads or news
-const ads = [
-  { title: "NDUB CSE Event", text: "Join our upcoming coding hackathon this weekend!" },
-  { title: "New Workshop", text: "AI and Machine Learning workshop starting next Monday." },
-  { title: "Tech Highlight", text: "Our students won 1st place in the inter-college robotics competition." },
-  { title: "Newsletter", text: "Subscribe to our monthly newsletter for latest updates." }
-];
-
-window.onload = function() {
-  const popup = document.getElementById("adPopup");
-  const popupTitle = document.getElementById("popupTitle");
-  const popupText = document.getElementById("popupText");
-  const closeBtn = document.getElementById("closePopup");
-
-  // Pick a random ad
-  const randomAd = ads[Math.floor(Math.random() * ads.length)];
-
-  popupTitle.textContent = randomAd.title;
-  popupText.textContent = randomAd.text;
-
-  // Show the popup
-  popup.style.display = "flex";
-
-  // Close popup on click
-  closeBtn.onclick = function() {
-    popup.style.display = "none";
-  };
-
-  // Close if clicked outside content
-  window.onclick = function(event) {
-    if (event.target === popup) {
-      popup.style.display = "none";
-    }
-  };
-};
-
-    </script>
+    <script src="assets/js/advertisement.js"></script>
 </body>
 
 </html>
