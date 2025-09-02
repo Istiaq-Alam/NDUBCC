@@ -48,6 +48,15 @@
 </head>
 
 <body>
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-box">
+            <span class="close-btn" onclick="closePopup()"> &times;</span>
+            <img id="popup-img" src="" alt="NDUBCC News">
+            <h2 id="popup-title"></h2>
+            <p id="popup-text"></p>
+        </div>
+    </div>
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -907,58 +916,54 @@
     <script src="assets/lib/easing/easing.min.js"></script>
     <script src="assets/lib/waypoints/waypoints.min.js"></script>
     <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-    <!-- SweetAlert2 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="assets/js/main.js"></script>
     <script>
-    // Array of news / highlights with images
-    const news = [
-        {
-            title: "NDUB CSE Hackathon",
-            text: "Join our upcoming coding hackathon this weekend!",
-            image: "assets/img/carousel-2.jpg"
-        },
-        {
-            title: "AI & ML Workshop",
-            text: "Learn AI & Machine Learning with our hands-on workshop next Monday.",
-            image: "https://images.unsplash.com/photo-1581090700227-1050f91a1dc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjA3fDB8MHwxfHNlYXJjaHwyfHxhaSUyMG1sJTIwd29ya3Nob3B8ZW58MHx8fHwxNjkzMjU1NTg0&ixlib=rb-4.0.3&q=80&w=400"
-        },
-        {
-            title: "Robotics Competition Winner",
-            text: "Congratulations to our students for winning 1st place in inter-college robotics!",
-            image: "https://images.unsplash.com/photo-1595429121253-55dcdf1f29b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjA3fDB8MHwxfHNlYXJjaHwzfHxyb2JvdGljc3xlbnwwfHx8fDE2OTMyNTU2MTE&ixlib=rb-4.0.3&q=80&w=400"
-        },
-        {
-            title: "Monthly Newsletter",
-            text: "Subscribe to our newsletter to get the latest updates from the club.",
-            image: "https://images.unsplash.com/photo-1604908177521-48b94e4b65d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNjA3fDB8MHwxfHNlYXJjaHw0fHxibG9nJTIwbmV3c2xldHRlcnxlbnwwfHx8fDE2OTMyNTU2MzY&ixlib=rb-4.0.3&q=80&w=400"
+        // List of ads/news
+        const ads = [
+            {
+                title: "🚀 12th Executive Committee",
+                text: "Notre Dame University Computer Club have Announced our 12th Executive Committee member",
+                img: "assets/img/executive/Executive-Committe.jpg"
+            },
+            {
+                title: "💻 Coding Bootcamp",
+                text: "Register now for our intensive bootcamp and level up your web development skills.",
+                img: "assets/img/carousel-1.jpg"
+            },
+            {
+                title: "🎤 Guest Speaker Series",
+                text: "Learn from industry experts about AI, Cybersecurity, and Web Trends.",
+                img: "assets/img/carousel-2.jpg"
+            },
+            {
+                title: "📢 Club Registration Open",
+                text: "Become a part of NDUB Computer Club and explore new opportunities!",
+                img: "assets/img/cat-1.jpeg"
+            }
+        ];
+
+        // Select a random ad
+        const randomAd = ads[Math.floor(Math.random() * ads.length)];
+
+        // Insert ad content
+        document.getElementById("popup-img").src = randomAd.img;
+        document.getElementById("popup-title").innerText = randomAd.title;
+        document.getElementById("popup-text").innerText = randomAd.text;
+
+        // Show popup after delay
+        window.onload = function () {
+            setTimeout(() => {
+                document.getElementById("popup").classList.add("active");
+            }, 1000);
+        };
+
+        // Close popup
+        function closePopup() {
+            document.getElementById("popup").classList.remove("active");
         }
-    ];
-
-    // Function to show a random popup
-    function showRandomPopup() {
-        const randomIndex = Math.floor(Math.random() * news.length);
-        const item = news[randomIndex];
-
-        Swal.fire({
-            title: item.title,
-            text: item.text,
-            imageUrl: item.image,
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: item.title,
-            icon: 'info',
-            confirmButtonText: 'Close',
-            timer: 10000,
-            timerProgressBar: true
-        });
-    }
-
-    // Show popup when page loads
-    window.addEventListener('load', showRandomPopup);
-</script>
+    </script>
 </body>
 
 </html>
