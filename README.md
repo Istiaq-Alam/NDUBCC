@@ -97,7 +97,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🎯Next Target
 
-* Present committe profile
+* Present committe profile link
 * Activity Pages
 * previous committee pages
 * Alumni pages
