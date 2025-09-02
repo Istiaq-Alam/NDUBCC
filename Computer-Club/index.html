@@ -921,48 +921,48 @@
     <script src="assets/js/main.js"></script>
     <script>
         // List of ads/news
-const ads = [
-    {
-        title: "🚀 12th Executive Committee",
-        text: "Notre Dame University Computer Club have Announced our 12th Executive Committee member",
-        img: "assets/img/executive/Executive-Committe.jpg"
-    },
-    {
-        title: "💻 Coding Bootcamp",
-        text: "Register now for our intensive bootcamp and level up your web development skills.",
-        img: "assets/img/carousel-1.jpg"
-    },
-    {
-        title: "🎤 Guest Speaker Series",
-        text: "Learn from industry experts about AI, Cybersecurity, and Web Trends.",
-        img: "assets/img/carousel-2.jpg"
-    },
-    {
-        title: "📢 Club Registration Open",
-        text: "Become a part of NDUB Computer Club and explore new opportunities!",
-        img: "assets/img/cat-1.jpeg"
-    }
-];
+        const ads = [
+            {
+                title: "🚀 12th Executive Committee",
+                text: "Notre Dame University Computer Club have Announced our 12th Executive Committee member",
+                img: "assets/img/executive/Executive-Committe.jpg"
+            },
+            {
+                title: "💻 Coding Bootcamp",
+                text: "Register now for our intensive bootcamp and level up your web development skills.",
+                img: "assets/img/carousel-1.jpg"
+            },
+            {
+                title: "🎤 Guest Speaker Series",
+                text: "Learn from industry experts about AI, Cybersecurity, and Web Trends.",
+                img: "assets/img/carousel-2.jpg"
+            },
+            {
+                title: "📢 Club Registration Open",
+                text: "Become a part of NDUB Computer Club and explore new opportunities!",
+                img: "assets/img/cat-1.jpeg"
+            }
+        ];
 
-// Select a random ad
-const randomAd = ads[Math.floor(Math.random() * ads.length)];
+        // Select a random ad
+        const randomAd = ads[Math.floor(Math.random() * ads.length)];
 
-// Insert ad content
-document.getElementById("popup-img").src = randomAd.img;
-document.getElementById("popup-title").innerText = randomAd.title;
-document.getElementById("popup-text").innerText = randomAd.text;
+        // Insert ad content
+        document.getElementById("popup-img").src = randomAd.img;
+        document.getElementById("popup-title").innerText = randomAd.title;
+        document.getElementById("popup-text").innerText = randomAd.text;
 
-// Show popup after delay
-window.onload = function () {
-    setTimeout(() => {
-        document.getElementById("popup").classList.add("active");
-    }, 1000);
-};
+        // Show popup after delay
+        window.onload = function () {
+            setTimeout(() => {
+                document.getElementById("popup").classList.add("active");
+            }, 1000);
+        };
 
-// Close popup
-function closePopup() {
-    document.getElementById("popup").classList.remove("active");
-}
+        // Close popup
+        function closePopup() {
+            document.getElementById("popup").classList.remove("active");
+        }
     </script>
 </body>
 
