@@ -89,7 +89,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🏆 Acknowledgements
 
-* NDUB Computer Science & Engineering Department
+* Notre Dame University Bangladesh Computer Science & Engineering Department
 * Club Members & Volunteers
 * Open Source Community 🚀
 
