@@ -1,7 +1,7 @@
 // List of ads/news
 const ads = [
     {
-        title: "🚀 NDUB CSE Fest 2024",
+        title: "🚀 NDUB CSE Fest 2023",
         text: "Join our biggest annual event full of seminars, coding challenges, and workshops!",
         img: "assets/img/Fest.webp"
     },
