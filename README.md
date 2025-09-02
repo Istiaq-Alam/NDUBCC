@@ -93,3 +93,12 @@ This project is licensed under the [MIT License](LICENSE).
 * Club Members & Volunteers
 * Open Source Community 🚀
 
+---
+
+## 🎯Next Target
+
+* Present committe profile
+* Activity Pages
+* previous committee pages
+* Alumni pages
+
