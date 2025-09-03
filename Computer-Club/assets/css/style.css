@@ -165,12 +165,12 @@
   padding: 12px 30px;             /* balanced padding */
   font-size: 1rem;
   line-height: 1.2;
-  margin-top: 30px;            /* ✅ this centers it horizontally */
   text-align: center;             /* extra safeguard */
 }
 
 /* Icon alignment */
 .join-btn i {
+  margin-top: 30px;            /* ✅ this centers it horizontally */
   font-size: 1rem;
 }
 
