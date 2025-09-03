@@ -28,7 +28,6 @@
     text-align: center;
     position: relative;
     animation: fadeInDown 0.5s ease;
-    box-sizing: border-box;
 }
 
 .popup-box .close-btn {
@@ -36,11 +35,15 @@
     top: 10px;
     right: 15px;
     font-size: 28px;
+    /* bigger size */
     font-weight: bold;
+    /* bold text */
     cursor: pointer;
     color: #ff0000;
+    /* bright red for visibility */
     background: #fff;
-    border: none;
+    /* white background circle */
+    border: 0px solid #ff0000;
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -49,7 +52,6 @@
     justify-content: center;
     line-height: 1;
     transition: 0.3s;
-    z-index: 10000;
 }
 
 .popup-box .close-btn:hover {
@@ -59,7 +61,6 @@
 
 .popup-box img {
     max-width: 100%;
-    height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -67,14 +68,6 @@
 .popup-box h2 {
     margin-bottom: 10px;
     color: #222;
-    font-size: 1.5rem;
-}
-
-.popup-box p {
-    font-size: 1rem;
-    line-height: 1.4;
-    color: #444;
-    margin-bottom: 15px;
 }
 
 /* Horizontal loader */
@@ -89,49 +82,18 @@
     border-radius: 0 0 5px 5px;
 }
 
-/* 📱 Responsive Breakpoints */
-@media (max-width: 768px) {
-    .popup-box {
-        width: 95%;
-        padding: 15px;
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
     }
-    .popup-box h2 {
-        font-size: 1.3rem;
-    }
-    .popup-box p {
-        font-size: 0.95rem;
-    }
-    .popup-box .close-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 24px;
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
-
-@media (max-width: 480px) {
-    .popup-box {
-        width: 100%;
-        height: auto;
-        margin: 0 10px;
-        padding: 15px;
-    }
-    .popup-box img {
-        max-height: 200px;
-        object-fit: cover;
-    }
-    .popup-box h2 {
-        font-size: 1.1rem;
-    }
-    .popup-box p {
-        font-size: 0.9rem;
-    }
-    .popup-box .close-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 22px;
-    }
-}
-
 
 /********** Template CSS **********/
 :root {
