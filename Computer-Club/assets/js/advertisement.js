@@ -12,7 +12,7 @@ const ads = [
     },
     {
         title: "🚀 12th Executive Committee",
-        text: "Notre Dame University Computer Club have Announced our 12th Executive Committee member",
+        text: "Notre Dame University Computer Club has announced our 12th Executive Committee members",
         img: "assets/img/executive/Executive-Committe.jpg"
     },
     {
@@ -30,14 +30,29 @@ document.getElementById("popup-img").src = randomAd.img;
 document.getElementById("popup-title").innerText = randomAd.title;
 document.getElementById("popup-text").innerText = randomAd.text;
 
-// Show popup after delay
+// Show popup on page load
 window.onload = function () {
     setTimeout(() => {
-        document.getElementById("popup").classList.add("active");
+        const popup = document.getElementById("popup");
+        const loader = document.getElementById("popup-loader");
+
+        popup.classList.add("active");
+
+        // Start loader animation
+        loader.style.width = "100%";
+
+        // Auto close after 5 seconds
+        setTimeout(() => {
+            popup.classList.remove("active");
+            loader.style.width = "0%";
+        }, 5000);
     }, 1000);
 };
 
-// Close popup
+// Manual close (if user clicks X)
 function closePopup() {
-    document.getElementById("popup").classList.remove("active");
+    const popup = document.getElementById("popup");
+    const loader = document.getElementById("popup-loader");
+    popup.classList.remove("active");
+    loader.style.width = "0%";
 }

@@ -24,7 +24,7 @@
 
     <!-- Favicon -->
     <link href="assets/img/NDUBCC-Logo.png" rel="icon">
- 
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,12 +51,14 @@
     <!-- Popup Overlay -->
     <div class="popup-overlay" id="popup">
         <div class="popup-box">
-            <span class="close-btn" onclick="closePopup()"> &times;</span>
+            <span class="close-btn" onclick="closePopup()">&times;</span>
             <img id="popup-img" src="" alt="NDUBCC News">
             <h2 id="popup-title"></h2>
             <p id="popup-text"></p>
+            <div id="popup-loader"></div> <!-- Horizontal loader -->
         </div>
     </div>
+
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
