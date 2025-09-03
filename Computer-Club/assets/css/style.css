@@ -111,6 +111,46 @@
     }
 }
 
+/* Default logo size */
+.logo-img {
+  max-height: 70px;
+  height: auto;
+  width: auto;
+}
+
+/* 📱 On smaller devices */
+@media (max-width: 768px) {
+  .logo-img {
+    max-height: 50px; /* smaller for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    max-height: 40px; /* even smaller for phones */
+  }
+}
+
+/* Responsive navbar */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+
 /********** Template CSS **********/
 :root {
     --primary: #06BBCC;
