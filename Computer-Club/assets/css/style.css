@@ -30,6 +30,22 @@
     animation: fadeInDown 0.5s ease;
 }
 
+.popup-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.popup-btn:hover {
+    background: #217dbb;
+}
+
 .popup-box .close-btn {
     position: absolute;
     top: 10px;
