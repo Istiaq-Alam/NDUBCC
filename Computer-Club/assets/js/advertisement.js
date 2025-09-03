@@ -16,7 +16,7 @@ const ads = [
         title: "🚀 12th Executive Committee",
         text: "Notre Dame University Computer Club has announced our 12th Executive Committee members",
         img: "assets/img/executive/Executive-Committe.jpg",
-        link: "committe.html"
+        link: "committee.html"
     },
    {
         title: "📢 Club Registration Open",
