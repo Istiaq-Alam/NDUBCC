@@ -112,11 +112,17 @@
 }
 
 /* Default logo size */
+/* Keep logo + text inline */
 .logo-img {
-  max-height: 70px;
-  height: auto;
+  max-height: 50px;
   width: auto;
 }
+
+.club-title {
+  font-size: 1.25rem;
+  white-space: nowrap; /* prevents breaking into 2 lines */
+}
+
 
 /* 📱 On smaller devices */
 @media (max-width: 768px) {
