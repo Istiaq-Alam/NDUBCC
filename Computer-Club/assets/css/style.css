@@ -146,7 +146,7 @@
 @media (max-width: 480px) {
   .navbar-nav .nav-link {
     font-size: 0.9rem;
-    padding: 8px;
+    padding: 5px;
   }
 }
 
