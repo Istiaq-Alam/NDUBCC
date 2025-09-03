@@ -158,17 +158,19 @@
 
 /* Custom Join Button */
 .join-btn {
-  display: inline-flex;          /* keep text + arrow in one line */
-  align-items: center;           /* vertically center text & icon */
-  white-space: nowrap;           /* prevent text from wrapping */
-  padding: 12px 24px;            /* balanced padding */
-  font-size: 1rem;               /* adjust size if too big */
-  line-height: 1.2;              /* tighten spacing */
+  display: flex;                  /* use flexbox */
+  justify-content: center;        /* center horizontally */
+  align-items: center;            /* center vertically */
+  white-space: nowrap;            /* prevent breaking */
+  padding: 12px 30px;             /* balanced padding */
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;             /* extra safeguard */
 }
 
-/* Make sure icon stays inside */
+/* Icon alignment */
 .join-btn i {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 
