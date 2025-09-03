@@ -170,7 +170,7 @@
 
 /* Icon alignment */
 .join-btn i {
-  margin-top: 19px;            /* ✅ this centers it horizontally */
+  margin-top: 18px;            /* ✅ this centers it horizontally */
   font-size: 1rem;
 }
 
