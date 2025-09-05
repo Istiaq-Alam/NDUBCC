@@ -3,13 +3,13 @@ const ads = [
     {
         title: "🎉 Congratulations to Our New Leaders!",
         text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
-        img: "mod.png",
+        img: "news/mod.png",
         link: "about.html"  // link to event page
     },
     {
         title: "🎉 Congratulations to Our New Leaders!",
-        text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
-        img: "co-mod.png",
+        text: "We are delighted to announce the newly selected Co-Moderator of NDUB Computer Club. Let's welcome them with pride!",
+        img: "news/co-mod.png",
         link: "about.html"  // link to event page
     }, 
     {
