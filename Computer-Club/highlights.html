@@ -130,7 +130,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="card shadow-sm border-0">
             <img src="assets/img/executive/Executive-Committe.jpg"
-              class="card-img-top" alt="Executive Committee" data-bs-toggle="modal"
+              class="card-img-top" alt="Executive Committee"
+              data-bs-toggle="modal"
               data-bs-target="#imageModal"
               onclick="showImage(this)">
             <div class="card-body">
@@ -279,17 +280,9 @@
     </div>
     <!-- NEWS BODY END-->
 
-    <!-- Pagination -->
-    <div class="container my-4">
-      <nav aria-label="News pagination">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled"><a class="page-link">Previous</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-      </nav>
+    <!-- Load More Button -->
+    <div class="text-center my-4">
+      <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
     </div>
 
     <!-- Image Modal -->
@@ -327,47 +320,36 @@
     document.getElementById("modalImage").src = img.src;
   }
 
-  // Pagination logic (dynamic)
-  const itemsPerPage = 5;
+  </script>
+  <script>
+  const itemsPerPage = 5; // show 5 news at a time
   const newsItems = document.querySelectorAll(".card");
-  const totalPages = Math.ceil(newsItems.length / itemsPerPage);
-  const paginationContainer = document.querySelector(".pagination");
+  let visibleCount = itemsPerPage;
 
-  function showPage(page) {
-    let start = (page - 1) * itemsPerPage;
-    let end = start + itemsPerPage;
-
+  function showNews() {
     newsItems.forEach((item, index) => {
-      item.parentElement.style.display =
-        (index >= start && index < end) ? "block" : "none";
+      item.parentElement.style.display = (index < visibleCount) ? "block" : "none";
     });
 
-    // Update pagination
-    paginationContainer.innerHTML = "";
-
-    // Previous button
-    paginationContainer.innerHTML += `
-      <li class="page-item ${page === 1 ? "disabled" : ""}">
-        <a class="page-link" href="#" onclick="showPage(${page - 1})">Previous</a>
-      </li>`;
-
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-      paginationContainer.innerHTML += `
-        <li class="page-item ${i === page ? "active" : ""}">
-          <a class="page-link" href="#" onclick="showPage(${i})">${i}</a>
-        </li>`;
+    // hide Load More if all items are visible
+    if (visibleCount >= newsItems.length) {
+      document.getElementById("loadMoreBtn").style.display = "none";
     }
-
-    // Next button
-    paginationContainer.innerHTML += `
-      <li class="page-item ${page === totalPages ? "disabled" : ""}">
-        <a class="page-link" href="#" onclick="showPage(${page + 1})">Next</a>
-      </li>`;
   }
 
-  // Init first page
-  showPage(1);
+  // On click "Load More"
+  document.getElementById("loadMoreBtn").addEventListener("click", () => {
+    visibleCount += itemsPerPage; // show next set
+    showNews();
+  });
+
+  // Initialize
+  showNews();
+
+  // Image modal preview
+  function showImage(img) {
+    document.getElementById("modalImage").src = img.src;
+  }
 </script>
 
 

@@ -20,16 +20,15 @@
   transform: scale(1.05);
 }
 
-/* Pagination */
-.pagination .page-link {
-  color: #3498db;
-  border: none;
+#loadMoreBtn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
 }
 
-.pagination .page-item.active .page-link {
-  background: #3498db;
-  color: #fff;
-  border-radius: 5px;
+#loadMoreBtn:hover {
+  background: #217dbb;
 }
 
 
