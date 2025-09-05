@@ -12,7 +12,7 @@ const ads = [
         img: "news/co-mod.png",
         link: "about.html"  // link to event page
     }, 
-    {
+    /*{
         title: "🚀 12th Executive Committee",
         text: "Notre Dame University Computer Club has announced our 12th Executive Committee members",
         img: "assets/img/executive/Executive-Committe.jpg",
@@ -23,7 +23,7 @@ const ads = [
         text: "Become a part of NDUB Computer Club and explore new opportunities!",
         img: "assets/img/cat-1.jpeg",
         link: "about.html"
-    }
+    }*/
 ];
 
 // Pick random ad
