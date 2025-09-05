@@ -47,6 +47,16 @@
   padding: 6px 14px;
   border-radius: 5px;
 }
+/* Make pagination nice */
+.pagination .page-link {
+  color: #3498db;
+  border: none;
+}
+.pagination .page-item.active .page-link {
+  background: #3498db;
+  color: #fff;
+  border-radius: 5px;
+}
 
 
 
