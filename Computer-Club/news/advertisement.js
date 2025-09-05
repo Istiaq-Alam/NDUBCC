@@ -1,17 +1,17 @@
 // List of ads/news with links
 const ads = [
-   /* {
-        title: "🚀 NDUB CSE Fest 2024",
-        text: "Join our biggest annual event full of seminars, coding challenges, and workshops!",
-        img: "assets/img/Fest.webp",
-        link: "events.html"  // link to event page
+    {
+        title: "🎉 Congratulations to Our New Leaders!",
+        text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
+        img: "mod.png",
+        link: "about.html"  // link to event page
     },
     {
-        title: "💻 Coding Bootcamp",
-        text: "Register now for our intensive bootcamp and level up your web development skills.",
-        img: "assets/img/carousel-1.jpg",
-        link: "programs/seminar/bootcamp.html"
-    }, */
+        title: "🎉 Congratulations to Our New Leaders!",
+        text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
+        img: "co-mod.png",
+        link: "about.html"  // link to event page
+    }, 
     {
         title: "🚀 12th Executive Committee",
         text: "Notre Dame University Computer Club has announced our 12th Executive Committee members",
