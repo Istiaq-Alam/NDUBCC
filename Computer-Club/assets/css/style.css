@@ -1,6 +1,6 @@
-/* News Cards */
+/* News cards */
 .card {
-  break-inside: avoid; /* prevents breaking in masonry layout */
+  break-inside: avoid;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -12,51 +12,26 @@
 }
 
 .card img {
-  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* Title */
-.card-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #222;
+.card img:hover {
+  transform: scale(1.05);
 }
 
-/* Timestamp */
-.card-body .text-muted {
-  font-size: 0.85rem;
-  color: #6c757d !important;
-  display: flex;
-  align-items: center;
-}
-
-.card-body .text-muted i {
-  color: #3498db; /* clock icon color */
-}
-
-/* Description */
-.card-text {
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Buttons */
-.card .btn {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  padding: 6px 14px;
-  border-radius: 5px;
-}
-/* Make pagination nice */
+/* Pagination */
 .pagination .page-link {
   color: #3498db;
   border: none;
 }
+
 .pagination .page-item.active .page-link {
   background: #3498db;
   color: #fff;
   border-radius: 5px;
 }
+
 
 
 

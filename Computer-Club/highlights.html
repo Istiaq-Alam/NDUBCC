@@ -327,10 +327,11 @@
     document.getElementById("modalImage").src = img.src;
   }
 
-  // Pagination logic (basic example: 5 news per page)
+  // Pagination logic (dynamic)
   const itemsPerPage = 5;
   const newsItems = document.querySelectorAll(".card");
-  const pagination = document.querySelectorAll(".pagination .page-item");
+  const totalPages = Math.ceil(newsItems.length / itemsPerPage);
+  const paginationContainer = document.querySelector(".pagination");
 
   function showPage(page) {
     let start = (page - 1) * itemsPerPage;
@@ -341,13 +342,34 @@
         (index >= start && index < end) ? "block" : "none";
     });
 
-    pagination.forEach(p => p.classList.remove("active"));
-    pagination[page].classList.add("active");
+    // Update pagination
+    paginationContainer.innerHTML = "";
+
+    // Previous button
+    paginationContainer.innerHTML += `
+      <li class="page-item ${page === 1 ? "disabled" : ""}">
+        <a class="page-link" href="#" onclick="showPage(${page - 1})">Previous</a>
+      </li>`;
+
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+      paginationContainer.innerHTML += `
+        <li class="page-item ${i === page ? "active" : ""}">
+          <a class="page-link" href="#" onclick="showPage(${i})">${i}</a>
+        </li>`;
+    }
+
+    // Next button
+    paginationContainer.innerHTML += `
+      <li class="page-item ${page === totalPages ? "disabled" : ""}">
+        <a class="page-link" href="#" onclick="showPage(${page + 1})">Next</a>
+      </li>`;
   }
 
   // Init first page
   showPage(1);
 </script>
+
 
   </body>
 
