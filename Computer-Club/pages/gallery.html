@@ -1,105 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Club Gallery - NDUB Computer Club</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content name="keywords">
-        <meta content name="description">
+<head>
+    <meta charset="utf-8">
+    <title>Club Gallery - NDUB Computer Club</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content name="keywords">
+    <meta content name="description">
 
-        <!-- Favicon -->
-        <link href="../assets/img/NDUBCC-Logo.png" rel="icon">
+    <!-- Favicon -->
+    <link href="../assets/img/NDUBCC-Logo.png" rel="icon">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
-            rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
-        <!-- Icon Font Stylesheet -->
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-            rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-            rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
-        <link href="../assets/lib/animate/animate.min.css" rel="stylesheet">
-        <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css"
-            rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="../assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="../assets/css/style.css" rel="stylesheet">
-    </head>
+    <!-- Template Stylesheet -->
+    <link href="../assets/css/style.css" rel="stylesheet">
 
-    <body>
-        <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary"
-                style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+    <style>
+        /* Album cards */
+        .gallery-album {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-album:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Album galleries */
+        .album-gallery {
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .album-gallery img {
+            width: 250px;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .album-gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
-        <!-- Spinner End -->
+    </div>
+    <!-- Spinner End -->
 
-        <!-- Navbar Start -->
-        <nav class="navbar-expand-lg bg-white navbar-light sticky-top p-0">
-            <div id="header"></div>
-        </nav>
+    <!-- Navbar Start -->
+    <nav class="navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <div id="header"></div>
+    </nav>
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-primary py-5 mb-5 page-header">
-            <div class="container py-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 text-center">
-                        <h1
-                            class="display-3 text-white animated slideInDown">Previous Committee</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a
-                                        class="text-white"
-                                        href="../index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a
-                                        class="text-white"
-                                        href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active"
-                                    aria-current="page">Previous Committee</li>
-                            </ol>
-                        </nav>
-                    </div>
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Previous Committee</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Previous Committee</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
-        <!-- Header End -->
+    </div>
+    <!-- Header End -->
 
-    <!--Previous Committee Start-->
-    
-    <!--Previous Committee End-->
 
-        <div id="footer"></div>
+    <!-- Gallery Album List -->
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title">📸 Club Gallery</h2>
+            <p class="text-muted">Browse our events and memories</p>
+        </div>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-                class="bi bi-arrow-up"></i></a>
+        <div class="row g-4">
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/lib/wow/wow.min.js"></script>
-        <script src="../assets/lib/easing/easing.min.js"></script>
-        <script src="../assets/lib/waypoints/waypoints.min.js"></script>
-        <script src="../assets/lib/owlcarousel/owl.carousel.min.js"></script>
+            <!-- Album 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm h-100 gallery-album" onclick="openAlbum('album1')">
+                    <img src="../assets/img/Fest.webp" class="card-img-top" alt="CSE Fest 2024">
+                    <div class="card-body">
+                        <h5 class="card-title">🚀 CSE Fest 2024</h5>
+                        <p class="card-text">Highlights from NDUB Computer Club’s biggest annual event.</p>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Template Javascript -->
-        <script src="../assets/js/main.js"></script>
-    </body>
+            <!-- Album 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm h-100 gallery-album" onclick="openAlbum('album2')">
+                    <img src="../assets/img/carousel-1.jpg" class="card-img-top" alt="Coding Bootcamp">
+                    <div class="card-body">
+                        <h5 class="card-title">💻 Coding Bootcamp</h5>
+                        <p class="card-text">Snapshots from our intensive coding workshop.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Album 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm h-100 gallery-album" onclick="openAlbum('album3')">
+                    <img src="../assets/img/cat-1.jpeg" class="card-img-top" alt="Seminar">
+                    <div class="card-body">
+                        <h5 class="card-title">🎤 Seminar on Web Development</h5>
+                        <p class="card-text">Inspiring talks and sessions with industry experts.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hidden Album Galleries -->
+    <div id="album1" class="album-gallery d-none">
+        <img src="../assets/img/Fest.webp" alt="Fest 1" onclick="openGalleryModal(this)">
+        <img src="../assets/img/bg-2.jpg" alt="Fest 2" onclick="openGalleryModal(this)">
+        <img src="../assets/img/bg-3(croped).jpg" alt="Fest 3" onclick="openGalleryModal(this)">
+    </div>
+
+    <div id="album2" class="album-gallery d-none">
+        <img src="../assets/img/carousel-1.jpg" alt="Bootcamp 1" onclick="openGalleryModal(this)">
+        <img src="../assets/img/carousel-2.jpg" alt="Bootcamp 2" onclick="openGalleryModal(this)">
+    </div>
+
+    <div id="album3" class="album-gallery d-none">
+        <img src="../assets/img/cat-1.jpeg" alt="Seminar 1" onclick="openGalleryModal(this)">
+        <img src="../assets/img/bg-4.jpg" alt="Seminar 2" onclick="openGalleryModal(this)">
+    </div>
+
+    <!-- Fullscreen Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <img id="galleryModalImage" src="" class="img-fluid rounded shadow-lg" alt="Gallery Full View">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="footer"></div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/lib/wow/wow.min.js"></script>
+    <script src="../assets/lib/easing/easing.min.js"></script>
+    <script src="../assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="../assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        function openAlbum(albumId) {
+            // Hide all albums first
+            document.querySelectorAll(".album-gallery").forEach(album => {
+                album.classList.add("d-none");
+            });
+
+            // Show selected album
+            document.getElementById(albumId).classList.remove("d-none");
+
+            // Smooth scroll to gallery
+            document.getElementById(albumId).scrollIntoView({ behavior: "smooth" });
+        }
+
+        function openGalleryModal(img) {
+            document.getElementById("galleryModalImage").src = img.src;
+            new bootstrap.Modal(document.getElementById('galleryModal')).show();
+        }
+    </script>
+
+</body>
 
 </html>
