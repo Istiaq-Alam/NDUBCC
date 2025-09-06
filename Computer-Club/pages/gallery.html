@@ -51,14 +51,14 @@
 
         /* Album galleries */
         .album-gallery {
-            margin: 30px auto;
+            margin: 0px auto;
             text-align: center;
         }
 
         .album-gallery img {
-            width: 250px;
+            width: auto;
             height: auto;
-            margin: 10px;
+            margin: 0px;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -80,31 +80,25 @@
         }
 
         .gallery-album img {
-            height: 100%;
+            height: auto;
             object-fit: cover;
         }
 
+        /* Album gallery thumbnails */
         .gallery-img {
-            width: 280px;
-            /* fixed box */
-            height: 180px;
-            /* fixed box */
-            object-fit: contain;
-            /* keep original aspect ratio */
-            background: #f8f9fa;
-            /* light background to fill gaps */
-            margin: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            padding: 5px;
-            /* optional: spacing inside frame */
+          width: auto;           /* keep natural aspect */
+          height: auto;          /* keep natural aspect */
+          margin: 0px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+          background: transparent;   /* keep background neutral */
+          padding: 0px;          /* spacing */
         }
 
         .gallery-img:hover {
-            transform: scale(1.05);
+          transform: scale(1.05);
         }
-
 
         .album-gallery h3 {
             font-weight: 600;
@@ -113,12 +107,13 @@
         }
 
         .album-gallery img {
-            width: 250px;
+            width: auto;          /* keep natural width */
+            height: 200px;         /* keep natural height */
             margin: 10px;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s ease;
-        }
+}
 
         .album-gallery img:hover {
             transform: scale(1.05);
@@ -300,24 +295,61 @@
             <h3 class="text-center mb-4">Cyber Security Tools,
                 Techniques & Threats</h3>
             <div class="d-flex flex-wrap justify-content-center">
-                <img src="../programs/seminar/cst/cst.png" alt="cst 1" class="gallery-img" onclick="openGallery(1, 'album2')">
-                <img src="../programs/seminar/cst/cst1.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(2, 'album2')">
-                <img src="../programs/seminar/cst/cst2.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(3, 'album2')">
-                <img src="../programs/seminar/cst/cst4.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(4, 'album2')">
-                <img src="../programs/seminar/cst/cst5.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(5, 'album2')">
-                <img src="../programs/seminar/cst/cst6.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(6, 'album2')">
-                <img src="../programs/seminar/cst/cst7.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(7, 'album2')">
-                <img src="../programs/seminar/cst/cst8.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(8, 'album2')">
-                <img src="../programs/seminar/cst/cst9.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(9, 'album2')">
-                <img src="../programs/seminar/cst/cst10.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(10, 'album2')">
-                <img src="../programs/seminar/cst/cst11.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(11, 'album2')">
-                <img src="../programs/seminar/cst/cst12.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(12, 'album2')">
-                <img src="../programs/seminar/cst/cst13.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(13, 'album2')">
-                <img src="../programs/seminar/cst/cst14.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(14, 'album2')">
-                <img src="../programs/seminar/cst/cst14.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(15, 'album2')">
-                <img src="../programs/seminar/cst/cst14.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(16, 'album2')">
-                <img src="../programs/seminar/cst/cst14.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(17, 'album2')">
-                
+                <img src="../programs/seminar/cst/cst.png" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(1, 'album2')">
+                <img src="../programs/seminar/cst/cst1.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(2, 'album2')">
+                <img src="../programs/seminar/cst/cst2.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(3, 'album2')">
+                <img src="../programs/seminar/cst/cst4.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(4, 'album2')">
+                <img src="../programs/seminar/cst/cst5.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(5, 'album2')">
+                <img src="../programs/seminar/cst/cst6.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(6, 'album2')">
+                <img src="../programs/seminar/cst/cst7.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(7, 'album2')">
+                <img src="../programs/seminar/cst/cst8.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(8, 'album2')">
+                <img src="../programs/seminar/cst/cst9.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(9, 'album2')">
+                <img src="../programs/seminar/cst/cst10.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(10, 'album2')">
+                <img src="../programs/seminar/cst/cst11.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(11, 'album2')">
+                <img src="../programs/seminar/cst/cst12.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(12, 'album2')">
+                <img src="../programs/seminar/cst/cst13.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(13, 'album2')">
+                <img src="../programs/seminar/cst/cst14.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(14, 'album2')">
+                <img src="../programs/seminar/cst/cst15.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(15, 'album2')">
+                <img src="../programs/seminar/cst/cst16.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(16, 'album2')">
+                <img src="../programs/seminar/cst/cst17.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(17, 'album2')">
+                <img src="../programs/seminar/cst/cst18.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(18, 'album2')">
+                <img src="../programs/seminar/cst/cst19.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(19, 'album2')">
+                <img src="../programs/seminar/cst/cst20.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(20, 'album2')">
+                <img src="../programs/seminar/cst/cst21.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(21, 'album2')">
+                <img src="../programs/seminar/cst/cst22.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(22, 'album2')">
+                <img src="../programs/seminar/cst/cst23.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(23, 'album2')">
+                <img src="../programs/seminar/cst/cst24.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(24, 'album2')">
+                <img src="../programs/seminar/cst/cst25.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(25, 'album2')">
+                <img src="../programs/seminar/cst/cst26.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(26, 'album2')">
+                <img src="../programs/seminar/cst/cst27.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(27, 'album2')">
+                <img src="../programs/seminar/cst/cst28.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(28, 'album2')">
+                <img src="../programs/seminar/cst/cst29.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(29, 'album2')">
+                <img src="../programs/seminar/cst/cst30.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(30, 'album2')">
+                <img src="../programs/seminar/cst/cst31.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(31, 'album2')">
+                <img src="../programs/seminar/cst/cst32.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(32, 'album2')">
+                <img src="../programs/seminar/cst/cst33.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(33, 'album2')">
+                <img src="../programs/seminar/cst/cst34.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(34, 'album2')">
+                <img src="../programs/seminar/cst/cst35.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(35, 'album2')">
+                <img src="../programs/seminar/cst/cst36.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(36, 'album2')">
+                <img src="../programs/seminar/cst/cst37.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(37, 'album2')">
+                <img src="../programs/seminar/cst/cst38.jpg" alt="cst 1" class="gallery-img" onclick="openGallery(38, 'album2')">
+
             </div>
         </div>
 
