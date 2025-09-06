@@ -81,24 +81,29 @@
 
         .gallery-img {
             width: 280px;
-            /* fixed width */
+            /* fixed box */
             height: 180px;
-            /* fixed height */
-            object-fit: cover;
-            /* crop without shrinking */
+            /* fixed box */
+            object-fit: contain;
+            /* keep original aspect ratio */
+            background: #f8f9fa;
+            /* light background to fill gaps */
             margin: 10px;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            padding: 5px;
+            /* optional: spacing inside frame */
         }
 
         .gallery-img:hover {
             transform: scale(1.05);
         }
 
+
         .album-gallery h3 {
             font-weight: 600;
-            color: #2c3e50;
+            color: #6ea1d4;
             margin-bottom: 20px;
         }
 
@@ -212,7 +217,6 @@
     <!-- Hidden Album Galleries -->
 
     <!-- Album 1 -->
-    <!-- Album 1 -->
     <div id="album1" class="album-gallery d-none">
         <h3 class="text-center mb-4">🚀 CSE Fest 2024</h3>
         <div class="d-flex flex-wrap justify-content-center">
@@ -228,8 +232,10 @@
     <div id="album2" class="album-gallery d-none">
         <h3 class="text-center mb-4">💻 Coding Bootcamp</h3>
         <div class="d-flex flex-wrap justify-content-center">
-            <img src="../assets/img/carousel-1.jpg" alt="Bootcamp 1" onclick="openGalleryModal(this)">
-            <img src="../assets/img/carousel-2.jpg" alt="Bootcamp 2" onclick="openGalleryModal(this)">
+            <img src="../assets/img/carousel-2.jpg" alt="Fest 1" class="gallery-img" onclick="openGallery(1, 'album1')">
+            <img src="../assets/img/carousel-1.jpg" alt="Fest 2" class="gallery-img" onclick="openGallery(2, 'album1')">
+            <img src="../assets/img/cat-1.jpeg" alt="Fest 3" class="gallery-img"
+                onclick="openGallery(3, 'album1')">
         </div>
     </div>
 
