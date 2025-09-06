@@ -5,57 +5,26 @@
         <meta charset="utf-8">
         <title>Club Gallery - NDUB Computer Club</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content name="keywords">
-        <meta content name="description">
 
         <!-- Favicon -->
         <link href="../assets/img/NDUBCC-Logo.png" rel="icon">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
-            rel="stylesheet">
-
-        <!-- Icon Font Stylesheet -->
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-            rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-            rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="../assets/lib/animate/animate.min.css" rel="stylesheet">
-        <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css"
-            rel="stylesheet">
-
-        <!-- Customized Bootstrap Stylesheet -->
+        <!-- Bootstrap -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
         <link href="../assets/css/style.css" rel="stylesheet">
 
         <style>
-        /* Album cards */
-        .gallery-album {
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .gallery-album {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .gallery-album:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
+    .gallery-album:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
 
-        /* Album galleries */
-        .album-gallery {
-            margin: 0px auto;
-            text-align: center;
-        }
-
-        .album-gallery img {
+    .album-gallery img {
       max-width: 100%;
       height: auto;
       margin: 10px;
@@ -68,117 +37,28 @@
       transform: scale(1.05);
     }
 
-        /* Vertical album list hover effect */
-        .gallery-album {
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .gallery-album:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-album img {
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* Album gallery thumbnails */
-        .gallery-img {
-          width: auto;           /* keep natural aspect */
-          height: auto;          /* keep natural aspect */
-          margin: 0px;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: transform 0.3s ease;
-          background: transparent;   /* keep background neutral */
-          padding: 0px;          /* spacing */
-        }
-
-        .gallery-img:hover {
-          transform: scale(1.05);
-        }
-
-        .album-gallery h3 {
-            font-weight: 600;
-            color: #077ff7;
-            margin-bottom: 20px;
-        }
-
-        .album-gallery img {
-            width: auto;          /* keep natural width */
-            height: 200px;         /* keep natural height */
-            margin: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-}
-
-        .album-gallery img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Center modal image */
-        .carousel-item img {
-            max-height: 90vh;
-            width: auto;
-            margin: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* Close button visibility */
-        .btn-close-white {
-            filter: invert(1) grayscale(100%) brightness(200%);
-        }
-    </style>
-
+    .carousel-item img {
+      max-height: 90vh;
+      width: auto;
+      margin: auto;
+      display: block;
+      object-fit: contain;
+    }
+  </style>
     </head>
 
     <body>
-        <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary"
-                style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+        <!-- Navbar -->
+        <div id="header"></div>
 
-        <!-- Navbar Start -->
-        <nav class="navbar-expand-lg bg-white navbar-light sticky-top p-0">
-            <div id="header"></div>
-        </nav>
-
-        <!-- Header Start -->
+        <!-- Page Header -->
         <div class="container-fluid bg-primary py-5 mb-5 page-header">
-            <div class="container py-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 text-center">
-                        <h1
-                            class="display-3 text-white animated slideInDown">Club
-                            Gallery</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a
-                                        class="text-white"
-                                        href="../index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a
-                                        class="text-white"
-                                        href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active"
-                                    aria-current="page">Club Gallery</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
+            <div class="container py-5 text-center text-white">
+                <h1 class="display-3">Club Gallery</h1>
             </div>
         </div>
-        <!-- Header End -->
 
-<!-- Album List -->
+        <!-- Album List -->
         <div class="container my-5">
             <div class="text-center">
                 <h6
@@ -285,11 +165,6 @@
                 class="row g-3 justify-content-center"></div>
         </div>
 
-        <div class="text-center mb-3">
-            <button class="btn btn-outline-primary btn-sm"
-                onclick="backToAlbums()">← Back to Albums</button>
-        </div>
-
         <!-- Fullscreen Modal with Carousel -->
         <div class="modal fade" id="galleryModal" tabindex="-1"
             aria-hidden="true">
@@ -322,21 +197,9 @@
 
         <div id="footer"></div>
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-                class="bi bi-arrow-up"></i></a>
-
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- Scripts -->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/lib/wow/wow.min.js"></script>
-        <script src="../assets/lib/easing/easing.min.js"></script>
-        <script src="../assets/lib/waypoints/waypoints.min.js"></script>
-        <script src="../assets/lib/owlcarousel/owl.carousel.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="../assets/js/main.js"></script>
         <script>
     // Image lists for each album
     const albums = {
@@ -398,18 +261,6 @@
       let bsCarousel = new bootstrap.Carousel(document.getElementById("galleryCarousel"));
       bsCarousel.to(startIndex - 1);
     }
-  
-        
-        function backToAlbums() {
-            document.querySelectorAll(".album-gallery").forEach(album => {
-                album.classList.add("d-none");
-            });
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        
-    </script>
-
+  </script>
     </body>
-
 </html>

@@ -56,17 +56,17 @@
         }
 
         .album-gallery img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+            width: auto;
+            height: auto;
+            margin: 0px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-    .album-gallery img:hover {
-      transform: scale(1.05);
-    }
+        .album-gallery img:hover {
+            transform: scale(1.05);
+        }
 
         /* Vertical album list hover effect */
         .gallery-album {
@@ -123,7 +123,7 @@
         .carousel-item img {
             max-height: 90vh;
             width: auto;
-            margin: auto;
+            margin: 0 auto;
             display: block;
             object-fit: contain;
         }
@@ -178,11 +178,11 @@
         </div>
         <!-- Header End -->
 
-<!-- Album List -->
+        <!-- Gallery Album List -->
         <div class="container my-5">
-            <div class="text-center">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6
-                    class="section-title bg-white text-primary px-3">Records</h6>
+                    class="section-title bg-white text-center text-primary px-3">Records</h6>
                 <h1 class="mb-5">CLUB ALBUMS</h1>
             </div>
 
@@ -191,12 +191,14 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="../programs/seminar/cwf/cwfgallery.jpg"
-                            class="img-fluid rounded-start" alt="Album Cover"
-                            loading="lazy">
+                            class="img-fluid rounded-start"
+                            alt="CodeYourFuture">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Code Your Future</h5>
+                            <h5 class="card-title">Code Your Future:</h5>
+                            <h5 class="card-title">Careers in Web
+                                Development</h5>
                             <p class="card-text">NDUB campus on Tuesday, 27th
                                 May 2025 was filled with life as students
                                 attended Room No. 512 to attend an interactive
@@ -205,9 +207,11 @@
                                 Hosted by the NDUB Computer Club, the seminar
                                 aimed at offering students from all areas of
                                 study an opportunity to learn more about the
-                                numerous web development careers.</p>
-                            <p class="card-text"><small class="text-muted">May
-                                    2025</small></p>
+                                numerous web development careers.
+
+                            </p>
+                            <p class="card-text"><small class="text-muted">Date:
+                                    May 2025</small></p>
                         </div>
                     </div>
                 </div>
@@ -217,9 +221,9 @@
             <div class="card mb-3 gallery-album" onclick="openAlbum('album2')">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="../programs/seminar/cst/cst20.jpg"
-                            class="img-fluid rounded-start" alt="Album Cover"
-                            loading="lazy">
+                        <img src="../programs/seminar/cst/cst3.jpg"
+                            class="img-fluid rounded-start"
+                            alt="Coding Bootcamp">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -237,7 +241,8 @@
                                 incredibly helpful and gained crucial knowledge
                                 on the ever-evolving field of Cyber
                                 Security.</p>
-                            <p class="card-text"><small class="text-muted">Date: Nov 2024</small></p>
+                            <p class="card-text"><small class="text-muted">Date:
+                                    Nov 2024</small></p>
                         </div>
                     </div>
                 </div>
@@ -248,8 +253,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="../assets/img/cat-1.jpeg"
-                            class="img-fluid rounded-start" alt="Album Cover"
-                            loading="lazy">
+                            class="img-fluid rounded-start" alt="Seminar">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -257,53 +261,138 @@
                                 Development</h5>
                             <p class="card-text">Inspiring talks and sessions
                                 with industry experts.</p>
-                            <p class="card-text"><small class="text-muted">Jan
-                                    2025</small></p>
+                            <p class="card-text"><small class="text-muted">Date:
+                                    Dec 2023</small></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Hidden Album Containers -->
+        <!-- Hidden Album Galleries -->
+
+        <!-- Album 1 -->
         <div id="album1" class="album-gallery d-none">
             <h3 class="text-center mb-4">Careers-in-Web-Development</h3>
-            <div id="album1-images"
-                class="row g-3 justify-content-center"></div>
+            <div class="d-flex flex-wrap justify-content-center">
+                <img src="../programs/seminar/cwf/img1.png" alt="cwf 1"
+                    class="gallery-img" onclick="openGallery(1, 'album1')">
+                <img src="../programs/seminar/cwf/img2.png" alt="cwf 2"
+                    class="gallery-img" onclick="openGallery(2, 'album1')">
+                <img src="../programs/seminar/cwf/img3.png" alt="cwf 3"
+                    class="gallery-img" onclick="openGallery(3, 'album1')">
+                <img src="../programs/seminar/cwf/img4.png" alt="cwf 4"
+                    class="gallery-img" onclick="openGallery(4, 'album1')">
+                <img src="../programs/seminar/cwf/img5.png" alt="cwf 5"
+                    class="gallery-img" onclick="openGallery(5, 'album1')">
+                <img src="../programs/seminar/cwf/cwfgallery.jpg" alt="cwf 6"
+                    class="gallery-img" onclick="openGallery(6, 'album1')">
+            </div>
         </div>
 
+        <!-- Album 2 -->
         <div id="album2" class="album-gallery d-none">
             <h3 class="text-center mb-4">Cyber Security Tools,
                 Techniques & Threats</h3>
-            <div id="album2-images"
-                class="row g-3 justify-content-center"></div>
+            <div class="d-flex flex-wrap justify-content-center">
+
+                <img src="../programs/seminar/cst/cst1.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(1, 'album2')">
+                <img src="../programs/seminar/cst/cst2.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(2, 'album2')">
+                <img src="../programs/seminar/cst/cst4.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(3, 'album2')">
+                <img src="../programs/seminar/cst/cst5.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(4, 'album2')">
+                <img src="../programs/seminar/cst/cst6.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(5, 'album2')">
+                <img src="../programs/seminar/cst/cst7.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(6, 'album2')">
+                <img src="../programs/seminar/cst/cst8.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(7, 'album2')">
+                <img src="../programs/seminar/cst/cst9.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(8, 'album2')">
+                <img src="../programs/seminar/cst/cst10.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(9, 'album2')">
+                <img src="../programs/seminar/cst/cst11.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(10, 'album2')">
+                <img src="../programs/seminar/cst/cst12.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(11, 'album2')">
+                <img src="../programs/seminar/cst/cst13.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(12, 'album2')">
+                <img src="../programs/seminar/cst/cst14.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(13, 'album2')">
+                <img src="../programs/seminar/cst/cst15.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(14, 'album2')">
+                <img src="../programs/seminar/cst/cst16.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(15, 'album2')">
+                <img src="../programs/seminar/cst/cst17.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(16, 'album2')">
+                <img src="../programs/seminar/cst/cst18.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(17, 'album2')">
+                <img src="../programs/seminar/cst/cst19.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(18, 'album2')">
+                <img src="../programs/seminar/cst/cst20.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(19, 'album2')">
+                <img src="../programs/seminar/cst/cst21.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(20, 'album2')">
+                <img src="../programs/seminar/cst/cst22.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(21, 'album2')">
+                <img src="../programs/seminar/cst/cst23.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(22, 'album2')">
+                <img src="../programs/seminar/cst/cst24.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(23, 'album2')">
+                <img src="../programs/seminar/cst/cst25.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(24, 'album2')">
+                <img src="../programs/seminar/cst/cst26.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(25, 'album2')">
+                <img src="../programs/seminar/cst/cst27.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(26, 'album2')">
+                <img src="../programs/seminar/cst/cst28.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(27, 'album2')">
+                <img src="../programs/seminar/cst/cst29.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(29, 'album2')">
+                <img src="../programs/seminar/cst/cst37.jpg" alt="cst 1"
+                    class="gallery-img" onclick="openGallery(30, 'album2')">
+
+            </div>
         </div>
 
+        <!-- Album 3 -->
         <div id="album3" class="album-gallery d-none">
             <h3 class="text-center mb-4">🎤 Seminar on Web Development</h3>
-            <div id="album3-images"
-                class="row g-3 justify-content-center"></div>
-        </div>
+            <div class="d-flex flex-wrap justify-content-center">
+                <img src="../assets/img/cat-1.jpeg" alt="Seminar 1"
+                    onclick="openGalleryModal(this)">
+                <img src="../assets/img/bg-4.jpg" alt="Seminar 2"
+                    onclick="openGalleryModal(this)">
+            </div>
 
+        </div>
         <div class="text-center mb-3">
             <button class="btn btn-outline-primary btn-sm"
                 onclick="backToAlbums()">← Back to Albums</button>
         </div>
 
-        <!-- Fullscreen Modal with Carousel -->
+        <!-- Fullscreen Gallery Modal with Slider -->
         <div class="modal fade" id="galleryModal" tabindex="-1"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen">
                 <div class="modal-content bg-dark position-relative">
-                    <button type="button"
-                        class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
-                        data-bs-dismiss="modal"></button>
+
+                    <!-- Close Button 
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                    aria-label="Close" onclick="closeGallery()"></button> -->
+
                     <div
                         class="modal-body p-0 d-flex align-items-center justify-content-center">
                         <div id="galleryCarousel" class="carousel slide w-100"
                             data-bs-ride="false">
-                            <div class="carousel-inner"
-                                id="carouselItems"></div>
+                            <div class="carousel-inner" id="carouselItems">
+                                <!-- Slides will be inserted dynamically -->
+                            </div>
+
+                            <!-- Controls -->
                             <button class="carousel-control-prev" type="button"
                                 data-bs-target="#galleryCarousel"
                                 data-bs-slide="prev">
@@ -338,68 +427,45 @@
         <!-- Template Javascript -->
         <script src="../assets/js/main.js"></script>
         <script>
-    // Image lists for each album
-    const albums = {
-      album1: [
-        "../programs/seminar/cwf/img1.png",
-        "../programs/seminar/cwf/img2.png",
-        "../programs/seminar/cwf/img3.png",
-        "../programs/seminar/cwf/img4.png",
-        "../programs/seminar/cwf/img5.png"
-      ],
-      album2: [
-        "../assets/img/Fest.webp",
-        "../assets/img/bg-2.jpg",
-        "../assets/img/bg-3(croped).jpg",
-        "../assets/img/bg-4.jpg"
-      ],
-      album3: [
-        "../assets/img/carousel-1.jpg",
-        "../assets/img/carousel-2.jpg",
-        "../assets/img/course-1.jpg",
-        "../assets/img/course-2.jpg"
-      ]
-    };
+        function openGallery(startIndex, albumId) {
+            const album = document.querySelectorAll(`#${albumId} .gallery-img`);
+            const carousel = document.getElementById("carouselItems");
+            carousel.innerHTML = "";
 
-    function openAlbum(albumId) {
-      // Hide all albums
-      document.querySelectorAll(".album-gallery").forEach(a => a.classList.add("d-none"));
-      const album = document.getElementById(albumId);
-      album.classList.remove("d-none");
+            album.forEach((img, index) => {
+                let active = index + 1 === startIndex ? "active" : "";
+                carousel.innerHTML += `
+        <div class="carousel-item ${active}">
+          <img src="${img.src}" class="d-block w-100" style="max-height:100vh; object-fit:contain;" alt="Slide ${index + 1}">
+        </div>
+      `;
+            });
 
-      // Load images only once
-      const imgContainer = document.getElementById(albumId + "-images");
-      if (!imgContainer.hasChildNodes()) {
-        albums[albumId].forEach((src, i) => {
-          let col = document.createElement("div");
-          col.className = "col-6 col-md-4 col-lg-3";
-          col.innerHTML = `<img src="${src}" class="img-fluid rounded shadow-sm" loading="lazy" onclick="openGallery(${i + 1}, '${albumId}')">`;
-          imgContainer.appendChild(col);
-        });
-      }
-
-      album.scrollIntoView({ behavior: "smooth" });
-    }
-
-    function openGallery(startIndex, albumId) {
-      const albumImgs = albums[albumId];
-      const carousel = document.getElementById("carouselItems");
-      carousel.innerHTML = "";
-
-      albumImgs.forEach((src, index) => {
-        let active = index + 1 === startIndex ? "active" : "";
-        carousel.innerHTML += `
-          <div class="carousel-item ${active}">
-            <img src="${src}" class="d-block" style="max-height:90vh; object-fit:contain;">
-          </div>`;
-      });
-
-      new bootstrap.Modal(document.getElementById("galleryModal")).show();
-      let bsCarousel = new bootstrap.Carousel(document.getElementById("galleryCarousel"));
-      bsCarousel.to(startIndex - 1);
-    }
-  
+            new bootstrap.Modal(document.getElementById("galleryModal")).show();
+            let bsCarousel = new bootstrap.Carousel(document.getElementById("galleryCarousel"));
+            bsCarousel.to(startIndex - 1);
+        }
         
+    </script>
+
+        <script>
+        function openAlbum(albumId) {
+            // Hide all albums first
+            document.querySelectorAll(".album-gallery").forEach(album => {
+                album.classList.add("d-none");
+            });
+
+            // Show selected album
+            document.getElementById(albumId).classList.remove("d-none");
+
+            // Smooth scroll to gallery
+            document.getElementById(albumId).scrollIntoView({ behavior: "smooth" });
+        }
+
+        function openGalleryModal(img) {
+            document.getElementById("galleryModalImage").src = img.src;
+            new bootstrap.Modal(document.getElementById('galleryModal')).show();
+        }
         function backToAlbums() {
             document.querySelectorAll(".album-gallery").forEach(album => {
                 album.classList.add("d-none");
@@ -408,6 +474,7 @@
         }
 
         
+
     </script>
 
     </body>
