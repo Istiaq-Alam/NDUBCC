@@ -271,9 +271,11 @@
         <div class="modal-dialog modal-dialog-centered modal-fullscreen">
             <div class="modal-content bg-dark position-relative">
 
-                <!-- Close Button -->
+                <!-- Close Button 
                 <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
-                    data-bs-dismiss="modal" aria-label="Close"></button>
+                    aria-label="Close" onclick="closeGallery()"></button> -->
+
+
 
                 <div class="modal-body p-0 d-flex align-items-center justify-content-center">
                     <div id="galleryCarousel" class="carousel slide w-100" data-bs-ride="false">
@@ -332,6 +334,7 @@
             let bsCarousel = new bootstrap.Carousel(document.getElementById("galleryCarousel"));
             bsCarousel.to(startIndex - 1);
         }
+        
     </script>
 
     <script>
@@ -352,18 +355,18 @@
             document.getElementById("galleryModalImage").src = img.src;
             new bootstrap.Modal(document.getElementById('galleryModal')).show();
         }
-
-
-
         function backToAlbums() {
             document.querySelectorAll(".album-gallery").forEach(album => {
                 album.classList.add("d-none");
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-       
+
+        
 
     </script>
+
+
 
 </body>
 
