@@ -78,6 +78,24 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .album-gallery h3 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .album-gallery img {
+            width: 250px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .album-gallery img:hover {
+            transform: scale(1.05);
+        }
     </style>
 
 </head>
@@ -118,12 +136,11 @@
 
 
     <!-- Gallery Album List -->
-    <!-- Gallery Album List (Vertical) -->
     <div class="container my-5">
-         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Records</h6>
-                <h1 class="mb-5">CLUB PROGRAMS</h1>
-            </div>
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Records</h6>
+            <h1 class="mb-5">CLUB PROGRAMS</h1>
+        </div>
 
         <!-- Album 1 -->
         <div class="card mb-3 gallery-album" onclick="openAlbum('album1')">
@@ -176,30 +193,38 @@
 
 
     <!-- Hidden Album Galleries -->
+
+    <!-- Album 1 -->
     <div id="album1" class="album-gallery d-none">
-        <img src="../assets/img/Fest.webp" alt="Fest 1" onclick="openGalleryModal(this)">
-        <img src="../assets/img/bg-2.jpg" alt="Fest 2" onclick="openGalleryModal(this)">
-        <img src="../assets/img/bg-3(croped).jpg" alt="Fest 3" onclick="openGalleryModal(this)">
-    </div>
-
-    <div id="album2" class="album-gallery d-none">
-        <img src="../assets/img/carousel-1.jpg" alt="Bootcamp 1" onclick="openGalleryModal(this)">
-        <img src="../assets/img/carousel-2.jpg" alt="Bootcamp 2" onclick="openGalleryModal(this)">
-    </div>
-
-    <div id="album3" class="album-gallery d-none">
-        <img src="../assets/img/cat-1.jpeg" alt="Seminar 1" onclick="openGalleryModal(this)">
-        <img src="../assets/img/bg-4.jpg" alt="Seminar 2" onclick="openGalleryModal(this)">
-    </div>
-
-    <!-- Fullscreen Modal -->
-    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content bg-transparent border-0">
-                <img id="galleryModalImage" src="" class="img-fluid rounded shadow-lg" alt="Gallery Full View">
-            </div>
+        <h3 class="text-center mb-4">🚀 CSE Fest 2024</h3>
+        <div class="d-flex flex-wrap justify-content-center">
+            <img src="../assets/img/Fest.webp" alt="Fest 1" onclick="openGalleryModal(this)">
+            <img src="../assets/img/bg-2.jpg" alt="Fest 2" onclick="openGalleryModal(this)">
+            <img src="../assets/img/bg-3(croped).jpg" alt="Fest 3" onclick="openGalleryModal(this)">
         </div>
     </div>
+
+    <!-- Album 2 -->
+    <div id="album2" class="album-gallery d-none">
+        <h3 class="text-center mb-4">💻 Coding Bootcamp</h3>
+        <div class="d-flex flex-wrap justify-content-center">
+            <img src="../assets/img/carousel-1.jpg" alt="Bootcamp 1" onclick="openGalleryModal(this)">
+            <img src="../assets/img/carousel-2.jpg" alt="Bootcamp 2" onclick="openGalleryModal(this)">
+        </div>
+    </div>
+
+    <!-- Album 3 -->
+    <div id="album3" class="album-gallery d-none">
+        <h3 class="text-center mb-4">🎤 Seminar on Web Development</h3>
+        <div class="d-flex flex-wrap justify-content-center">
+            <img src="../assets/img/cat-1.jpeg" alt="Seminar 1" onclick="openGalleryModal(this)">
+            <img src="../assets/img/bg-4.jpg" alt="Seminar 2" onclick="openGalleryModal(this)">
+        </div>
+        
+    </div>
+<div class="text-center mb-3">
+            <button class="btn btn-outline-primary btn-sm" onclick="backToAlbums()">← Back to Albums</button>
+        </div>
 
 
 
@@ -236,6 +261,16 @@
             document.getElementById("galleryModalImage").src = img.src;
             new bootstrap.Modal(document.getElementById('galleryModal')).show();
         }
+
+
+
+        function backToAlbums() {
+            document.querySelectorAll(".album-gallery").forEach(album => {
+                album.classList.add("d-none");
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
     </script>
 
 </body>
