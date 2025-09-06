@@ -79,6 +79,23 @@
             object-fit: cover;
         }
 
+        .gallery-img {
+            width: 280px;
+            /* fixed width */
+            height: 180px;
+            /* fixed height */
+            object-fit: cover;
+            /* crop without shrinking */
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
         .album-gallery h3 {
             font-weight: 600;
             color: #2c3e50;
@@ -195,14 +212,17 @@
     <!-- Hidden Album Galleries -->
 
     <!-- Album 1 -->
+    <!-- Album 1 -->
     <div id="album1" class="album-gallery d-none">
         <h3 class="text-center mb-4">🚀 CSE Fest 2024</h3>
         <div class="d-flex flex-wrap justify-content-center">
-            <img src="../assets/img/Fest.webp" alt="Fest 1" onclick="openGalleryModal(this)">
-            <img src="../assets/img/bg-2.jpg" alt="Fest 2" onclick="openGalleryModal(this)">
-            <img src="../assets/img/bg-3(croped).jpg" alt="Fest 3" onclick="openGalleryModal(this)">
+            <img src="../assets/img/Fest.webp" alt="Fest 1" class="gallery-img" onclick="openGallery(1, 'album1')">
+            <img src="../assets/img/bg-2.jpg" alt="Fest 2" class="gallery-img" onclick="openGallery(2, 'album1')">
+            <img src="../assets/img/bg-3(croped).jpg" alt="Fest 3" class="gallery-img"
+                onclick="openGallery(3, 'album1')">
         </div>
     </div>
+
 
     <!-- Album 2 -->
     <div id="album2" class="album-gallery d-none">
@@ -220,12 +240,36 @@
             <img src="../assets/img/cat-1.jpeg" alt="Seminar 1" onclick="openGalleryModal(this)">
             <img src="../assets/img/bg-4.jpg" alt="Seminar 2" onclick="openGalleryModal(this)">
         </div>
-        
-    </div>
-<div class="text-center mb-3">
-            <button class="btn btn-outline-primary btn-sm" onclick="backToAlbums()">← Back to Albums</button>
-        </div>
 
+    </div>
+    <div class="text-center mb-3">
+        <button class="btn btn-outline-primary btn-sm" onclick="backToAlbums()">← Back to Albums</button>
+    </div>
+
+
+    <!-- Fullscreen Gallery Modal with Slider -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-dark">
+                <div class="modal-body p-0">
+                    <div id="galleryCarousel" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner" id="carouselItems">
+                            <!-- Slides will be inserted dynamically -->
+                        </div>
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div id="footer"></div>
@@ -243,6 +287,27 @@
 
     <!-- Template Javascript -->
     <script src="../assets/js/main.js"></script>
+    <script>
+        function openGallery(startIndex, albumId) {
+            const album = document.querySelectorAll(`#${albumId} .gallery-img`);
+            const carousel = document.getElementById("carouselItems");
+            carousel.innerHTML = "";
+
+            album.forEach((img, index) => {
+                let active = index + 1 === startIndex ? "active" : "";
+                carousel.innerHTML += `
+        <div class="carousel-item ${active}">
+          <img src="${img.src}" class="d-block w-100" style="max-height:100vh; object-fit:contain;" alt="Slide ${index + 1}">
+        </div>
+      `;
+            });
+
+            new bootstrap.Modal(document.getElementById("galleryModal")).show();
+            let bsCarousel = new bootstrap.Carousel(document.getElementById("galleryCarousel"));
+            bsCarousel.to(startIndex - 1);
+        }
+    </script>
+
     <script>
         function openAlbum(albumId) {
             // Hide all albums first
