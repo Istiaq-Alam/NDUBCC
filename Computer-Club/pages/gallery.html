@@ -103,7 +103,7 @@
 
         .album-gallery h3 {
             font-weight: 600;
-            color: #6ea1d4;
+            color: #077ff7;
             margin-bottom: 20px;
         }
 
@@ -117,6 +117,20 @@
 
         .album-gallery img:hover {
             transform: scale(1.05);
+        }
+
+        /* Center modal image */
+        .carousel-item img {
+            max-height: 90vh;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Close button visibility */
+        .btn-close-white {
+            filter: invert(1) grayscale(100%) brightness(200%);
         }
     </style>
 
@@ -161,14 +175,14 @@
     <div class="container my-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title bg-white text-center text-primary px-3">Records</h6>
-            <h1 class="mb-5">CLUB PROGRAMS</h1>
+            <h1 class="mb-5">CLUB ALBUMS</h1>
         </div>
 
         <!-- Album 1 -->
         <div class="card mb-3 gallery-album" onclick="openAlbum('album1')">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="../assets/img/Fest.webp" class="img-fluid rounded-start" alt="CSE Fest 2024">
+                    <img src="../assets/img/bg-1.jpg" class="img-fluid rounded-start" alt="CSE Fest 2024">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -220,7 +234,7 @@
     <div id="album1" class="album-gallery d-none">
         <h3 class="text-center mb-4">🚀 CSE Fest 2024</h3>
         <div class="d-flex flex-wrap justify-content-center">
-            <img src="../assets/img/Fest.webp" alt="Fest 1" class="gallery-img" onclick="openGallery(1, 'album1')">
+            <img src="../assets/img/bg-1.jpg" alt="Fest 1" class="gallery-img" onclick="openGallery(1, 'album1')">
             <img src="../assets/img/bg-2.jpg" alt="Fest 2" class="gallery-img" onclick="openGallery(2, 'album1')">
             <img src="../assets/img/bg-3(croped).jpg" alt="Fest 3" class="gallery-img"
                 onclick="openGallery(3, 'album1')">
@@ -234,8 +248,7 @@
         <div class="d-flex flex-wrap justify-content-center">
             <img src="../assets/img/carousel-2.jpg" alt="Fest 1" class="gallery-img" onclick="openGallery(1, 'album2')">
             <img src="../assets/img/carousel-1.jpg" alt="Fest 2" class="gallery-img" onclick="openGallery(2, 'album2')">
-            <img src="../assets/img/cat-1.jpeg" alt="Fest 3" class="gallery-img"
-                onclick="openGallery(3, 'album2')">
+            <img src="../assets/img/cat-1.jpeg" alt="Fest 3" class="gallery-img" onclick="openGallery(3, 'album2')">
         </div>
     </div>
 
@@ -255,13 +268,19 @@
 
     <!-- Fullscreen Gallery Modal with Slider -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content bg-dark">
-                <div class="modal-body p-0">
-                    <div id="galleryCarousel" class="carousel slide" data-bs-ride="false">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+            <div class="modal-content bg-dark position-relative">
+
+                <!-- Close Button -->
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="modal-body p-0 d-flex align-items-center justify-content-center">
+                    <div id="galleryCarousel" class="carousel slide w-100" data-bs-ride="false">
                         <div class="carousel-inner" id="carouselItems">
                             <!-- Slides will be inserted dynamically -->
                         </div>
+
                         <!-- Controls -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"
                             data-bs-slide="prev">
@@ -276,6 +295,7 @@
             </div>
         </div>
     </div>
+
 
 
     <div id="footer"></div>
@@ -341,6 +361,7 @@
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+       
 
     </script>
 
