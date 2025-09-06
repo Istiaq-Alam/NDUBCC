@@ -62,6 +62,22 @@
         .album-gallery img:hover {
             transform: scale(1.05);
         }
+
+        /* Vertical album list hover effect */
+        .gallery-album {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-album:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-album img {
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 
 </head>
@@ -102,49 +118,62 @@
 
 
     <!-- Gallery Album List -->
+    <!-- Gallery Album List (Vertical) -->
     <div class="container my-5">
-         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Records</h6>
-                <h1 class="mb-5">CLUB Gallery</h1>
-            </div>
+        <div class="text-center mb-4">
+            <h2 class="section-title">📸 Club Gallery</h2>
+            <p class="text-muted">Browse our events and memories</p>
+        </div>
 
-        <div class="row g-4">
-
-            <!-- Album 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100 gallery-album" onclick="openAlbum('album1')">
-                    <img src="../assets/img/Fest.webp" class="card-img-top" alt="CSE Fest 2024">
+        <!-- Album 1 -->
+        <div class="card mb-3 gallery-album" onclick="openAlbum('album1')">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../assets/img/Fest.webp" class="img-fluid rounded-start" alt="CSE Fest 2024">
+                </div>
+                <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">🚀 CSE Fest 2024</h5>
                         <p class="card-text">Highlights from NDUB Computer Club’s biggest annual event.</p>
+                        <p class="card-text"><small class="text-muted">Date: March 2024</small></p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Album 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100 gallery-album" onclick="openAlbum('album2')">
-                    <img src="../assets/img/carousel-1.jpg" class="card-img-top" alt="Coding Bootcamp">
+        <!-- Album 2 -->
+        <div class="card mb-3 gallery-album" onclick="openAlbum('album2')">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../assets/img/carousel-1.jpg" class="img-fluid rounded-start" alt="Coding Bootcamp">
+                </div>
+                <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">💻 Coding Bootcamp</h5>
                         <p class="card-text">Snapshots from our intensive coding workshop.</p>
+                        <p class="card-text"><small class="text-muted">Date: Jan 2024</small></p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Album 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card shadow-sm h-100 gallery-album" onclick="openAlbum('album3')">
-                    <img src="../assets/img/cat-1.jpeg" class="card-img-top" alt="Seminar">
+        <!-- Album 3 -->
+        <div class="card mb-3 gallery-album" onclick="openAlbum('album3')">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../assets/img/cat-1.jpeg" class="img-fluid rounded-start" alt="Seminar">
+                </div>
+                <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">🎤 Seminar on Web Development</h5>
                         <p class="card-text">Inspiring talks and sessions with industry experts.</p>
+                        <p class="card-text"><small class="text-muted">Date: Dec 2023</small></p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
 
     <!-- Hidden Album Galleries -->
     <div id="album1" class="album-gallery d-none">
