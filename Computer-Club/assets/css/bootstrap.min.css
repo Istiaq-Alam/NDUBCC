@@ -4866,7 +4866,8 @@ fieldset:disabled .btn {
 }
 
 .card-text:last-child {
-    margin-bottom: 0
+    margin-bottom: 0;
+    text-align: justify;
 }
 
 .card-link:hover {
