@@ -96,7 +96,7 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 ## 🎯Next Target
-
+* Club Gallery :white_check_mark:
 * Present committe profile link
 * Activity Pages
 * previous committee pages
