@@ -70,7 +70,7 @@ Computer-Club/
 This project is deployed on **Vercel**.
 Any new commits pushed to the `main` branch are automatically deployed.
 
-Live Website 👉 [NDUBCC Website](https://ndubcc.vercel.app)
+Live Website 👉 [NDUBCC Website](https://ndubcc.pages.dev/)
 
 ---
 
