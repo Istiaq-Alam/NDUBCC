@@ -347,25 +347,32 @@
   var submitted = false;
 
   function showThankYou() {
-  // Select the form container
-  var element = document.querySelector(".form-background");
+  const element = document.querySelector(".form-background");
+
+  // Temporarily hide no-print elements only for PDF
+  const noPrintElements = document.querySelectorAll(".no-print");
+  noPrintElements.forEach(el => el.style.display = "none");
 
   // PDF options
-  var opt = {
-    margin:       0,
-    filename:     'NDUBCC_Registration_form.pdf',
-    image:        { type: 'jpeg', quality: 1 },
-    html2canvas:  { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  const opt = {
+    margin: 0,
+    filename: 'NDUBCC_Registration_form.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
   // Generate & download PDF
   html2pdf().set(opt).from(element).save().then(() => {
+    // Restore no-print elements after export
+    noPrintElements.forEach(el => el.style.display = "");
+
     // After saving PDF, hide form and show thank-you message
     document.getElementById("gform").style.display = "none";
     document.getElementById("thankyou_message").style.display = "block";
   });
 }
+
 
 
   async function generatePDF() {
