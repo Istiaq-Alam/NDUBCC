@@ -316,30 +316,7 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
         <script>
-  async function generatePDF() {
-    const { jsPDF } = window.jspdf;
-
-    // Capture form
-    const element = document.querySelector(".form-background");
-    const canvas = await html2canvas(element, { scale: 2 });
-    const imgData = canvas.toDataURL("image/png");
-
-    // Create PDF
-    const pdf = new jsPDF("p", "mm", "a4");
-
-    // A4 size: 210 x 297 mm
-    const pageWidth = 210;
-    const pageHeight = 297;
-
-    // Scale image to fit with margins
-    const imgWidth = pageWidth * 0.8;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-
-    // Save as file
-    pdf.save("NDUBCC_Registration.pdf");
-  }
+  var submitted = false;
 
   function showThankYou() {
     document.getElementById("gform").style.display = "none";
@@ -347,6 +324,25 @@
 
     // Generate PDF after thank you message
     generatePDF();
+  }
+
+  async function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const element = document.querySelector(".form-background");
+
+    // Capture form
+    const canvas = await html2canvas(element, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    // Scale 80%
+    const pageWidth = 210 * 0.8;
+    const xOffset = (210 - pageWidth) / 2;
+    const pageHeight = (canvas.height * pageWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", xOffset, 0, pageWidth, pageHeight);
+    pdf.save("NDUBCC_Registration.pdf");
   }
 </script>
 
