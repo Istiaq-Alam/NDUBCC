@@ -2,278 +2,312 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NDUBCC Registration Form</title>
-    <style>
-        body {
-            font-family: "Times New Roman", serif;
-            background-color: #f7f7f7;
-            padding: 30px;
-            display: flex;
-            justify-content: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NDUBCC Registration Form</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      background-color: #f7f7f7;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
 
-        .form-container {
-            /*background: #fff;*/
-            border: 2px solid #ffffff;
-            /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);*/
-            padding: 0px;
-            max-width: 800px;
-            width: 100%;
-        }
+    .form-container {
+      border: 2px solid #ffffff;
+      padding: 0px;
+      max-width: 800px;
+      width: 100%;
+    }
 
-        /* ===== Watermark Background Class ===== */
-        .form-background {
-            position: relative;
-            background: #ffffff;
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-            margin: auto;
-            border-radius: 0px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            z-index: 1;
-        }
+    /* ===== Watermark Background Class ===== */
+    .form-background {
+      position: relative;
+      background: #ffffff;
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+      border-radius: 0px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      z-index: 1;
+    }
 
-        /* Background image layer */
-        .form-background .bg-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 80%;
-            /* adjust size */
-            height: 80%;
-            background: url("assets/img/NDUBCC-Logo.png") no-repeat center center;
-            background-size: contain;
-            /* keeps logo aspect ratio */
-            opacity: 0.2;
-            /* 20% visible (change to 0.5 for 50%) */
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
+    .form-background .bg-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80%;
+      height: 80%;
+      background: url("assets/img/NDUBCC-Logo.png") no-repeat center center;
+      background-size: contain;
+      opacity: 0.2;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
 
-        /* Content inside form should stay above logo */
-        .form-background .form-content {
-            position: relative;
-            z-index: 1;
-        }
+    .form-background .form-content {
+      position: relative;
+      z-index: 1;
+    }
 
+    /* ====== Header Section ====== */
+    .header-bar {
+      font-family: "Arial", serif;
+      background: #064420;
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      margin-bottom: 20px;
+    }
 
-        /* ====== Header Section ====== */
-        .header-bar {
-            font-family: "Arial", serif;
-            background: #064420;
-            /* Dark Green */
-            color: #fff;
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px 0;
-            /* only vertical padding */
-            width: 100%;
-            /* full width of page */
-            margin-bottom: 20px;
-            /* space below banner */
-        }
+    .logo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
 
-        .logo-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 20px 0;
-        }
+    .club-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
 
-        .club-title {
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
+    /* ====== Form Fields ====== */
+    .form-group {
+      display: flex;
+      margin-bottom: 15px;
+    }
 
-        /* ====== Form Fields ====== */
-        .form-group {
-            display: flex;
-            margin-bottom: 15px;
-        }
+    .form-group label {
+      flex: 0 0 220px;
+      font-weight: bold;
+    }
 
-        .form-group label {
-            flex: 0 0 220px;
-            font-weight: bold;
-        }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #000;
+      font-size: 14px;
+      padding: 4px;
+      background: transparent;
+    }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            flex: 1;
-            border: none;
-            border-bottom: 1px solid #000;
-            font-size: 14px;
-            padding: 4px;
-            background: transparent;
-        }
+    textarea {
+      resize: none;
+    }
 
-        textarea {
-            resize: none;
-        }
+    /* ====== Photo Box ====== */
+    .photo-box {
+      width: 120px;
+      height: 150px;
+      border: 1px solid #d1cccc;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      line-height: 150px;
+      font-size: 12px;
+      margin-left: 20px;
+    }
 
-        /* ====== Photo Box ====== */
-        .photo-box {
-            width: 120px;
-            height: 150px;
-            border: 1px solid #d1cccc;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            line-height: 150px;
-            font-size: 12px;
-            margin-left: 20px;
-        }
+    .photo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-        .photo-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+    /* ====== Signature Section ====== */
+    .signature-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      text-align: center;
+      font-size: 14px;
+    }
 
-        /* ====== Signature Section ====== */
-        .signature-section {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 14px;
-        }
+    .signature-section div {
+      width: 30%;
+      border-top: 1px solid #000;
+      padding-top: 5px;
+    }
 
-        .signature-section div {
-            width: 30%;
-            border-top: 1px solid #000;
-            padding-top: 5px;
-        }
+    /* ====== Button ====== */
+    .submit-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
 
-        /* ====== Button ====== */
-        .submit-btn {
-            text-align: center;
-            margin-top: 40px;
-        }
+    button {
+      background: #004d40;
+      color: #fff;
+      padding: 10px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        button {
-            background: #004d40;
-            color: #fff;
-            padding: 10px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    button:hover {
+      background: #00695c;
+    }
 
-        button:hover {
-            background: #00695c;
-        }
-    </style>
+    /* ====== Responsive Fixes ====== */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .form-background {
+        padding: 20px;
+      }
+
+      .form-container {
+        max-width: 100%;
+        padding: 10px;
+      }
+
+      .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-group label {
+        flex: unset;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      .logo-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .signature-section {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .photo-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .photo-box {
+        margin: 15px 0 0 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="form-background">
-  <!-- background logo -->
-  <div class="bg-logo"></div>
+  <div class="form-background">
+    <div class="bg-logo"></div>
     <form class="form-container" action="#" method="POST">
 
-        <!-- ====== Header ====== -->
-        <div class="header-bar">
-            Notre Dame University Bangladesh
-        </div>
+      <!-- ====== Header ====== -->
+      <div class="header-bar">
+        Notre Dame University Bangladesh
+      </div>
 
-        <div class="logo-row">
-            <img src="assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
-            <img src="assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
-        </div>
+      <div class="logo-row">
+        <img src="assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
+        <img src="assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
+      </div>
 
-        <div class="club-title">
-            Notre Dame University Bangladesh Computer Club (NDUBCC)
-            <hr>
-        </div>
+      <div class="club-title">
+        Notre Dame University Bangladesh Computer Club (NDUBCC)
+        <hr>
+      </div>
 
-        <!-- ====== Form Fields ====== -->
-        <div class="form-group">
-            <label>Student ID:</label>
-            <input type="text" name="registration_no" required>
-        </div>
+      <!-- ====== Form Fields ====== -->
+      <div class="form-group">
+        <label>Student ID:</label>
+        <input type="text" name="registration_no" required>
+      </div>
 
-        <div class="form-group">
-            <label>Name:</label>
-            <input type="text" name="name" required>
-        </div>
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+      </div>
 
-        <div class="form-group">
-            <label>Mother's Name:</label>
-            <input type="text" name="mother_name" required>
-        </div>
+      <div class="form-group">
+        <label>Mother's Name:</label>
+        <input type="text" name="mother_name" required>
+      </div>
 
-        <div class="form-group">
-            <label>Father's Name:</label>
-            <input type="text" name="father_name" required>
-        </div>
+      <div class="form-group">
+        <label>Father's Name:</label>
+        <input type="text" name="father_name" required>
+      </div>
 
-        <div class="form-group">
-            <label>Gender:</label>
-            <select name="gender" required>
-                <option value="">Select</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-            </select>
-        </div>
+      <div class="form-group">
+        <label>Gender:</label>
+        <select name="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
 
-        <div class="form-group">
-            <label>Student's Contact No.:</label>
-            <input type="text" name="student_contact" required>
-        </div>
+      <div class="form-group">
+        <label>Student's Contact No.:</label>
+        <input type="text" name="student_contact" required>
+      </div>
 
-        <div class="form-group">
-            <label>Guardian's Contact No.:</label>
-            <input type="text" name="guardian_contact" required>
-        </div>
+      <div class="form-group">
+        <label>Guardian's Contact No.:</label>
+        <input type="text" name="guardian_contact" required>
+      </div>
 
-        <div class="form-group">
-            <label>Present Trimester:</label>
-            <input type="text" name="trimester" required>
-        </div>
+      <div class="form-group">
+        <label>Present Trimester:</label>
+        <input type="text" name="trimester" required>
+      </div>
 
-        <div class="form-group">
-            <label>Email Address:</label>
-            <textarea name="email" rows="2" required></textarea>
-        </div>
+      <div class="form-group">
+        <label>Email Address:</label>
+        <textarea name="email" rows="2" required></textarea>
+      </div>
 
-        <div class="form-group">
-            <label>Interests and Activities:</label>
-            <textarea name="interests" rows="2" required></textarea>
-        </div>
+      <div class="form-group">
+        <label>Interests and Activities:</label>
+        <textarea name="interests" rows="2" required></textarea>
+      </div>
 
-        <div class="form-group">
-            <label>Purpose of Joining the Club:</label>
-            <textarea name="purpose" rows="2" required></textarea>
-        </div>
+      <div class="form-group">
+        <label>Purpose of Joining the Club:</label>
+        <textarea name="purpose" rows="2" required></textarea>
+      </div>
 
-        <!-- ====== Photo Box ====== -->
-        <div class="photo-row">
-            <div><strong>Upload Photo:</strong></div>
-            <div class="photo-box">PP Size Photo</div>
-        </div>
+      <!-- ====== Photo Box ====== -->
+      <div class="photo-row">
+        <div><strong>Upload Photo:</strong></div>
+        <div class="photo-box">PP Size Photo</div>
+      </div>
 
-        <!-- ====== Signatures ====== -->
-        <div class="signature-section">
-            <div>Applicant's Signature<br>with Date</div>
-            <div>Moderator</div>
-            <div>Co-Moderator</div>
-        </div>
+      <!-- ====== Signatures ====== -->
+      <div class="signature-section">
+        <div>Applicant's Signature<br>with Date</div>
+        <div>Moderator</div>
+        <div>Co-Moderator</div>
+      </div>
 
-        <!-- ====== Submit Button ====== -->
-        <div class="submit-btn">
-            <button type="submit">Submit</button>
-        </div>
+      <!-- ====== Submit Button ====== -->
+      <div class="submit-btn">
+        <button type="submit">Submit</button>
+      </div>
     </form>
+  </div>
 </body>
 
 </html>
