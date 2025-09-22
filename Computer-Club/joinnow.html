@@ -285,13 +285,14 @@
 
             <!-- ====== Photo Box ====== -->
             <div class="photo-row">
-                <div><strong>Upload Photo:</strong></div>
+                <button>Upload Photo</button>
                 <div class="photo-box">PP Size Photo</div>
             </div>
-
+            <p style="text-align: center;">
+                <i>The membership of the above mentioned applicant is approved</i></p>
             <!-- ====== Signatures ====== -->
             <div class="signature-section">
-                <div>Applicant's Signature<br>with Date</div>
+                <div>Upload<br>Applicant's Signature</div>
                 <div>Moderator <br> Nafisa Tabassum</div>
                 <div>Co-Moderator <br> Md. Tahmid Hasan</div>
             </div>
@@ -302,5 +303,14 @@
             </div>
         </form>
 </body>
+<script>
+    document.querySelectorAll("textarea").forEach(function(el) {
+  el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
+  el.addEventListener("input", function() {
+    this.style.height = "auto";
+    this.style.height = (this.scrollHeight) + "px";
+  });
+});
 
+</script>
 </html>
