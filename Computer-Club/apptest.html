@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Registration</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    /* simple modal */
+    .modal { position: fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,.4); visibility:hidden; opacity:0; transition: .15s;}
+    .modal.show { visibility:visible; opacity:1;}
+    .modal .box { background:white; padding:20px; border-radius:8px; width:90%; max-width:400px; text-align:center;}
+    #formPreview { padding:10px; border:1px solid #ddd; border-radius:6px; max-width:700px; }
+    img.preview { max-width:200px; display:block; margin-top:10px; }
+  </style>
+
+  <!-- libs for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<h2>Student Registration</h2>
+
+<form id="myForm">
+  <label>
+    Student name<br/>
+    <input id="studentName" name="studentName" required>
+  </label><br/><br/>
+  <label>
+    Student ID<br/>
+    <input id="studentId" name="studentId" required>
+  </label><br/><br/>
+  <label>
+    Other info<br/>
+    <textarea id="otherInfo" name="otherInfo"></textarea>
+  </label><br/><br/>
+  <label>
+    Upload photo<br/>
+    <input id="photo" type="file" accept="image/*">
+  </label><br/><br/>
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Preview (what will go into the PDF)</h3>
+<div id="formPreview">
+  <strong id="pName">Name will appear here</strong><br/>
+  <span id="pId">ID will appear here</span><br/>
+  <div id="pOther"></div>
+  <img id="pPhoto" class="preview" src="" alt="" style="display:none;">
+</div>
+
+<!-- hidden form to post to Apps Script (works around fetch/CORS problems) -->
+<form id="hiddenPoster" method="POST" action="WEB_APP_URL" target="hidden_iframe" style="display:none;">
+  <input type="hidden" name="payload" id="payload">
+</form>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<!-- modal -->
+<div id="modal" class="modal"><div class="box" id="modalBox"></div></div>
+
+<script>
+  const webAppUrl = 'https://script.google.com/macros/s/AKfycbyiUGqIBc5MX4-2ZfjJ2-lu7-Oo7oLcG1dDTksBhEH_8jx1o4hPqUkzLcgLGaHBFCfY/exec'; // << replace with your Apps Script URL
+
+  // preview updates
+  const nameInput = document.getElementById('studentName');
+  const idInput = document.getElementById('studentId');
+  const otherInput = document.getElementById('otherInfo');
+  const photoInput = document.getElementById('photo');
+  const pName = document.getElementById('pName');
+  const pId = document.getElementById('pId');
+  const pOther = document.getElementById('pOther');
+  const pPhoto = document.getElementById('pPhoto');
+
+  function updatePreview() {
+    pName.textContent = nameInput.value || 'Name will appear here';
+    pId.textContent = idInput.value || 'ID will appear here';
+    pOther.textContent = otherInput.value || '';
+  }
+  nameInput.addEventListener('input', updatePreview);
+  idInput.addEventListener('input', updatePreview);
+  otherInput.addEventListener('input', updatePreview);
+
+  photoInput.addEventListener('change', async () => {
+    const file = photoInput.files[0];
+    if (!file) { pPhoto.style.display='none'; pPhoto.src=''; return; }
+    const dataUrl = await fileToDataUrl(file);
+    pPhoto.src = dataUrl;
+    pPhoto.style.display = 'block';
+  });
+
+  function fileToDataUrl(file) {
+    return new Promise((resolve,reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
+  }
+
+  // popup helpers
+  function showModal(html, timeout=0) {
+    const m = document.getElementById('modal');
+    document.getElementById('modalBox').innerHTML = html;
+    m.classList.add('show');
+    if (timeout>0) setTimeout(() => m.classList.remove('show'), timeout);
+  }
+  function hideModal() { document.getElementById('modal').classList.remove('show'); }
+
+  // Create PDF of #formPreview and download
+  async function createAndDownloadPDF(filename = 'registration.pdf') {
+    // wait briefly for images to load
+    await new Promise(r => setTimeout(r, 150));
+    const el = document.getElementById('formPreview');
+    const canvas = await html2canvas(el, { scale: 2 });
+    const imgData = canvas.toDataURL('image/png');
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF('p', 'mm', 'a4');
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save(filename);
+  }
+
+  // main submit
+  document.getElementById('myForm').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    updatePreview();
+
+    showModal('Processing — generating PDF & sending data...');
+
+    // gather data
+    const name = nameInput.value;
+    const studentId = idInput.value;
+    const other = otherInput.value;
+    let imageDataUrl = '';
+    if (photoInput.files[0]) {
+      imageDataUrl = await fileToDataUrl(photoInput.files[0]); // base64 data URL
+    }
+
+    // generate and automatically download PDF first
+    try {
+      await createAndDownloadPDF(`${name || 'registration'}.pdf`);
+    } catch(err) {
+      console.error('PDF error', err);
+    }
+
+    // now send to Apps Script by posting a hidden form (avoids CORS)
+    const payloadObj = { name, studentId, other, image: imageDataUrl };
+    document.getElementById('payload').value = JSON.stringify(payloadObj);
+    document.getElementById('hiddenPoster').action = webAppUrl;
+    document.getElementById('hiddenPoster').submit();
+
+    // We cannot always read server response due to cross-origin iframe. 
+    // Best effort: show confirmation message. Also check your Google Sheet/Drive to verify.
+    hideModal();
+    showModal('<strong>All information has been submitted.</strong><br/>PDF downloaded automatically.<br/>Check your Google Sheet for the new row.', 5000);
+  });
+
+</script>
+</body>
+</html>
