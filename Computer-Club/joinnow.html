@@ -7,6 +7,7 @@
     <meta name="description" content="NDUBCC Member Registration Form">
     <title>NDUBCC Registration Form</title>
     <link href="assets/img/NDUBCC-Logo.png" rel="icon">
+
     <style>
         body {
             font-family: "Times New Roman", serif;
@@ -171,29 +172,23 @@
 </head>
 
 <body>
-    <div class="form-background">
+    <div class="form-background" id="formBackground">
         <div class="bg-logo"></div>
 
-        <!-- ✅ FIXED: Correct Google Form action URL -->
         <form id="gform" class="form-container"
             action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
-            method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)">
 
-            <div class="header-bar">
-                Notre Dame University Bangladesh
-            </div>
+            <div class="header-bar">Notre Dame University Bangladesh</div>
 
             <div class="logo-row">
                 <img src="assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
                 <img src="assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
             </div>
 
-            <div class="club-title">
-                Notre Dame University Bangladesh Computer Club (NDUBCC)
-                <hr>
-            </div>
+            <div class="club-title">Notre Dame University Bangladesh Computer Club (NDUBCC)<hr></div>
 
-            <!-- Form Fields (with entry IDs) -->
+            <!-- Form Fields -->
             <div class="form-group"><label>Student ID:</label><input type="text" name="entry.1148792901" required></div>
             <div class="form-group"><label>Student's Name:</label><input type="text" name="entry.1674684885" required></div>
             <div class="form-group"><label>Mother's Name:</label><input type="text" name="entry.552350917" required></div>
@@ -201,40 +196,43 @@
             <div class="form-group">
                 <label>Gender:</label>
                 <select name="entry.945839914" required>
-                    <option value="">Select</option>
+                    <option value>Select</option>
                     <option>Male</option>
                     <option>Female</option>
                     <option>Other</option>
                 </select>
             </div>
-            <div class="form-group"><label>Student's Contact No.:</label><input type="text" name="entry.819871481" required></div>
-            <div class="form-group"><label>Guardian's Contact No.:</label><input type="text" name="entry.893423479" required></div>
-            <div class="form-group"><label>Present Semester:</label><input type="text" name="entry.1313498895" required></div>
-            <div class="form-group"><label>Email Address:</label><input type="email" name="entry.218947294" required></div>
-            <div class="form-group"><label>Interests and Activities:</label><textarea name="entry.126272351" rows="2" required></textarea></div>
-            <div class="form-group"><label>Purpose of Joining the Club:</label><textarea name="entry.703563326" rows="2" required></textarea></div>
+            <div class="form-group"><label>Student's Contact No.:</label><input type="text" name="entry.819871481"
+                    required></div>
+            <div class="form-group"><label>Guardian's Contact No.:</label><input type="text" name="entry.893423479"
+                    required></div>
+            <div class="form-group"><label>Present Semester:</label><input type="text" name="entry.1313498895"
+                    required></div>
+            <div class="form-group"><label>Email Address:</label><input type="email" name="entry.218947294"
+                    required></div>
+            <div class="form-group"><label>Interests and Activities:</label><textarea name="entry.126272351"
+                    rows="2" required></textarea></div>
+            <div class="form-group"><label>Purpose of Joining the Club:</label><textarea name="entry.703563326"
+                    rows="2" required></textarea></div>
 
             <div class="form-declaration">
                 <label>
                     <input type="checkbox" name="acknowledgement" required>
-                    I promise that I will abide by all the rules and regulations of
-                    <strong>Notre Dame University Bangladesh Computer Club.</strong>
-                    <br>If I violate any of the club rules, the club authority will have all the rights
-                    to take necessary step for me.
+                    I promise that I will abide by all the rules and regulations of <strong>Notre Dame University
+                        Bangladesh Computer Club.</strong><br>If I violate any of the club rules, the club authority
+                    will have all the rights to take necessary step for me.
                 </label>
             </div>
 
             <div class="photo-row">
-                <button type="button">Upload Photo</button>
-                <div class="photo-box">PP Size Photo</div>
+                <input type="file" id="photoUpload" accept="image/*" onchange="previewPhoto(event)">
+                <div class="photo-box" id="photoPreview">PP Size Photo</div>
             </div>
 
-            <p style="text-align: center;">
-                <i>The membership of the above mentioned applicant is approved</i>
-            </p>
+            <p style="text-align: center;"><i>The membership of the above mentioned applicant is approved</i></p>
 
             <div class="signature-section">
-                <div>Upload<br>Applicant's Signature</div>
+                <div>Applicant's Signature</div>
                 <div>Moderator,<br>NDUBCC</div>
                 <div>Co-Moderator,<br>NDUBCC</div>
             </div>
@@ -244,31 +242,88 @@
             </div>
         </form>
 
-        <!-- Hidden iframe + Thank You message -->
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showThankYou();}"></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-        <div id="thankyou_message" style="display:none;" class="alert alert-success mt-3">
+        <div id="thankyou_message" style="display:none; text-align:center; margin-top:20px;">
             ✅ Thank you! Your registration has been recorded.
         </div>
     </div>
-</body>
 
-<script>
-    // Textarea auto-resize
-    document.querySelectorAll("textarea").forEach(function (el) {
-        el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
-        el.addEventListener("input", function () {
-            this.style.height = "auto";
-            this.style.height = (this.scrollHeight) + "px";
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        // Textarea auto-resize
+        document.querySelectorAll("textarea").forEach(el => {
+            el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
+            el.addEventListener("input", function () {
+                this.style.height = "auto";
+                this.style.height = (this.scrollHeight) + "px";
+            });
         });
+
+        // Photo preview
+        function previewPhoto(event) {
+            const photoBox = document.getElementById('photoPreview');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    photoBox.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:contain;">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Handle submit
+       async function handleSubmit(event) {
+    event.preventDefault();
+
+    // Hide buttons
+    document.querySelector(".submit-btn").style.display = "none";
+
+    // Show Thank You
+    document.getElementById("thankyou_message").style.display = "block";
+
+    // Generate PDF
+    const { jsPDF } = window.jspdf;
+    const element = document.getElementById("formBackground");
+
+    const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: false
     });
 
-    // Thank you message
-    var submitted = false;
-    function showThankYou() {
-        document.getElementById("gform").style.display = "none";
-        document.getElementById("thankyou_message").style.display = "block";
-    }
-</script>
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const pageWidth = 250; // A4 width in mm
+    const scaleFactor = 0.8; // 80% scale
+
+    const formWidth = canvas.width;
+    const formHeight = canvas.height;
+
+    // Scale proportionally to page width, then apply 80% scale
+    const scale = (pageWidth / formWidth) * scaleFactor;
+
+    const imgWidth = formWidth * scale;
+    const imgHeight = formHeight * scale;
+
+    // Position at top-center
+    const posX = 5;
+    const posY = 0; // top margin removed
+
+    pdf.addImage(imgData, "PNG", posX, posY, imgWidth, imgHeight);
+    pdf.save("NDUBCC_Registration.pdf");
+
+    // Submit to Google Form after PDF generation
+    event.target.submit();
+}
+
+    </script>
+</body>
 
 </html>
