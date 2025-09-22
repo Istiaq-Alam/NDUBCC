@@ -15,13 +15,51 @@
         }
 
         .form-container {
-            background: #fff;
+            /*background: #fff;*/
             border: 2px solid #ffffff;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);*/
+            padding: 0px;
             max-width: 800px;
             width: 100%;
         }
+
+        /* ===== Watermark Background Class ===== */
+        .form-background {
+            position: relative;
+            background: #ffffff;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Background image layer */
+        .form-background .bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            /* adjust size */
+            height: 80%;
+            background: url("assets/img/NDUBCC-Logo.png") no-repeat center center;
+            background-size: contain;
+            /* keeps logo aspect ratio */
+            opacity: 0.2;
+            /* 20% visible (change to 0.5 for 50%) */
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Content inside form should stay above logo */
+        .form-background .form-content {
+            position: relative;
+            z-index: 1;
+        }
+
 
         /* ====== Header Section ====== */
         .header-bar {
@@ -137,6 +175,9 @@
 </head>
 
 <body>
+    <div class="form-background">
+  <!-- background logo -->
+  <div class="bg-logo"></div>
     <form class="form-container" action="#" method="POST">
 
         <!-- ====== Header ====== -->
@@ -151,8 +192,9 @@
 
         <div class="club-title">
             Notre Dame University Bangladesh Computer Club (NDUBCC)
-        <hr></div>
-        
+            <hr>
+        </div>
+
         <!-- ====== Form Fields ====== -->
         <div class="form-group">
             <label>Student ID:</label>
