@@ -21,7 +21,7 @@ This project represents our university computer club, showcasing events, members
 
 - **Frontend:** HTML, CSS, JavaScript 
 - **UI Framework:** TailwindCSS / Bootstrap 
-- **Backend:** not implemented 
+- **Backend:** Google Backend
 - **Database:** not implemented
 - **Hosting:** Vercel (for frontend) and Supabase/MongoDB Atlas (for backend + database)
 
