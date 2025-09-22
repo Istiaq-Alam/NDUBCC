@@ -274,7 +274,7 @@
     const pageHeight = 297;
 
     // Scale image to fit with margins
-    const imgWidth = pageWidth;
+    const imgWidth = pageWidth * 0.8;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
     pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
