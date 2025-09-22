@@ -189,6 +189,11 @@
     display: none !important;
   }
 }
+@media print, screen {
+  .no-print {
+    display: none !important;
+  }
+}
     </style>
     </head>
 
@@ -265,7 +270,7 @@
                     </label>
                 </div>
 
-                <div class="photo-row">
+                <div class="photo-row no-print">
                     <input type="file" id="photoUpload" accept="image/*"
                         onchange="previewPhoto(event)">
                     <div class="photo-box" id="photoPreview">PP Size Photo</div>
@@ -282,7 +287,7 @@
                     <div>Co-Moderator,<br>NDUBCC</div>
                 </div>
 
-                <div class="submit-btn">
+                <div class="submit-btn no-print">
                     <button type="submit">Submit</button>
                 </div>
             </form>
@@ -331,7 +336,8 @@
     }
 </script>
 
-        <!-- jsPDF + html2canvas -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script
@@ -341,13 +347,26 @@
   var submitted = false;
 
   function showThankYou() {
-  // Trigger print BEFORE hiding the form
-  window.print();
+  // Select the form container
+  var element = document.querySelector(".form-background");
 
-  // Now hide form and show thank you
-  document.getElementById("gform").style.display = "none";
-  document.getElementById("thankyou_message").style.display = "block";
+  // PDF options
+  var opt = {
+    margin:       0,
+    filename:     'NDUBCC_Registration_form.pdf',
+    image:        { type: 'jpeg', quality: 1 },
+    html2canvas:  { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  // Generate & download PDF
+  html2pdf().set(opt).from(element).save().then(() => {
+    // After saving PDF, hide form and show thank-you message
+    document.getElementById("gform").style.display = "none";
+    document.getElementById("thankyou_message").style.display = "block";
+  });
 }
+
 
   async function generatePDF() {
     const { jsPDF } = window.jspdf;
