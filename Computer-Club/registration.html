@@ -67,63 +67,68 @@
   <!-- Header End -->
 
   <!-- Registration Form Start -->
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10">
-        <div class="card shadow-lg border-0">
-          <div class="card-body p-5">
-            <h3 class="text-center mb-4">Register for Our Next Event</h3>
-            <p class="text-muted text-center mb-4">Fill in the details below to join our upcoming seminar, workshop, or competition.</p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-5">
+          <h3 class="text-center mb-4">Register for Our Next Event</h3>
+          <p class="text-muted text-center mb-4">Fill in the details below to join our upcoming seminar, workshop, or competition.</p>
 
-            <!-- Option 1: Custom Registration Form (static template) -->
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
-              </div>
+          <!-- Custom Registration Form Connected to Google Form -->
+          <form action="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse" method="POST" target="_blank">
+            
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="entry.123456" placeholder="Enter your full name" required>
+            </div>
 
-              <div class="mb-3">
-                <label for="id" class="form-label">Student ID</label>
-                <input type="text" class="form-control" id="id" placeholder="e.g., CSE2023001" required>
-              </div>
+            <div class="mb-3">
+              <label for="id" class="form-label">Student ID</label>
+              <input type="text" class="form-control" id="id" name="entry.234567" placeholder="e.g., CSE2023001" required>
+            </div>
 
-              <div class="mb-3">
-                <label for="department" class="form-label">Department</label>
-                <select class="form-select" id="department" required>
-                  <option value="" selected disabled>Choose your department</option>
-                  <option value="CSE">Computer Science & Engineering</option>
-                  <option value="BBA">Business Administration</option>
-                  <option value="ENG">English</option>
-                  <option value="LAW">Law</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
+            <div class="mb-3">
+              <label for="department" class="form-label">Department</label>
+              <select class="form-select" id="department" name="entry.345678" required>
+                <option value="" selected disabled>Choose your department</option>
+                <option value="CSE">Computer Science & Engineering</option>
+                <option value="BBA">Business Administration</option>
+                <option value="ENG">English</option>
+                <option value="LAW">Law</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
-              <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" placeholder="example@email.com" required>
-              </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" name="entry.456789" placeholder="example@email.com" required>
+            </div>
 
-              <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="+8801XXXXXXXXX" required>
-              </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="entry.567890" placeholder="+8801XXXXXXXXX" required>
+            </div>
 
-              <div class="mb-3">
-                <label for="event" class="form-label">Event Interested In</label>
-                <input type="text" class="form-control" id="event" placeholder="e.g., Cybersecurity Seminar" required>
-              </div>
+            <div class="mb-3">
+              <label for="event" class="form-label">Event Interested In</label>
+              <input type="text" class="form-control" id="event" name="entry.678901" placeholder="e.g., Cybersecurity Seminar" required>
+            </div>
 
-              <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary px-5 py-2">Register</button>
-              </div>
-            </form>
-          </div>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary px-5 py-2">Register</button>
+            </div>
+
+          </form>
+          <!-- End Form -->
+
         </div>
       </div>
     </div>
   </div>
-  <!-- Registration Form End -->
+</div>
+<!-- Registration Form End -->
+
 
   <div id="footer"></div>
 
