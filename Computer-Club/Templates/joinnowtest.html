@@ -167,33 +167,6 @@
         button:hover {
             background: #00695c;
         }
-
-        /* Print settings */
-@media print {
-  body {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  @page {
-    size: A4;
-    margin: 0;
-  }
-
-  .form-background {
-    zoom: 0.8; /* Scale 80% */
-  }
-
-  /* Hide thank-you message in print */
-  #thankyou_message {
-    display: none !important;
-  }
-}
-@media print, screen {
-  .no-print {
-    display: none !important;
-  }
-}
     </style>
     </head>
 
@@ -270,7 +243,7 @@
                     </label>
                 </div>
 
-                <div class="photo-row no-print">
+                <div class="photo-row">
                     <input type="file" id="photoUpload" accept="image/*"
                         onchange="previewPhoto(event)">
                     <div class="photo-box" id="photoPreview">PP Size Photo</div>
@@ -287,7 +260,7 @@
                     <div>Co-Moderator,<br>NDUBCC</div>
                 </div>
 
-                <div class="submit-btn no-print">
+                <div class="submit-btn">
                     <button type="submit">Submit</button>
                 </div>
             </form>
@@ -336,62 +309,44 @@
     }
 </script>
 
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <!-- jsPDF + html2canvas -->
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
         <script>
-  var submitted = false;
-
-  function showThankYou() {
-  const element = document.querySelector(".form-background");
-
-  // Temporarily hide no-print elements only for PDF
-  const noPrintElements = document.querySelectorAll(".no-print");
-  noPrintElements.forEach(el => el.style.display = "none");
-
-  // PDF options
-  const opt = {
-    margin: 0,
-    filename: 'NDUBCC_Registration_form.pdf',
-    image: { type: 'jpeg', quality: 1 },
-    html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  // Generate & download PDF
-  html2pdf().set(opt).from(element).save().then(() => {
-    // Restore no-print elements after export
-    noPrintElements.forEach(el => el.style.display = "");
-
-    // After saving PDF, hide form and show thank-you message
-    document.getElementById("gform").style.display = "none";
-    document.getElementById("thankyou_message").style.display = "block";
-  });
-}
-
-
-
   async function generatePDF() {
     const { jsPDF } = window.jspdf;
-    const element = document.querySelector(".form-background");
 
     // Capture form
+    const element = document.querySelector(".form-background");
     const canvas = await html2canvas(element, { scale: 2 });
     const imgData = canvas.toDataURL("image/png");
 
+    // Create PDF
     const pdf = new jsPDF("p", "mm", "a4");
 
-    // Scale 80%
-    const pageWidth = 210 * 0.8;
-    const xOffset = (210 - pageWidth) / 2;
-    const pageHeight = (canvas.height * pageWidth) / canvas.width;
+    // A4 size: 210 x 297 mm
+    const pageWidth = 210;
+    const pageHeight = 297;
 
-    pdf.addImage(imgData, "PNG", xOffset, 0, pageWidth, pageHeight);
+    // Scale image to fit with margins
+    const imgWidth = pageWidth * 0.8;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+    // Save as file
     pdf.save("NDUBCC_Registration.pdf");
+  }
+
+  function showThankYou() {
+    document.getElementById("gform").style.display = "none";
+    document.getElementById("thankyou_message").style.display = "block";
+
+    // Generate PDF after thank you message
+    generatePDF();
   }
 </script>
 
