@@ -250,46 +250,64 @@
       </div>
     </form>
 
-    <!-- Hidden iframe -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <!-- Hidden iframe + Thank You message -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){showThankYou();}"></iframe>
 
-<script>
-  var submitted = false;
+    <div id="thankyou_message" style="display:none;" class="alert alert-success mt-3">
+      ✅ Thank you! Your registration has been recorded.
+    </div>
+  </div>
 
-  // Attach onload event safely
-  document.getElementById("hidden_iframe").onload = function () {
-    if (submitted) {
-      submitted = false; // reset so it doesn't repeat
-      showThankYou();
-    }
-  };
-
-  function showThankYou() {
-    const element = document.querySelector(".form-background");
-
-    // Hide buttons temporarily
-    const noPrintElements = document.querySelectorAll(".no-print");
-    noPrintElements.forEach(el => el.style.display = "none");
-
-    const opt = {
-      margin: 0,
-      filename: 'NDUBCC_Registration_form.pdf',
-      image: { type: 'jpeg', quality: 1 },
-      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).save().then(() => {
-      // Restore buttons
-      noPrintElements.forEach(el => el.style.display = "");
-
-      // Hide form & show thank-you message
-      document.getElementById("gform").style.display = "none";
-      document.getElementById("thankyou_message").style.display = "block";
+  <script>
+    // Textarea auto-resize
+    document.querySelectorAll("textarea").forEach(function (el) {
+      el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
+      el.addEventListener("input", function () {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
+      });
     });
-  }
-</script>
 
+    // photo box
+    function previewPhoto(event) {
+      const photoBox = document.getElementById('photoPreview');
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          photoBox.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:contain;">`;
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Thank you + PDF generation
+    var submitted = false;
+    function showThankYou() {
+      const element = document.querySelector(".form-background");
+
+      // Hide buttons temporarily
+      const noPrintElements = document.querySelectorAll(".no-print");
+      noPrintElements.forEach(el => el.style.display = "none");
+
+      const opt = {
+        margin: 0,
+        filename: 'NDUBCC_Registration_form.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save().then(() => {
+        // Restore buttons
+        noPrintElements.forEach(el => el.style.display = "");
+
+        // Hide form & show thank-you message
+        document.getElementById("gform").style.display = "none";
+        document.getElementById("thankyou_message").style.display = "block";
+      });
+    }
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
