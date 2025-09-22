@@ -167,6 +167,28 @@
         button:hover {
             background: #00695c;
         }
+
+        /* Print settings */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  .form-background {
+    zoom: 0.8; /* Scale 80% */
+  }
+
+  /* Hide thank-you message in print */
+  #thankyou_message {
+    display: none !important;
+  }
+}
     </style>
     </head>
 
@@ -319,12 +341,13 @@
   var submitted = false;
 
   function showThankYou() {
-    document.getElementById("gform").style.display = "none";
-    document.getElementById("thankyou_message").style.display = "block";
+  // Trigger print BEFORE hiding the form
+  window.print();
 
-    // Generate PDF after thank you message
-    generatePDF();
-  }
+  // Now hide form and show thank you
+  document.getElementById("gform").style.display = "none";
+  document.getElementById("thankyou_message").style.display = "block";
+}
 
   async function generatePDF() {
     const { jsPDF } = window.jspdf;
