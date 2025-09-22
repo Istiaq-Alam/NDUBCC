@@ -306,6 +306,7 @@
         </form>
 </body>
 <script>
+    /*Script for Textbox resizing*/
     document.querySelectorAll("textarea").forEach(function(el) {
   el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
   el.addEventListener("input", function() {
@@ -313,6 +314,5 @@
     this.style.height = (this.scrollHeight) + "px";
   });
 });
-
 </script>
 </html>
