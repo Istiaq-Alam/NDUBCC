@@ -225,9 +225,10 @@
             </div>
 
             <div class="photo-row">
-                <button type="button">Upload Photo</button>
-                <div class="photo-box">PP Size Photo</div>
-            </div>
+  <input type="file" id="photoUpload" accept="image/*" onchange="previewPhoto(event)">
+  <div class="photo-box" id="photoPreview">PP Size Photo</div>
+</div>
+
 
             <p style="text-align: center;">
                 <i>The membership of the above mentioned applicant is approved</i>
@@ -251,6 +252,47 @@
             ✅ Thank you! Your registration has been recorded.
         </div>
     </div>
+
+    <!-- jsPDF + html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  async function generatePDF() {
+    const { jsPDF } = window.jspdf;
+
+    // Capture form
+    const element = document.querySelector(".form-background");
+    const canvas = await html2canvas(element, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    // Create PDF
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    // A4 size: 210 x 297 mm
+    const pageWidth = 210;
+    const pageHeight = 297;
+
+    // Scale image to fit with margins
+    const imgWidth = pageWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+    // Save as file
+    pdf.save("NDUBCC_Registration.pdf");
+  }
+
+  function showThankYou() {
+    document.getElementById("gform").style.display = "none";
+    document.getElementById("thankyou_message").style.display = "block";
+
+    // Generate PDF after thank you message
+    generatePDF();
+  }
+</script>
+
+
 </body>
 
 <script>
@@ -262,6 +304,21 @@
             this.style.height = (this.scrollHeight) + "px";
         });
     });
+
+    // photo box
+    function previewPhoto(event) {
+  const photoBox = document.getElementById('photoPreview');
+  const file = event.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      photoBox.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:contain;">`;
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
 
     // Thank you message
     var submitted = false;
