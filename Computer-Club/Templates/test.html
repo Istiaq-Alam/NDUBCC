@@ -313,7 +313,7 @@
     const imgHeight = formHeight * scale;
 
     // Position at top-center
-    const posX = 0;
+    const posX = (pageWidth - imgWidth) / 2;
     const posY = 0; // top margin removed
 
     pdf.addImage(imgData, "PNG", posX, posY, imgWidth, imgHeight);
