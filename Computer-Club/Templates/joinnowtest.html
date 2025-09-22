@@ -194,137 +194,141 @@
         <div class="form-background">
             <!-- background logo -->
             <div class="bg-logo"></div>
-            <form id="gform" class="form-container"
-                action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
-                target="hidden_iframe" onsubmit="submitted=true;" method="POST">
+                <form id="gform"
+                class="form-container"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/viewform?usp=header"
+                    
+                    method="POST"
+                    target="hidden_iframe"
+                    onsubmit="submitted=true;">
+                    <!-- ====== Header ====== -->
+                    <div class="header-bar">
+                        Notre Dame University Bangladesh
+                    </div>
 
-                <!-- ====== Header ====== -->
-                <div class="header-bar">
-                    Notre Dame University Bangladesh
+                    <div class="logo-row">
+                        <img src="../assets/img/ndubLogo.png" height="100px"
+                            width="100px" alt="NDUB Logo">
+                        <img src="../assets/img/NDUBCC-Logo.png" height="100px"
+                            width="120px" alt="NDUBCC Logo">
+                    </div>
+
+                    <div class="club-title">
+                        Notre Dame University Bangladesh Computer Club (NDUBCC)
+                        <hr>
+                    </div>
+
+                    <!-- ====== Form Fields ====== -->
+                    <div class="form-group">
+                        <label>Student ID:</label>
+                        <input type="text" name="entry.1148792901" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Student's Name:</label>
+                        <input type="text" name="entry.1674684885" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mother's Name:</label>
+                        <input type="text" name="entry.552350917" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Father's Name:</label>
+                        <input type="text" name="entry.1326660467" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <select name="entry.945839914" required>
+                            <option value>Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Student's Contact No.:</label>
+                        <input type="text" name="entry.819871481" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Guardian's Contact No.:</label>
+                        <input type="text" name="entry.893423479" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Present Semester:</label>
+                        <input type="text" name="entry.1313498895" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address:</label>
+                        <input type="email" name="entry.218947294" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Interests and Activities:</label>
+                        <textarea name="entry.126272351" rows="2"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Purpose of Joining the Club:</label>
+                        <textarea name="entry.703563326" rows="2"
+                            required></textarea>
+                    </div>
+
+                    <br>
+                    <!-- ====== Declaration Section ====== -->
+                    <div class="form-declaration">
+                        <label>
+                            <input type="checkbox" name="acknowledgement"
+                                required>
+                            I promise that I will abide by all the rules and
+                            regulations of
+                            <strong>Notre Dame University Bangladesh Computer
+                                Club.</strong>
+                            <br>If I violate any of the club rules, the club
+                            authority will have all the rights
+                            to take necessary step for me.
+                        </label>
+                    </div>
+
+                    <!-- ====== Photo Box ====== -->
+                    <div class="photo-row">
+                        <button>Upload Photo</button>
+                        <div class="photo-box">PP Size Photo</div>
+                    </div>
+                    <p style="text-align: center;">
+                        <i>The membership of the above mentioned applicant is
+                            approved</i></p>
+                    <!-- ====== Signatures ====== -->
+                    <div class="signature-section">
+                        <div>Upload<br>Applicant's Signature</div>
+                        <div>Moderator,<br>NDUBCC </div>
+                        <div>Co-Moderator,<br>NDUBCC </div>
+                    </div>
+
+                    <!-- ====== Submit Button ====== -->
+                    <div class="submit-btn">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+
+                <iframe name="hidden_iframe" id="hidden_iframe"
+                    style="display:none;"
+                    onload="if(submitted){showThankYou();}"></iframe>
+
+                <div id="thankyou_message" style="display:none;"
+                    class="alert alert-success mt-3">
+                    ✅ Thank you! Your registration has been recorded.
                 </div>
 
-                <div class="logo-row">
-                    <img src="../assets/img/ndubLogo.png" height="100px"
-                        width="100px" alt="NDUB Logo">
-                    <img src="../assets/img/NDUBCC-Logo.png" height="100px"
-                        width="120px" alt="NDUBCC Logo">
-                </div>
-
-                <div class="club-title">
-                    Notre Dame University Bangladesh Computer Club (NDUBCC)
-                    <hr>
-                </div>
-
-                <!-- ====== Form Fields ====== -->
-                <div class="form-group">
-                    <label>Student ID:</label>
-                    <input type="text" name="entry.1148792901" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Student's Name:</label>
-                    <input type="text" name="entry.1674684885" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Mother's Name:</label>
-                    <input type="text" name="entry.552350917" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Father's Name:</label>
-                    <input type="text" name="entry.1326660467" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Gender:</label>
-                    <select name="entry.945839914" required>
-                        <option value>Select</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Student's Contact No.:</label>
-                    <input type="text" name="entry.819871481" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Guardian's Contact No.:</label>
-                    <input type="text" name="entry.893423479" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Present Semester:</label>
-                    <input type="text" name="entry.1313498895" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Email Address:</label>
-                    <input type="email" name="entry.218947294" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Interests and Activities:</label>
-                    <textarea name="entry.126272351" rows="2"
-                        required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Purpose of Joining the Club:</label>
-                    <textarea name="entry.703563326" rows="2"
-                        required></textarea>
-                </div>
-
-                <br>
-                <!-- ====== Declaration Section ====== -->
-                <div class="form-declaration">
-                    <label>
-                        <input type="checkbox" name="acknowledgement" required>
-                        I promise that I will abide by all the rules and
-                        regulations of
-                        <strong>Notre Dame University Bangladesh Computer
-                            Club.</strong>
-                        <br>If I violate any of the club rules, the club
-                        authority will have all the rights
-                        to take necessary step for me.
-                    </label>
-                </div>
-
-                <!-- ====== Photo Box ====== -->
-                <div class="photo-row">
-                    <button>Upload Photo</button>
-                    <div class="photo-box">PP Size Photo</div>
-                </div>
-                <p style="text-align: center;">
-                    <i>The membership of the above mentioned applicant is
-                        approved</i></p>
-                <!-- ====== Signatures ====== -->
-                <div class="signature-section">
-                    <div>Upload<br>Applicant's Signature</div>
-                    <div>Moderator,<br>NDUBCC </div>
-                    <div>Co-Moderator,<br>NDUBCC </div>
-                </div>
-
-                <!-- ====== Submit Button ====== -->
-                <div class="submit-btn">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
-
-            <iframe name="hidden_iframe" id="hidden_iframe"
-                style="display:none;"
-                onload="if(submitted){showThankYou();}"></iframe>
-
-            <div id="thankyou_message" style="display:none;"
-                class="alert alert-success mt-3">
-                ✅ Thank you! Your registration has been recorded.
-            </div>
-
-        </body>
-        <script>
+            </body>
+            <script>
     /*Script for Textbox resizing*/
     document.querySelectorAll("textarea").forEach(function(el) {
   el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
@@ -343,4 +347,4 @@
     document.getElementById("thankyou_message").style.display = "block";
   }
 </script>
-    </html>
+        </html>
