@@ -4,7 +4,7 @@ const ads = [
         title: "💡 Think Like a Coder!",
         text: "Join our seminar: 'Think Like a Coder – An Introduction to Competitive Programming'. Learn problem-solving skills, coding techniques, and how to get started with contests. Open for all NDUB students!",
         img: "highlights/TLCoder.png",   // add a poster/banner image here
-        link: "https://www.facebook.com/share/p/your-seminar-link"  // replace with event page link
+        link: "highlights.html"  // replace with event page link
     },
     {
         title: "🎉 Congratulations to Our New Leaders!",
