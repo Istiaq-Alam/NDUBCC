@@ -295,6 +295,7 @@
                 alert("✅ Verified NDUB Student: " + email);
                 // Hide login, show registration form
                 document.querySelector(".g_id_signin").style.display = "none";
+                document.getElementById("signin-instruction").style.display = "none";
                 document.getElementById("gform").style.display = "block";
             } else {
                 alert("❌ Access denied. Please use NDUB email.");
