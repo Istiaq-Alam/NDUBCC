@@ -189,7 +189,7 @@
             data-callback="handleCredentialResponse" data-auto_select="false" data-itp_support="true">
         </div>
         <!-- Instruction Text -->
-        <h1 id="signin-instruction" style="text-align:center; margin-bottom:15px; color:#333;">
+        <h1 id="welcome" style="text-align:center; margin-bottom:15px; color:#333;">
              🎉 Welcome to the NDUB Computer Club Membership Form 🎉
         </h1> 
         <p id="signin-instruction" style="text-align:center; font-size:18px; margin-bottom:15px; color:#333;">
@@ -298,6 +298,7 @@
                 alert("✅ Verified NDUB Student: " + email);
                 // Hide login, show registration form
                 document.querySelector(".g_id_signin").style.display = "none";
+                document.getElementById("welcome").style.display = "none";
                 document.getElementById("signin-instruction").style.display = "none";
                 document.getElementById("gform").style.display = "block";
             } else {
