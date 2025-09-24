@@ -41,6 +41,7 @@ document.getElementById("popup-title").innerText = randomAd.title;
 document.getElementById("popup-text").innerText = randomAd.text;
 document.getElementById("popup-link").href = randomAd.link;
 
+
 // Show popup on page load
 window.onload = function () {
     setTimeout(() => {
@@ -49,16 +50,49 @@ window.onload = function () {
 
         popup.classList.add("active");
 
-        // Start loader animation
-        loader.style.width = "100%";
+        let totalTime = 5000; // total auto-close time
+        let remainingTime = totalTime;
+        let startTime;
+        let timer;
 
-        // Auto close after 5s
-        setTimeout(() => {
-            popup.classList.remove("active");
-            loader.style.width = "0%";
-        }, 5000);
+        // function to start timer
+        function startTimer() {
+            startTime = Date.now();
+            loader.style.transition = `width ${remainingTime}ms linear`;
+            loader.style.width = "100%";
+
+            timer = setTimeout(() => {
+                popup.classList.remove("active");
+                loader.style.width = "0%";
+            }, remainingTime);
+        }
+
+        // function to pause timer
+        function pauseTimer() {
+            clearTimeout(timer);
+            remainingTime -= Date.now() - startTime;
+
+            // stop loader progress
+            const computedWidth = getComputedStyle(loader).width;
+            loader.style.transition = "none";
+            loader.style.width = computedWidth; // freeze width
+        }
+
+        // start the countdown
+        startTimer();
+
+        const popupCard = document.getElementById("popup-box");
+
+        // pause on hover (only card)
+        popupCard.addEventListener("mouseenter", pauseTimer);
+
+        // resume on mouse leave (only card)
+        popupCard.addEventListener("mouseleave", startTimer);
+
+
     }, 1000);
 };
+
 
 // Manual close
 function closePopup() {
