@@ -22,8 +22,8 @@ This project represents our university computer club, showcasing events, members
 - **Frontend:** HTML, CSS, JavaScript 
 - **UI Framework:** TailwindCSS / Bootstrap 
 - **Backend:** Google Backend
-- **Database:** not implemented
-- **Hosting:** Vercel (for frontend) and Supabase/MongoDB Atlas (for backend + database)
+- **Database:** Google Database
+- **Hosting:** Cloudflare (for frontend + Security) 
 
 ---
 
@@ -96,9 +96,13 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 ## 🎯Next Target
-* Club Gallery :white_check_mark:
-* Present committe profile link
-* Activity Pages
-* previous committee pages
-* Alumni pages
+* Club Membership form ✅
+* Membership form authentication ✅
+* Contact Form ✅
+* Backend ⛏️
+* Club Gallery ✅
+* ~~Present committe profile link~~
+* Activity Pages ⛏️
+* ~~previous committee pages~~
+* ~~Alumni pages~~
 
