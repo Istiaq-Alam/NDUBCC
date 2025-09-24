@@ -23,7 +23,7 @@ on going 30.10% progression
 - 17-07-25 : Event page connected with seminars
 
 
-# NDUBCC Mail Should Include This : 
+# 24-09-25 : NDUBCC Mail Should Include This : 
 1. Github -- Website Project
 2. Cloudflare -- Website Host
 3. Google Cloud -- authentication 
