@@ -81,11 +81,13 @@
 .popup-btn:hover {
     background: #217dbb;
 }
-#popup-img {
-    width: 100%;      /* fill popup width */
-    max-width: 400px; /* limit image size */
-    height: auto;     /* keep proportions */
+
+/* #popup-img {
+    width: 100%;      /* fill popup width 
+    max-width: 400px; /* limit image size 
+    height: auto;     /* keep proportions 
 }
+*/
 
 
 .popup-box .close-btn {
