@@ -1,6 +1,12 @@
 // List of ads/news with links
 const ads = [
     {
+        title: "💡 Think Like a Coder!",
+        text: "Join our seminar: 'Think Like a Coder – An Introduction to Competitive Programming'. Learn problem-solving skills, coding techniques, and how to get started with contests. Open for all NDUB students!",
+        img: "highlights/TLCoder.png",   // add a poster/banner image here
+        link: "https://www.facebook.com/share/p/your-seminar-link"  // replace with event page link
+    },
+    {
         title: "🎉 Congratulations to Our New Leaders!",
         text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
         img: "highlights/mod.png",
@@ -11,7 +17,7 @@ const ads = [
         text: "We are delighted to announce the newly selected Co-Moderator of NDUB Computer Club. Let's welcome them with pride!",
         img: "highlights/co-mod.png",
         link: "https://www.facebook.com/share/p/1Bp6JGWQ5P/"  // link to event page
-    }, 
+    },
     /*{
         title: "🚀 12th Executive Committee",
         text: "Notre Dame University Computer Club has announced our 12th Executive Committee members",
@@ -22,7 +28,7 @@ const ads = [
         title: "📢 Club Registration Open",
         text: "Become a part of NDUB Computer Club and explore new opportunities!",
         img: "assets/img/cat-1.jpeg",
-        link: "about.html"
+        link: "joinnow.html"
     }*/
 ];
 
