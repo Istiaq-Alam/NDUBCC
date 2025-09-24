@@ -6,7 +6,7 @@ const ads = [
         img: "highlights/TLCoder.png",   // add a poster/banner image here
         link: "highlights.html"  // replace with event page link
     },
-    {
+    /*{
         title: "🎉 Congratulations to Our New Leaders!",
         text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
         img: "highlights/mod.png",
@@ -18,7 +18,7 @@ const ads = [
         img: "highlights/co-mod.png",
         link: "https://www.facebook.com/share/p/1Bp6JGWQ5P/"  // link to event page
     },
-    /*{
+    {
         title: "🚀 12th Executive Committee",
         text: "Notre Dame University Computer Club has announced our 12th Executive Committee members",
         img: "assets/img/executive/Executive-Committe.jpg",
