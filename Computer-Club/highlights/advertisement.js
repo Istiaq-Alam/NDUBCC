@@ -30,7 +30,7 @@ const ads = [
         img: "assets/img/executive/Executive-Committe.jpg",
         link: "committee.html"
     },*/
-   
+
 ];
 
 // Pick random ad
@@ -84,11 +84,14 @@ window.onload = function () {
 
         const popupCard = document.getElementById("popup-box");
 
-        // pause on hover (only card)
+        // Pause + resume with mouse (desktop)
         popupCard.addEventListener("mouseenter", pauseTimer);
-
-        // resume on mouse leave (only card)
         popupCard.addEventListener("mouseleave", startTimer);
+
+        // Pause + resume with touch (mobile)
+        popupCard.addEventListener("touchstart", pauseTimer);
+        popupCard.addEventListener("touchend", startTimer);
+
 
 
     }, 1000);
