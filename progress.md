@@ -1,6 +1,6 @@
 # NDUBCC
 Notre Dame University Bangladesh Computer Club Website portal
-on going 15.10% progression 
+on going 30.10% progression 
 
 - 29-06-25 : Final template ready 
 - 30-06-25 : Template editing on going 
@@ -21,3 +21,13 @@ on going 15.10% progression
 - 15-07-25 : event.html fixed + cwf.html page completed 100%
 - 16-07-25 : Files and Folder Fixed
 - 17-07-25 : Event page connected with seminars
+
+
+# 24-09-25 : NDUBCC Mail Should Include This : 
+1. Github -- Website Project
+2. Cloudflare -- Website Host
+3. Google Cloud -- authentication 
+4. Google form -- club From
+5. Google Sheet -- Backend data
+6. Formspree.io -- Contact form
+7. 
