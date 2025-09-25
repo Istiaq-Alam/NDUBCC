@@ -142,35 +142,21 @@
             align-items: center;
             margin-bottom: 20px;
         }
-
-        .signature-section {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .signature-section div {
-            width: 30%;
-            border-top: 1px solid #000;
-            padding-top: 5px;
-        }
-
-        .signature-row {
+.signature-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 30px;
   text-align: center;
+  gap: 20px; /* space between boxes */
 }
 
 .signature-box {
-  width: 220px;
-  position: relative;
+  flex: 1;              /* <-- makes it responsive */
+  min-width: 150px;     /* prevents shrinking too small */
 }
 
 .signature-preview {
-  height: 60px; /* space reserved for signature image */
+  height: 60px; /* reserved space for uploaded signature */
   margin-bottom: 2px;
 }
 .signature-preview img {
@@ -188,6 +174,7 @@
   font-size: 14px;
   color: #333;
   cursor: pointer;
+  white-space: nowrap;
 }
 .signature-line:hover {
   color: #0073e6;
@@ -315,7 +302,7 @@
             onchange="previewPhoto(event)">
           <div class="photo-box" id="photoPreview">PP Size Photo</div>
         </div>
-        <p style="text-align: right;"><i>The membership of the above mentioned
+        <p style="text-align: center;"><i>The membership of the above mentioned
             applicant is approved</i></p>
 
         <!-- Signature Section -->
@@ -329,7 +316,7 @@
 
             <!-- Preview (image sits above the line) -->
             <div class="signature-preview">
-              <img id="signatureImage" alt="Signature" />
+              <img id="signatureImage"/>
             </div>
 
             <!-- Line + label -->
