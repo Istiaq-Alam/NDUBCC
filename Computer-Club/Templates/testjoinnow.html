@@ -152,19 +152,24 @@
 }
 
 .signature-box {
-  flex: 1;              /* <-- makes it responsive */
-  min-width: 150px;     /* prevents shrinking too small */
+  flex: 1;
+  min-width: 150px;
 }
 
+/* Keep reserved space for uploaded signature (2:5 ratio) */
 .signature-preview {
-  height: 60px; /* reserved space for uploaded signature */
+  width: 100%;
+  aspect-ratio: 5 / 2;   /* ✅ ensures 2:5 ratio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 2px;
 }
+
 .signature-preview img {
-  max-height: 100%;
   max-width: 100%;
-  display: block;
-  margin: 0 auto;
+  max-height: 100%;
+  object-fit: contain;   /* ✅ keeps proportions inside the box */
 }
 
 /* Line + text */
@@ -322,7 +327,7 @@
                         mentioned
                         applicant is approved</i></p>
 
-                <!-- Signature Section should copy.. works--> 
+                <!-- Signature Section should copy.. works-->
 
                 <div class="signature-row">
                     <!-- Applicant Signature -->
@@ -332,15 +337,14 @@
                             style="display:none"
                             onchange="previewSignature(event)">
 
-                        <!-- Preview (image sits above the line) -->
+                        <!-- Preview (signature in fixed ratio) -->
                         <div class="signature-preview">
-                            <img id="signatureImage" />
+                            <img id="signatureImage"/>
                         </div>
 
                         <!-- Line + label -->
                         <label for="signatureUpload"
-                            class="signature-line">Applicant's
-                            Signature</label>
+                            class="signature-line">Applicant's Signature</label>
                     </div>
 
                     <!-- Moderator -->
