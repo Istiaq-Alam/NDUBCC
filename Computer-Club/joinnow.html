@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1024">
-    <meta name="description" content="NDUBCC Member Registration Form">
-    <title>NDUBCC Registration Form</title>
-    <link href="assets/img/NDUBCC-Logo.png" rel="icon">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1024">
+        <meta name="description" content="NDUBCC Member Registration Form">
+        <title>NDUBCC Registration Form</title>
+        <link href="assets/img/NDUBCC-Logo.png" rel="icon">
 
-    <style>
+        <style>
         body {
             font-family: "Times New Roman", serif;
             background-color: #dcf7ff;
@@ -126,36 +126,62 @@
         }
 
         .photo-box {
+            align-items: right;
             width: 120px;
             height: 150px;
             border: 1px solid #d1cccc;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             line-height: 150px;
-            font-size: 12px;
+            font-size: 14px;
             margin-left: 20px;
         }
-
+        .photo-box:hover {
+            color: #0073e6;
+        }
         .photo-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
+    .signature-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    text-align: center;
+    gap: 20px; /* space between boxes */
+    }
 
-        .signature-section {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            text-align: center;
-            font-size: 14px;
-        }
+.signature-box {
+  flex: 1;              /* <-- makes it responsive */
+  min-width: 150px;     /* prevents shrinking too small */
+}
 
-        .signature-section div {
-            width: 30%;
-            border-top: 1px solid #000;
-            padding-top: 5px;
-        }
+.signature-preview {
+  height: 60px; /* reserved space for uploaded signature */
+  margin-bottom: 2px;
+}
+.signature-preview img {
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Line + text */
+.signature-line {
+  display: block;
+  border-top: 1px solid black;
+  padding-top: 2px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.signature-line:hover {
+  color: #0073e6;
+}
 
         .submit-btn {
             text-align: center;
@@ -176,132 +202,206 @@
             background: #00695c;
         }
     </style>
-</head>
+    </head>
 
-<body>
-    <!--Google Athuntication Start-->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <div class="form-background" id="formBackground">
-        <div class="bg-logo">
-    </div>
-        <div id="g_id_onload" data-client_id="855685853505-ar2k57urk9oe0971hqb2p2nqf7rvggpb.apps.googleusercontent.com"
-            data-callback="handleCredentialResponse" data-auto_select="false" data-itp_support="true">
-        </div>
-        <!-- Instruction Text -->
-        <h1 id="welcome" style="text-align:center; margin-bottom:15px; color:#333;">
-              Welcome to the NDUB Computer Club Membership Form 
-        </h1> 
-        <!--<p id="signin-instruction" style="text-align:center; font-size:18px; margin-bottom:15px; color:#333;">
+    <body>
+        <!--Google Athuntication Start-->
+        <script src="https://accounts.google.com/gsi/client" async
+            defer></script>
+        <div class="form-background" id="formBackground">
+            <div class="bg-logo">
+            </div>
+            <div id="g_id_onload"
+                data-client_id="855685853505-ar2k57urk9oe0971hqb2p2nqf7rvggpb.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse"
+                data-auto_select="false" data-itp_support="true">
+            </div>
+            <!-- Instruction Text -->
+            <h1 id="welcome"
+                style="text-align:center; margin-bottom:15px; color:#333;">
+                Welcome to the NDUB Computer Club Membership Form
+            </h1>
+            <!--<p id="signin-instruction" style="text-align:center; font-size:18px; margin-bottom:15px; color:#333;">
             Please sign in using your <strong>@student.ndub.edu.bd</strong> email to continue.
         </p>-->
-        <div id="signin-instruction" style="text-align:center; margin-bottom:20px; color:#333; font-size:18px;">
-    <h2 style="color:#064420; margin-bottom:10px;">📋 Instructions for Registration</h2>
-    <ul style="list-style-type:decimal; text-align:left; max-width:600px; margin:0 auto; line-height:1.6;">
-        <li>Sign in using your <strong>NDUB student email</strong> 
-            (<mail>yourname@student.ndub.edu.bd</mail>).</li>
-        <li>After verification, the registration form will appear.</li>
-        <li>Fill in all the fields carefully with correct information.</li>
-        <li>Upload a recent passport-size photo in the photo box.</li>
-        <li>Check the declaration box before submitting the form.</li>
-        <li>Once submitted, your filled form will automatically 
-            <i>download as a PDF</i> with your Student ID.</li>
-        <li>Keep the downloaded PDF as proof of your registration. And handover the printed copy to the NDUB Computer Club</li>
-    </ul>
-    <p style="margin-top:15px; font-weight:bold; color:#444;">
-        👉 Please follow the instructions carefully to avoid rejection.
-    </p>
-</div>
+            <div id="signin-instruction"
+                style="text-align:center; margin-bottom:20px; color:#333; font-size:18px;">
+                <h2 style="color:#064420; margin-bottom:10px;">📋 Instructions
+                    for Registration</h2>
+                <ul
+                    style="list-style-type:decimal; text-align:left; max-width:600px; margin:0 auto; line-height:1.6;">
+                    <li>Sign in using your <strong>NDUB student email</strong>
+                        (<mail>yourname@student.ndub.edu.bd</mail>).</li>
+                    <li>After verification, the registration form will
+                        appear.</li>
+                    <li>Fill in all the fields carefully with correct
+                        information.</li>
+                    <li>Upload a recent passport-size photo in the photo
+                        box.</li>
+                    <li>Check the declaration box before submitting the
+                        form.</li>
+                    <li>Once submitted, your filled form will automatically
+                        <i>download as a PDF</i> with your Student ID.</li>
+                    <li>Keep the downloaded PDF as proof of your registration.
+                        And handover the printed copy to the NDUB Computer
+                        Club</li>
+                </ul>
+                <p style="margin-top:15px; font-weight:bold; color:#444;">
+                    👉 Please follow the instructions carefully to avoid
+                    rejection.
+                </p>
+            </div>
 
-        <!-- Google Sign In Button -->
-        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
-            data-text="signin_with" data-size="large" data-logo_alignment="left">
+            <!-- Google Sign In Button -->
+            <div class="g_id_signin" data-type="standard"
+                data-shape="rectangular" data-theme="outline"
+                data-text="signin_with" data-size="large"
+                data-logo_alignment="left">
+            </div>
+            <!--Google Athuntication Start-->
+
+            <!--Club Membership Form Start-->
+            <form id="gform" class="form-container"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
+                method="POST" target="hidden_iframe"
+                onsubmit="return handleSubmit(event)" style="display:none;"">
+                <div class=" header-bar">Notre Dame University Bangladesh</div>
+
+                <div class="logo-row">
+                    <img src="../assets/img/ndubLogo.png" height="100px"
+                        width="100px" alt="NDUB Logo">
+                    <img src="../assets/img/NDUBCC-Logo.png" height="100px"
+                        width="120px" alt="NDUBCC Logo">
+                </div>
+
+                <div class="club-title">Notre Dame University Bangladesh
+                    Computer Club (NDUBCC)
+                    <hr>
+                </div>
+
+                <!-- Form Fields -->
+                <div class="form-group"><label>Student ID:</label><input
+                        id="studentId" type="text" name="entry.1148792901"
+                        required></div>
+                <div class="form-group"><label>Student's Name:</label><input
+                        type="text" name="entry.1674684885" required>
+                </div>
+                <div class="form-group"><label>Mother's Name:</label><input
+                        type="text" name="entry.552350917" required>
+                </div>
+                <div class="form-group"><label>Father's Name:</label><input
+                        type="text" name="entry.1326660467" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <select name="entry.945839914" required>
+                        <option value>Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Student's Contact
+                        No.:</label><input type="text" name="entry.819871481"
+                        required>
+                </div>
+                <div class="form-group"><label>Guardian's Contact
+                        No.:</label><input type="text" name="entry.893423479"
+                        required>
+                </div>
+                <div class="form-group"><label>Present Semester:</label><input
+                        type="text" name="entry.1313498895" required>
+                </div>
+                <div class="form-group"><label>Email Address:</label><input
+                        type="email" name="entry.218947294" required>
+                </div>
+                <div class="form-group"><label>Interests and
+                        Activities:</label><textarea name="entry.126272351"
+                        rows="2"
+                        required></textarea></div>
+                <div class="form-group"><label>Purpose of Joining the
+                        Club:</label><textarea name="entry.703563326" rows="2"
+                        required></textarea></div>
+
+                <div class="form-declaration">
+                    <label>
+                        <input type="checkbox" name="acknowledgement" required>
+                        I promise that I will abide by all the rules and
+                        regulations of <strong>Notre Dame University
+                            Bangladesh Computer Club.</strong><br>If I violate
+                        any of the club rules, the club authority
+                        will have all the rights to take necessary step for me.
+                    </label>
+                </div>
+
+                <div class="photo-row">
+                    <div></div>
+                    <p style="text-align: center;"><i>The membership of the
+                            above
+                            mentioned
+                            applicant is approved</i></p>
+                    <input type="file" id="UploadPP" accept="image/*"
+                        style="display:none"
+                        onchange="previewPhoto(event)">
+                    <div class="photo-box" id="photoPreview">
+                        <label for="UploadPP" style="cursor: pointer;">Upload
+                            Photo</label></div>
+                </div>
+
+                <!-- Signature Section should copy..-->
+
+                <div class="signature-row">
+                    <!-- Applicant Signature -->
+                    <div class="signature-box">
+                        <!-- Hidden file input -->
+                        <input type="file" id="signatureUpload" accept="image/*"
+                            style="display:none"
+                            onchange="previewSignature(event)">
+
+                        <!-- Preview (image sits above the line) -->
+                        <div class="signature-preview">
+                            <img id="signatureImage" />
+                        </div>
+
+                        <!-- Line + label -->
+                        <label for="signatureUpload"
+                            class="signature-line">Applicant's
+                            Signature</label>
+                    </div>
+
+                    <!-- Moderator -->
+                    <div class="signature-box">
+                        <div class="signature-preview"></div>
+                        <div class="signature-line">Moderator,<br>NDUBCC</div>
+                    </div>
+
+                    <!-- Co-Moderator -->
+                    <div class="signature-box">
+                        <div class="signature-preview"></div>
+                        <div
+                            class="signature-line">Co-Moderator,<br>NDUBCC</div>
+                    </div>
+                </div>
+
+                <div class="submit-btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+            <div id="thankyou_message"
+                style="display:none; text-align:center; margin-top:20px;">
+                ✅ Thank you! Your registration has been recorded. <br>
+                📄 PDF Generated by NDUBCC
+            </div>
         </div>
-        <!--Google Athuntication Start-->
 
-        <!--Club Membership Form Start-->
-        <form id="gform" class="form-container"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
-            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)" style="display:none;"">
-            <div class=" header-bar">Notre Dame University Bangladesh</div>
+        <!-- JS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <div class="logo-row">
-        <img src="../assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
-        <img src="../assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
-    </div>
-
-    <div class="club-title">Notre Dame University Bangladesh Computer Club (NDUBCC)
-        <hr>
-    </div>
-
-    <!-- Form Fields -->
-    <div class="form-group"><label>Student ID:</label><input id="studentId" type="text" name="entry.1148792901"
-            required></div>
-    <div class="form-group"><label>Student's Name:</label><input type="text" name="entry.1674684885" required>
-    </div>
-    <div class="form-group"><label>Mother's Name:</label><input type="text" name="entry.552350917" required>
-    </div>
-    <div class="form-group"><label>Father's Name:</label><input type="text" name="entry.1326660467" required>
-    </div>
-    <div class="form-group">
-        <label>Gender:</label>
-        <select name="entry.945839914" required>
-            <option value>Select</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-        </select>
-    </div>
-    <div class="form-group"><label>Student's Contact No.:</label><input type="text" name="entry.819871481" required>
-    </div>
-    <div class="form-group"><label>Guardian's Contact No.:</label><input type="text" name="entry.893423479" required>
-    </div>
-    <div class="form-group"><label>Present Semester:</label><input type="text" name="entry.1313498895" required>
-    </div>
-    <div class="form-group"><label>Email Address:</label><input type="email" name="entry.218947294" required>
-    </div>
-    <div class="form-group"><label>Interests and Activities:</label><textarea name="entry.126272351" rows="2"
-            required></textarea></div>
-    <div class="form-group"><label>Purpose of Joining the Club:</label><textarea name="entry.703563326" rows="2"
-            required></textarea></div>
-
-    <div class="form-declaration">
-        <label>
-            <input type="checkbox" name="acknowledgement" required>
-            I promise that I will abide by all the rules and regulations of <strong>Notre Dame University
-                Bangladesh Computer Club.</strong><br>If I violate any of the club rules, the club authority
-            will have all the rights to take necessary step for me.
-        </label>
-    </div>
-
-    <div class="photo-row">
-        <input type="file" id="photoUpload" accept="image/*" onchange="previewPhoto(event)">
-        <div class="photo-box" id="photoPreview">PP Size Photo</div>
-    </div>
-
-    <p style="text-align: center;"><i>The membership of the above mentioned applicant is approved</i></p>
-
-    <div class="signature-section">
-        <div>Applicant's Signature</div>
-        <div>Moderator,<br>NDUBCC</div>
-        <div>Co-Moderator,<br>NDUBCC</div>
-    </div>
-
-    <div class="submit-btn">
-        <button type="submit">Submit</button>
-    </div>
-    </form>
-
-    <div id="thankyou_message" style="display:none; text-align:center; margin-top:20px;">
-        ✅ Thank you! Your registration has been recorded. <br>
-        📄 PDF Generated by NDUBCC
-    </div>
-    </div>
-
-    <!-- JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-    <script>
+        <script>
         function handleCredentialResponse(response) {
             // Decode JWT (Google sends user info in ID token)
             const data = parseJwt(response.credential);
@@ -334,9 +434,7 @@
         }
     </script>
 
-
-
-    <script>
+        <script>
         // Textarea auto-resize
         document.querySelectorAll("textarea").forEach(el => {
             el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
@@ -358,6 +456,11 @@
                 reader.readAsDataURL(file);
             }
         }
+        // Signature preview should copy
+        function previewSignature(event) {
+  const img = document.getElementById('signatureImage');
+  img.src = URL.createObjectURL(event.target.files[0]);
+}
 
         // Handle submit
         async function handleSubmit(event) {
@@ -417,6 +520,6 @@
         }
 
     </script>
-</body>
+    </body>
 
 </html>
