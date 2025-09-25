@@ -157,20 +157,25 @@
             padding-top: 5px;
         }
 
-        signature-box {
+        .signature-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
   text-align: center;
-  display: inline-block;
-  margin: 0 20px;
 }
 
-/* Image above the line */
+.signature-box {
+  width: 220px;
+  position: relative;
+}
+
 .signature-preview {
-  height: 60px; /* adjust for your form */
+  height: 60px; /* space reserved for signature image */
   margin-bottom: 2px;
 }
 .signature-preview img {
   max-height: 100%;
-  max-width: 200px;
+  max-width: 100%;
   display: block;
   margin: 0 auto;
 }
@@ -179,8 +184,6 @@
 .signature-line {
   display: block;
   border-top: 1px solid black;
-  width: 220px;
-  margin: 0 auto;
   padding-top: 2px;
   font-size: 14px;
   color: #333;
@@ -317,24 +320,34 @@
 
         <!-- Signature Section -->
 
-        <div class="signature-section">
+        <div class="signature-row">
+          <!-- Applicant Signature -->
           <div class="signature-box">
             <!-- Hidden file input -->
             <input type="file" id="signatureUpload" accept="image/*"
               style="display:none" onchange="previewSignature(event)">
 
-            <!-- Signature preview area (red box position) -->
+            <!-- Preview (image sits above the line) -->
             <div class="signature-preview">
               <img id="signatureImage" alt="Signature" />
             </div>
 
-            <!-- Line + clickable text (green box) -->
+            <!-- Line + label -->
             <label for="signatureUpload" class="signature-line">Applicant's
               Signature</label>
           </div>
 
-          <div>Moderator,<br>NDUBCC</div>
-          <div>Co-Moderator,<br>NDUBCC</div>
+          <!-- Moderator -->
+          <div class="signature-box">
+            <div class="signature-preview"></div>
+            <div class="signature-line">Moderator,<br>NDUBCC</div>
+          </div>
+
+          <!-- Co-Moderator -->
+          <div class="signature-box">
+            <div class="signature-preview"></div>
+            <div class="signature-line">Co-Moderator,<br>NDUBCC</div>
+          </div>
         </div>
 
         <div class="submit-btn">
