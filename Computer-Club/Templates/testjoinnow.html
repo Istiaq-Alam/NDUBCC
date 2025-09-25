@@ -312,11 +312,14 @@
                     </label>
                 </div>
 
-                <div class="photo-row">
-                    <input type="file" id="photoUpload" accept="image/*"
-                        onchange="previewPhoto(event)">
-                    <div class="photo-box" id="photoPreview">Upload PP Size
-                        Photo</div>
+                <div class="photo-row"> Any note :
+                    <input>
+                        <input type="file" id="UploadPP" accept="image/*"
+                            style="display:none"
+                            onchange="previewPhoto(event)">
+                    <div class="photo-box" id="photoPreview">
+                        <label for="UploadPP">Upload
+                        Photo</label></div>
                 </div>
                 <p style="text-align: center;"><i>The membership of the above
                         mentioned
