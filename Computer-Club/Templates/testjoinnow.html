@@ -133,23 +133,25 @@
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             line-height: 150px;
-            font-size: 12px;
+            font-size: 14px;
             margin-left: 20px;
         }
-
+        .photo-box:hover {
+            color: #0073e6;
+        }
         .photo-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-.signature-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-  text-align: center;
-  gap: 20px; /* space between boxes */
-}
+    .signature-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    text-align: center;
+    gap: 20px; /* space between boxes */
+    }
 
 .signature-box {
   flex: 1;              /* <-- makes it responsive */
@@ -312,20 +314,21 @@
                     </label>
                 </div>
 
-                <div class="photo-row"> 
-                    <p style="text-align: center;"><i>The membership of the above
-                        mentioned
-                        applicant is approved</i></p>
-                        <input type="file" id="UploadPP" accept="image/*"
-                            style="display:none"
-                            onchange="previewPhoto(event)">
+                <div class="photo-row">
+                    <div></div>
+                    <p style="text-align: center;"><i>The membership of the
+                            above
+                            mentioned
+                            applicant is approved</i></p>
+                    <input type="file" id="UploadPP" accept="image/*"
+                        style="display:none"
+                        onchange="previewPhoto(event)">
                     <div class="photo-box" id="photoPreview">
-                        <label for="UploadPP">Upload
-                        Photo</label></div>
+                        <label for="UploadPP" style="cursor: pointer;">Upload
+                            Photo</label></div>
                 </div>
-                
 
-                <!-- Signature Section should copy..--> 
+                <!-- Signature Section should copy..-->
 
                 <div class="signature-row">
                     <!-- Applicant Signature -->
