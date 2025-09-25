@@ -157,6 +157,33 @@
             padding-top: 5px;
         }
 
+        .signature-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #signaturePreview {
+            display: block;
+            max-width: 200px;
+            max-height: 100px;
+            margin: 0 auto 5px auto;
+        }
+
+        .signature-line {
+            border-top: 1px solid black;
+            width: 220px;
+            margin: 5px auto 0 auto;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            /* Makes text clickable */
+        }
+
+        .signature-line:hover {
+            color: #0073e6;
+        }
+
         .submit-btn {
             text-align: center;
             margin-top: 40px;
@@ -179,113 +206,129 @@
 </head>
 
 <body>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!--<script src="https://accounts.google.com/gsi/client" async defer></script>-->
 
 
     <div class="form-background" id="formBackground">
         <div class="bg-logo"></div>
 
-        <div id="g_id_onload" data-client_id="855685853505-ar2k57urk9oe0971hqb2p2nqf7rvggpb.apps.googleusercontent.com"
+        <!--<div id="g_id_onload" data-client_id="855685853505-ar2k57urk9oe0971hqb2p2nqf7rvggpb.apps.googleusercontent.com"
             data-callback="handleCredentialResponse" data-auto_select="false" data-itp_support="true">
         </div>
-        <!-- Instruction Text -->
+         Instruction Text 
         <h1 id="welcome" style="text-align:center; margin-bottom:15px; color:#333;">
              🎉 Welcome to the NDUB Computer Club Membership Form 🎉
         </h1> 
         <p id="signin-instruction" style="text-align:center; font-size:18px; margin-bottom:15px; color:#333;">
             Please sign in using your <strong>@student.ndub.edu.bd</strong> email to continue.
-        </p>
+        </p>-->
 
-        <!-- Google Sign In Button -->
+        <!-- Google Sign In Button 
         <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
             data-text="signin_with" data-size="large" data-logo_alignment="left">
-        </div>
+        </div>-->
 
         <form id="gform" class="form-container"
             action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
-            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)" style="display:none;"">
+            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)"> <!--style="display:none;"-->
 
             <div class=" header-bar">Notre Dame University Bangladesh
-    </div>
+            </div>
 
-    <div class="logo-row">
-        <img src="../assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
-        <img src="../assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
-    </div>
+            <div class="logo-row">
+                <img src="../assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
+                <img src="../assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
+            </div>
 
-    <div class="club-title">Notre Dame University Bangladesh Computer Club (NDUBCC)
-        <hr>
-    </div>
+            <div class="club-title">Notre Dame University Bangladesh Computer Club (NDUBCC)
+                <hr>
+            </div>
 
-    <!-- Form Fields -->
-    <div class="form-group"><label>Student ID:</label><input id="studentId" type="text" name="entry.1148792901"
-            required></div>
-    <div class="form-group"><label>Student's Name:</label><input type="text" name="entry.1674684885" required>
-    </div>
-    <div class="form-group"><label>Mother's Name:</label><input type="text" name="entry.552350917" required>
-    </div>
-    <div class="form-group"><label>Father's Name:</label><input type="text" name="entry.1326660467" required>
-    </div>
-    <div class="form-group">
-        <label>Gender:</label>
-        <select name="entry.945839914" required>
-            <option value>Select</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-        </select>
-    </div>
-    <div class="form-group"><label>Student's Contact No.:</label><input type="text" name="entry.819871481" required>
-    </div>
-    <div class="form-group"><label>Guardian's Contact No.:</label><input type="text" name="entry.893423479" required>
-    </div>
-    <div class="form-group"><label>Present Semester:</label><input type="text" name="entry.1313498895" required>
-    </div>
-    <div class="form-group"><label>Email Address:</label><input type="email" name="entry.218947294" required>
-    </div>
-    <div class="form-group"><label>Interests and Activities:</label><textarea name="entry.126272351" rows="2"
-            required></textarea></div>
-    <div class="form-group"><label>Purpose of Joining the Club:</label><textarea name="entry.703563326" rows="2"
-            required></textarea></div>
+            <!-- Form Fields -->
+            <div class="form-group"><label>Student ID:</label><input id="studentId" type="text" name="entry.1148792901"
+                    required></div>
+            <div class="form-group"><label>Student's Name:</label><input type="text" name="entry.1674684885" required>
+            </div>
+            <div class="form-group"><label>Mother's Name:</label><input type="text" name="entry.552350917" required>
+            </div>
+            <div class="form-group"><label>Father's Name:</label><input type="text" name="entry.1326660467" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <select name="entry.945839914" required>
+                    <option value>Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group"><label>Student's Contact No.:</label><input type="text" name="entry.819871481"
+                    required>
+            </div>
+            <div class="form-group"><label>Guardian's Contact No.:</label><input type="text" name="entry.893423479"
+                    required>
+            </div>
+            <div class="form-group"><label>Present Semester:</label><input type="text" name="entry.1313498895" required>
+            </div>
+            <div class="form-group"><label>Email Address:</label><input type="email" name="entry.218947294" required>
+            </div>
+            <div class="form-group"><label>Interests and Activities:</label><textarea name="entry.126272351" rows="2"
+                    required></textarea></div>
+            <div class="form-group"><label>Purpose of Joining the Club:</label><textarea name="entry.703563326" rows="2"
+                    required></textarea></div>
 
-    <div class="form-declaration">
-        <label>
-            <input type="checkbox" name="acknowledgement" required>
-            I promise that I will abide by all the rules and regulations of <strong>Notre Dame University
-                Bangladesh Computer Club.</strong><br>If I violate any of the club rules, the club authority
-            will have all the rights to take necessary step for me.
-        </label>
-    </div>
+            <div class="form-declaration">
+                <label>
+                    <input type="checkbox" name="acknowledgement" required>
+                    I promise that I will abide by all the rules and regulations of <strong>Notre Dame University
+                        Bangladesh Computer Club.</strong><br>If I violate any of the club rules, the club authority
+                    will have all the rights to take necessary step for me.
+                </label>
+            </div>
 
-    <div class="photo-row">
-        <input type="file" id="photoUpload" accept="image/*" onchange="previewPhoto(event)">
-        <div class="photo-box" id="photoPreview">PP Size Photo</div>
-    </div>
+            <div class="photo-row">
+                <input type="file" id="photoUpload" accept="image/*" onchange="previewPhoto(event)">
+                <div class="photo-box" id="photoPreview">PP Size Photo</div>
+            </div>
+            <p style="text-align: right;"><i>The membership of the above mentioned applicant is approved</i></p>
 
-    <p style="text-align: center;"><i>The membership of the above mentioned applicant is approved</i></p>
+            <!-- Signature Section -->
 
-    <div class="signature-section">
-        <div>Applicant's Signature</div>
-        <div>Moderator,<br>NDUBCC</div>
-        <div>Co-Moderator,<br>NDUBCC</div>
-    </div>
+            <div class="signature-section">
+                <div class="signature-box">
+                    <!-- Hidden file input -->
+                    <input type="file" id="signatureUpload" accept="image/*" style="display:none"
+                        onchange="previewSignature(event)">
 
-    <div class="submit-btn">
-        <button type="submit">Submit</button>
-    </div>
-    </form>
+                    <!-- Signature preview -->
+                    <img id="signaturePreview" alt="Signature Preview" />
 
-    <div id="thankyou_message" style="display:none; text-align:center; margin-top:20px;">
-        ✅ Thank you! Your registration has been recorded. <br>
-        📄 PDF Generated by NDUBCC
-    </div>
+                    <!-- Clickable signature line -->
+                    <label for="signatureUpload" class="signature-line">Applicant Signature</label>
+                </div>
+
+                <div>Moderator,<br>NDUBCC</div>
+                <div>Co-Moderator,<br>NDUBCC</div>
+            </div>
+
+
+
+            <div class="submit-btn">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div id="thankyou_message" style="display:none; text-align:center; margin-top:20px;">
+            ✅ Thank you! Your registration has been recorded. <br>
+            📄 PDF Generated by NDUBCC
+        </div>
     </div>
 
     <!-- JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <script>
+    <!--<script>
         function handleCredentialResponse(response) {
             // Decode JWT (Google sends user info in ID token)
             const data = parseJwt(response.credential);
@@ -316,7 +359,7 @@
             }).join(''));
             return JSON.parse(jsonPayload);
         }
-    </script>
+    </script> -->
 
 
 
@@ -342,6 +385,14 @@
                 reader.readAsDataURL(file);
             }
         }
+        // Signature preview
+        function previewSignature(event) {
+            const signaturePreview = document.getElementById('signaturePreview');
+            signaturePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+
+
 
         // Handle submit
         async function handleSubmit(event) {
