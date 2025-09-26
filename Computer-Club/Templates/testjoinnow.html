@@ -263,6 +263,7 @@
             </div>
             <div class="form-group"><label>Father's Name:</label><input type="text" name="entry.1326660467" required>
             </div>
+            
             <div class="form-group">
                 <label>Gender:</label>
                 <select name="entry.945839914" required>
@@ -348,6 +349,7 @@
             <div class="submit-btn">
                 <button type="submit">Submit</button>
             </div>
+            <input style="border: none;" type="text" id="regNoInput" name="entry.538845284">
         </form>
 
         <div id="thankyou_message" style="display:none; text-align:center; margin-top:20px;">
@@ -357,9 +359,7 @@
         <!--Time Stamp-->
         <p id="pdfTimestamp" style="text-align:right; font-size:12px; margin-top:10px; display:none;"></p>
         <!--Registration no.-->
-        <p id="pdfRegNo" style="font-size : 12px; position:absolute; top: 1060px; right:50px;">
-            <input type="hidden" id="regNoInput" name="entry.538845284">
-        </p>
+        <p id="pdfRegNo" style="font-size : 12px; position:absolute; top: 1060px; right:50px;">REG-</p>
     </div>
 
     <!-- JS -->
@@ -444,17 +444,20 @@
                 hour: "2-digit", minute: "2-digit", second: "2-digit"
             });
 
-            // REG No Generator for Unique ID
+            // ✅ Generate unique Reg. No.
             const regNo = "REG-" + Date.now(); // Unique ID
-            document.getElementById("pdfRegNo").innerText = regNo;
-            document.getElementById("pdfRegNo").style.display = "block";
-            // Push into hidden input for Google Form
-            document.getElementById("regNoInput").value = regNo;
+            const regElement = document.getElementById("pdfRegNo");
+            regElement.innerText = regNo;
+            regElement.style.display = "block";
 
+            // ✅ Also set it into hidden input for Google Form
+            const regInput = document.getElementById("regNoInput");
+            if (regInput) regInput.value = regNo;
 
+            // ✅ Set timestamp in PDF
             const tsElement = document.getElementById("pdfTimestamp");
-            tsElement.innerText = "" + timestamp;
-            tsElement.style.display = "block"; // make visible
+            tsElement.innerText = "Generated on: " + timestamp;
+            tsElement.style.display = "block"; // make visible in PDF
 
             // Generate PDF
             const { jsPDF } = window.jspdf;
