@@ -357,7 +357,9 @@
         <!--Time Stamp-->
         <p id="pdfTimestamp" style="text-align:right; font-size:12px; margin-top:10px; display:none;"></p>
         <!--Registration no.-->
-        <p id="pdfRegNo" style="font-size : 12px; position:absolute; top: 1060px; right:50px;">RegNoda</p>
+        <p id="pdfRegNo" style="font-size : 12px; position:absolute; top: 1060px; right:50px;">
+            <input type="hidden" id="regNoInput" name="entry.538845284">
+        </p>
     </div>
 
     <!-- JS -->
@@ -442,10 +444,12 @@
                 hour: "2-digit", minute: "2-digit", second: "2-digit"
             });
 
-            // In handleSubmit before generating PDF
+            // REG No Generator for Unique ID
             const regNo = "REG-" + Date.now(); // Unique ID
             document.getElementById("pdfRegNo").innerText = regNo;
             document.getElementById("pdfRegNo").style.display = "block";
+            // Push into hidden input for Google Form
+            document.getElementById("regNoInput").value = regNo;
 
 
             const tsElement = document.getElementById("pdfTimestamp");
