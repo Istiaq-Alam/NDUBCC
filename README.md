@@ -101,8 +101,8 @@ This project is licensed under the [MIT License](LICENSE).
 * Contact Form ✅
 * Backend ⛏️
 * Club Gallery ✅
-* ~~Present committe profile link~~
-* Activity Pages ⛏️
+* Present committe profile link ✅
+* Activity Pages ✅
 * ~~previous committee pages~~
 * ~~Alumni pages~~
 
