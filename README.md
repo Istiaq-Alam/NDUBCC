@@ -5,7 +5,7 @@ This project represents our university computer club, showcasing events, members
 </p>
 
 ---
-
+  
 ## 📌 Features
 
 - 🏫 **About Us** – Learn about NDUB Computer Club
