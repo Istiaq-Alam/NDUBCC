@@ -122,3 +122,25 @@ fetch('../../assets/footer.html')
   .then(text => {
     document.getElementById('footer').innerHTML = text;
   });
+
+//Event Card Slider
+ $(document).ready(function () {
+            $(".event-carousel").owlCarousel({
+                autoplay: true,
+                smartSpeed: 700,
+                margin: 25,
+                dots: true,
+                loop: true,
+                nav: true,
+                navText: [
+                    '<i class="bi bi-chevron-left"></i>',
+                    '<i class="bi bi-chevron-right"></i>'
+                ],
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 1 },
+                    768: { items: 2 },
+                    992: { items: 3 }
+                }
+            });
+        });

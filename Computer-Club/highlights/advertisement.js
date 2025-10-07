@@ -1,12 +1,6 @@
 // List of ads/news with links
 const ads = [
     {
-        title: "💡 Think Like a Coder!",
-        text: "Join our seminar: 'Think Like a Coder – An Introduction to Competitive Programming'. Learn problem-solving skills, coding techniques, and how to get started with contests. Open for all NDUB students!",
-        img: "highlights/TLCoder.png",   // add a poster/banner image here
-        link: "highlights.html"  // replace with event page link
-    },
-    {
         title: "📢 Club Registration Open",
         text: "Become a part of NDUB Computer Club and explore new opportunities!",
         img: "assets/img/NDUBCC-Logo.png",

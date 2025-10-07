@@ -1,35 +1,51 @@
+/*Events Sliders*/
+/* Fancy external slider buttons */
+.event-carousel .owl-nav {
+    position: relative;
+}
+
+/* Place the buttons at the page bottom sides */
+.event-carousel .owl-nav .owl-prev {
+    left: 50px;
+}
+
+.event-carousel .owl-nav .owl-next {
+    right: 50px;
+}
+
+
 /* News cards */
 .card {
-  break-inside: avoid;
-  background-color: #e0fdff6b;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    break-inside: avoid;
+    background-color: #e0fdff6b;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
-  cursor: pointer;
-  transition: transform 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .card img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 #loadMoreBtn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
 }
 
 #loadMoreBtn:hover {
-  background: #217dbb;
+    background: #217dbb;
 }
 
 
@@ -159,64 +175,74 @@
 /* Default logo size */
 /* Keep logo + text inline */
 .logo-img {
-  max-height: 50px;
-  width: auto;
+    max-height: 50px;
+    width: auto;
 }
 
 .club-title {
-  font-size: 1.25rem;
-  white-space: nowrap; /* prevents breaking into 2 lines */
+    font-size: 1.25rem;
+    white-space: nowrap;
+    /* prevents breaking into 2 lines */
 }
 
 
 /* 📱 On smaller devices */
 @media (max-width: 768px) {
-  .logo-img {
-    max-height: 50px; /* smaller for tablets */
-  }
+    .logo-img {
+        max-height: 50px;
+        /* smaller for tablets */
+    }
 }
 
 @media (max-width: 480px) {
-  .logo-img {
-    max-height: 40px; /* even smaller for phones */
-  }
+    .logo-img {
+        max-height: 40px;
+        /* even smaller for phones */
+    }
 }
 
 /* Responsive navbar */
 .navbar-nav .nav-link {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 
 @media (max-width: 768px) {
-  .navbar-nav .nav-link {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
+    .navbar-nav .nav-link {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
 }
 
 @media (max-width: 480px) {
-  .navbar-nav .nav-link {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }
 
 /* Custom Join Button */
 .join-btn {
-  display: flex;                  /* use flexbox */
-  justify-content: center;        /* center horizontally */
-  align-items: center;            /* center vertically */
-  white-space: nowrap;            /* prevent breaking */
-  padding: 12px 30px;             /* balanced padding */
-  font-size: 1rem;
-  line-height: 1.2;
-  text-align: center;             /* extra safeguard */
+    display: flex;
+    /* use flexbox */
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically */
+    white-space: nowrap;
+    /* prevent breaking */
+    padding: 12px 30px;
+    /* balanced padding */
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    /* extra safeguard */
 }
 
 /* Icon alignment */
 .join-btn i {
-  margin-top: 18px;            /* ✅ this centers it horizontally */
-  font-size: 1rem;
+    margin-top: 18px;
+    /* ✅ this centers it horizontally */
+    font-size: 1rem;
 }
 
 
