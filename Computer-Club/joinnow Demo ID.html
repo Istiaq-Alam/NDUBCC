@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="description" content="NDUBCC Member Registration Form">
+    <title>NDUBCC Registration Form</title>
+    <link href="assets/img/NDUBCC-Logo.png" rel="icon">
+
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            background-color: #dcf7ff;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .g_id_signin {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+
+        .form-container {
+            border: 2px solid #ffffff;
+            padding: 0px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .form-background {
+            position: relative;
+            background: #ffffff;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .form-background .bg-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            background: url("assets/img/NDUBCC-Logo.png") no-repeat center center;
+            background-size: contain;
+            opacity: 0.2;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .form-background .form-content {
+            position: relative;
+            z-index: 0;
+        }
+
+        .header-bar {
+            font-family: "Arial", serif;
+            background: #064420;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .club-title {
+            text-align: center;
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            flex: 0 0 220px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            flex: 1;
+            border: none;
+            border-bottom: 1px solid #000;
+            font-size: 14px;
+            padding: 4px;
+            background: transparent;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .form-declaration {
+            margin: 30px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .form-declaration input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .photo-box {
+            align-items: right;
+            width: 120px;
+            height: 150px;
+            border: 1px solid #d1cccc;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            line-height: 150px;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .photo-box:hover {
+            color: #0073e6;
+        }
+
+        .photo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            text-align: center;
+            gap: 20px;
+            /* space between boxes */
+        }
+
+        .signature-box {
+            flex: 1;
+            /* <-- makes it responsive */
+            min-width: 150px;
+            /* prevents shrinking too small */
+        }
+
+        .signature-preview {
+            height: 60px;
+            /* reserved space for uploaded signature */
+            margin-bottom: 2px;
+        }
+
+        .signature-preview img {
+            max-height: 100%;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Line + text */
+        .signature-line {
+            display: block;
+            border-top: 1px solid black;
+            padding-top: 2px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .signature-line:hover {
+            color: #0073e6;
+        }
+
+        .submit-btn {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        button {
+            background: #004d40;
+            color: #fff;
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00695c;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Google Athuntication Start-->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div class="form-background" id="formBackground">
+        <div class="bg-logo">
+        </div>
+        <div id="g_id_onload" data-client_id="855685853505-ar2k57urk9oe0971hqb2p2nqf7rvggpb.apps.googleusercontent.com"
+            data-callback="handleCredentialResponse" data-auto_select="false" data-itp_support="true">
+        </div>
+        <!-- Instruction Text -->
+        <h1 id="welcome" style="text-align:center; margin-bottom:15px; color:#333;">
+            Welcome to the NDUB Computer Club Membership Form
+        </h1>
+        <!--<p id="signin-instruction" style="text-align:center; font-size:18px; margin-bottom:15px; color:#333;">
+            Please sign in using your <strong>@student.ndub.edu.bd</strong> email to continue.
+        </p>-->
+        <div id="signin-instruction" style="text-align:center; margin-bottom:20px; color:#333; font-size:18px;">
+            <h2 style="color:#064420; margin-bottom:10px;">📋 Instructions
+                for Registration</h2>
+            <ul style="list-style-type:decimal; text-align:left; max-width:600px; margin:0 auto; line-height:1.6;">
+                <li>Sign in as your <strong>NDUB student email</strong>
+                    (<mail>yourname@student.ndub.edu.bd</mail>).</li>
+                <li>After verification, the registration form will
+                    appear.</li>
+                <li>Fill in all the fields carefully with correct
+                    information.</li>
+                <li>Upload a recent passport-size photo in the
+                    <strong>"Upload Photo"</strong>
+                    box.
+                </li>
+                <li>Upload your signature in the
+                    <strong>"Applicant Signature"</strong> section.
+                    [Optional]
+                </li>
+                <li>Check the declaration box before submitting the
+                    form.</li>
+                <li>Once submitted, your filled form will automatically
+                    <i>download as a <strong>PDF</strong></i> with your
+                    Student ID.
+                </li>
+                <li>Keep the downloaded PDF as proof of your registration
+                    and <strong>handover a printed copy</strong> to the NDUB
+                    Computer
+                    Club</li>
+            </ul>
+            <p style="margin-top:15px; font-weight:bold; color:#444;">
+                👉 Please follow the instructions carefully to avoid
+                rejection.
+            </p>
+        </div>
+
+        <!-- Google Sign In Button -->
+        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+            data-text="signin_with" data-size="large" data-logo_alignment="left">
+        </div>
+        <!--Google Athuntication Start-->
+
+        <!--Club Membership Form Start-->
+        <form id="gform" class="form-container"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
+            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)" style="display:none;"">
+                <div class=" header-bar">Notre Dame University Bangladesh
+    </div>
+
+    <div class="logo-row">
+        <img src="assets/img/ndubLogo.png" height="100px" width="100px" alt="NDUB Logo">
+        <img src="assets/img/NDUBCC-Logo.png" height="100px" width="120px" alt="NDUBCC Logo">
+    </div>
+
+    <div class="club-title">Notre Dame University Bangladesh
+        Computer Club (NDUBCC)
+        <hr>
+    </div>
+
+    <!-- Form Fields -->
+    <div class="form-group"><label>Student's Name:</label><input id="studentName" type="text" name="entry.1674684885"
+            required>
+    </div>
+    <div class="form-group"><label>Student ID:</label><input id="studentId" type="number" name="entry.1148792901"
+            required></div>
+    <div class="form-group"><label>Mother's Name:</label><input type="text" name="entry.552350917" required>
+    </div>
+    <div class="form-group"><label>Father's Name:</label><input type="text" name="entry.1326660467" required>
+    </div>
+    <div class="form-group">
+        <label>Gender:</label>
+        <select name="entry.945839914" required>
+            <option value>Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+    </div>
+    <div class="form-group"><label>Student's Contact
+            No.:</label><input type="number" name="entry.819871481" required>
+    </div>
+    <div class="form-group"><label>Guardian's Contact
+            No.:</label><input type="number" name="entry.893423479" required>
+    </div>
+    <div class="form-group"><label>Present Semester:</label><input type="text" name="entry.1313498895" required>
+    </div>
+    <div class="form-group"><label>Email Address:</label><input type="email" name="entry.218947294" required>
+    </div>
+    <div class="form-group"><label>Interests and
+            Activities:</label><textarea name="entry.126272351" rows="2" required></textarea></div>
+    <div class="form-group"><label>Purpose of Joining the
+            Club:</label><textarea name="entry.703563326" rows="2" required></textarea></div>
+
+    <div class="form-declaration">
+        <label>
+            <input type="checkbox" name="acknowledgement" required>
+            I promise that I will abide by all the rules and
+            regulations of <strong>Notre Dame University
+                Bangladesh Computer Club.</strong><br>If I violate
+            any of the club rules, the club authority
+            will have all the rights to take necessary step for me.
+        </label>
+    </div>
+
+    <!--Upload Photo Section-->
+    <div class="photo-row">
+        <div></div>
+        <p style="text-align: center;"><i>The membership of the
+                above
+                mentioned
+                applicant is approved</i></p>
+        <input type="file" id="UploadPP" accept="image/*" style="display:none" onchange="previewPhoto(event)">
+        <div class="photo-box" id="photoPreview">
+            <label for="UploadPP" style="cursor: pointer;">Upload
+                Photo</label>
+        </div>
+    </div>
+
+    <!-- Signature Section..-->
+
+    <div class="signature-row">
+        <!-- Applicant Signature -->
+        <div class="signature-box">
+            <!-- Hidden file input -->
+            <input type="file" id="signatureUpload" accept="image/*" style="display:none"
+                onchange="previewSignature(event)">
+
+            <!-- Preview (image sits above the line) -->
+            <div class="signature-preview">
+                <img id="signatureImage" />
+            </div>
+
+            <!-- Line + label -->
+            <label for="signatureUpload" class="signature-line">Applicant's
+                Signature</label>
+        </div>
+
+        <!-- Moderator -->
+        <div class="signature-box">
+            <div class="signature-preview"></div>
+            <div class="signature-line">Moderator,<br>NDUBCC</div>
+        </div>
+
+        <!-- Co-Moderator -->
+        <div class="signature-box">
+            <div class="signature-preview"></div>
+            <div class="signature-line">Co-Moderator,<br>NDUBCC</div>
+        </div>
+    </div>
+
+    <div class="submit-btn">
+        <button type="submit">Submit</button>
+    </div>
+    <input type="hidden" id="regNoInput" name="entry.538845284">
+    </form>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+    <div id="thankyou_message" style="display:none; text-align:center; margin-top:20px;">
+        ✅ Thank you! Your registration has been recorded. <br>
+        📄 PDF Generated by NDUBCC
+    </div>
+    <!--Time Stamp-->
+    <p id="pdfTimestamp" style="text-align:right; font-size:12px; margin-top:10px; display:none;"></p>
+    <!--Registration no.-->
+    <p id="pdfRegNo" style="font-size : 12px; position:absolute; top: 1060px; right:50px;"></p>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        function handleCredentialResponse(response) {
+            // Decode JWT (Google sends user info in ID token)
+            const data = parseJwt(response.credential);
+
+            console.log(data); // Debug: see what Google returns
+
+            const email = data.email;
+
+            if (email.endsWith("@student.ndub.edu.bd")) {
+                alert("✅ Verified NDUB Student: " + email);
+                // Hide login, show registration form
+                document.querySelector(".g_id_signin").style.display = "none";
+                document.getElementById("welcome").style.display = "none";
+                document.getElementById("signin-instruction").style.display = "none";
+                document.getElementById("gform").style.display = "block";
+            } else {
+                alert("❌ Access denied. Please use NDUB email.");
+                window.location.href = "index.html"; // redirect
+            }
+        }
+
+        // Helper: decode JWT
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+    </script>
+
+    <script>
+        // Textarea auto-resize
+        document.querySelectorAll("textarea").forEach(el => {
+            el.setAttribute("style", "height:" + el.scrollHeight + "px;overflow-y:hidden;");
+            el.addEventListener("input", function () {
+                this.style.height = "auto";
+                this.style.height = (this.scrollHeight) + "px";
+            });
+        });
+
+        // Photo preview
+        function previewPhoto(event) {
+            const photoBox = document.getElementById('photoPreview');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    photoBox.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:contain;">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+        // Signature preview should copy
+        function previewSignature(event) {
+            const img = document.getElementById('signatureImage');
+            img.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        // Handle submit
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            // Hide buttons
+            document.querySelector(".submit-btn").style.display = "none";
+
+            // Show Thank You
+            document.getElementById("thankyou_message").style.display = "block";
+
+            // ✅ Create timestamp before rendering
+            const now = new Date();
+            const timestamp = now.toLocaleString("en-GB", {
+                day: "2-digit", month: "2-digit", year: "numeric",
+                hour: "2-digit", minute: "2-digit", second: "2-digit"
+            });
+
+            // ✅ Generate unique Reg. No.
+            const regNo = "REG-" + Date.now(); // Unique ID
+            const regElement = document.getElementById("pdfRegNo");
+            regElement.innerText = regNo;
+            regElement.style.display = "block";
+
+            // ✅ Also set it into hidden input for Google Form
+            const regInput = document.getElementById("regNoInput");
+            if (regInput) regInput.value = regNo;
+
+            // ✅ Set timestamp in PDF
+            const tsElement = document.getElementById("pdfTimestamp");
+            tsElement.innerText = "Generated on: " + timestamp;
+            tsElement.style.display = "block"; // make visible in PDF
+
+
+            async function uploadPhotoToDrive() {
+                const fileInput = document.getElementById("UploadPP");
+                if (!fileInput.files[0]) return "";
+
+                const formData = new FormData();
+                formData.append("photo", fileInput.files[0]);
+
+                const uploadURL = "https://script.google.com/macros/s/AKfycbz-xpEYscWuISbjor5CXOsD0ZaCRQ7w5onakjTSeH5Om1zZvcXmszul2COFwWtHfzJyrw/exec";
+
+                const response = await fetch(uploadURL, {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await response.json();
+                return result.link;  // Google Drive link
+            }
+
+            // 1. Upload to Google Drive
+            const photoDriveLink = await uploadPhotoToDrive();
+
+            // 2. Put link inside hidden Google Form field
+            const PP_Field = document.createElement("input");
+            PP_Field.type = "hidden";
+            PP_Field.name = "entry.1147851674";
+            PP_Field.value = photoDriveLink;
+
+            event.target.appendChild(PP_Field);
+
+
+
+            // Generate PDF
+            const { jsPDF } = window.jspdf;
+            const element = document.getElementById("formBackground");
+
+            const canvas = await html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                logging: false
+            });
+
+            const imgData = canvas.toDataURL("image/png");
+
+            const pdf = new jsPDF("p", "mm", "a4");
+            const pageWidth = 250; // A4 width in mm
+            const scaleFactor = 0.8; // 80% scale
+
+            const formWidth = canvas.width;
+            const formHeight = canvas.height;
+
+            // Scale proportionally to page width, then apply 80% scale
+            const scale = (pageWidth / formWidth) * scaleFactor;
+
+            const imgWidth = formWidth * scale;
+            const imgHeight = formHeight * scale;
+
+            // Position at top-center
+            const posX = 5;
+            const posY = 0; // top margin removed
+
+            pdf.addImage(imgData, "PNG", posX, posY, imgWidth, imgHeight);
+
+            // Get Student ID
+            const studentId = document.getElementById("studentId").value.trim();
+
+            // Default name if empty
+            const fileName = studentId
+                ? `NDUBCC_Registration-${studentId}.pdf`
+                : "NDUBCC_Registration.pdf";
+
+            // Save PDF with dynamic name
+            pdf.save(fileName);
+
+            // ✅ Hide timestamp again for webpage
+            tsElement.style.display = "none";
+
+            // Submit to Google Form after PDF generation
+            event.target.submit();
+        }
+
+    </script>
+</body>
+
+</html>
