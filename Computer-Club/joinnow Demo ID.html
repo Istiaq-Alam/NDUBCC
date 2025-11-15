@@ -273,7 +273,7 @@
         <!--Club Membership Form Start-->
         <form id="gform" class="form-container"
             action="https://docs.google.com/forms/d/e/1FAIpQLSeh3s5KZQVn4k9ymNDJavJJeXJW0KlYSJKjkGSWJ-TOOyA1dQ/formResponse"
-            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)" style="display:none;"">
+            method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)" style="display:none;">
                 <div class=" header-bar">Notre Dame University Bangladesh
     </div>
 
@@ -339,7 +339,7 @@
                 above
                 mentioned
                 applicant is approved</i></p>
-        <input name="entry.1147851674" type="file" id="UploadPP" accept="image/*" style="display:none" onchange="previewPhoto(event)">
+        <input type="file" id="UploadPP" accept="image/*" style="display:none" onchange="previewPhoto(event)">
         <div class="photo-box" id="photoPreview">
             <label for="UploadPP" style="cursor: pointer;">Upload
                 Photo</label>
@@ -399,6 +399,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
+        // ---------- CONFIG: replace these with your values (already provided) ----------
+        const APPS_SCRIPT_UPLOAD_URL = "https://script.google.com/macros/s/AKfycbz-xpEYscWuISbjor5CXOsD0ZaCRQ7w5onakjTSeH5Om1zZvcXmszul2COFwWtHfzJyrw/exec";
+        const PP_FIELD_ENTRY_NAME = "entry.705802138"; // Google Form field to place Drive link
+        // Folder ID is not required client-side (your Apps Script uses it). For reference:
+        // const DRIVE_FOLDER_ID = "1R5p2TtOXPy5xKG4FD9Bs6f1BWyuHlSHj5iMzwzceQYtThc_jQHpvnP-A4HxW_XWZVxgi1IMP";
+        // --------------------------------------------------------------------------------
+
         function handleCredentialResponse(response) {
             // Decode JWT (Google sends user info in ID token)
             const data = parseJwt(response.credential);
@@ -459,6 +466,40 @@
             img.src = URL.createObjectURL(event.target.files[0]);
         }
 
+        /**
+         * Upload selected photo to your Apps Script Web App.
+         * Expects the Apps Script to accept a multipart/form-data POST with field "photo"
+         * and return JSON: { "link": "https://drive.google.com/..." }
+         */
+        async function uploadPhotoToDrive() {
+            const fileInput = document.getElementById("UploadPP");
+            if (!fileInput || !fileInput.files || !fileInput.files[0]) {
+                return ""; // no file uploaded
+            }
+
+            try {
+                const formData = new FormData();
+                formData.append("photo", fileInput.files[0]);
+
+                const resp = await fetch(APPS_SCRIPT_UPLOAD_URL, {
+                    method: "POST",
+                    body: formData
+                    // NOTE: Apps Script web app must allow CORS from your origin.
+                });
+
+                // Ensure we can parse JSON
+                const text = await resp.text();
+                // Some Apps Script responses may include leading/trailing whitespace.
+                const json = text ? JSON.parse(text) : {};
+                if (json && json.link) return json.link;
+                return "";
+            } catch (err) {
+                console.error("Upload to Drive failed:", err);
+                // Return empty string — we still allow the form to submit without link
+                return "";
+            }
+        }
+
         // Handle submit
         async function handleSubmit(event) {
             event.preventDefault();
@@ -490,38 +531,6 @@
             const tsElement = document.getElementById("pdfTimestamp");
             tsElement.innerText = "Generated on: " + timestamp;
             tsElement.style.display = "block"; // make visible in PDF
-
-
-            async function uploadPhotoToDrive() {
-                const fileInput = document.getElementById("UploadPP");
-                if (!fileInput.files[0]) return "";
-
-                const formData = new FormData();
-                formData.append("photo", fileInput.files[0]);
-
-                const uploadURL = "https://script.google.com/macros/s/AKfycbz-xpEYscWuISbjor5CXOsD0ZaCRQ7w5onakjTSeH5Om1zZvcXmszul2COFwWtHfzJyrw/exec";
-
-                const response = await fetch(uploadURL, {
-                    method: "POST",
-                    body: formData
-                });
-
-                const result = await response.json();
-                return result.link;  // Google Drive link
-            }
-
-            // 1. Upload to Google Drive
-            const photoDriveLink = await uploadPhotoToDrive();
-
-            // 2. Put link inside hidden Google Form field
-            const PP_Field = document.createElement("input");
-            PP_Field.type = "hidden";
-            PP_Field.name = "entry.1147851674";
-            PP_Field.value = photoDriveLink;
-
-            event.target.appendChild(PP_Field);
-
-
 
             // Generate PDF
             const { jsPDF } = window.jspdf;
@@ -569,8 +578,40 @@
             // ✅ Hide timestamp again for webpage
             tsElement.style.display = "none";
 
-            // Submit to Google Form after PDF generation
-            event.target.submit();
+            // ---------- NEW: Upload photo to Drive and add the returned link to the Google Form ----------
+            // Important: we upload after PDF generation (so PDF uses local preview) but BEFORE form submission,
+            // so the Drive link gets recorded in your Google Sheet.
+
+            let photoDriveLink = "";
+            try {
+                photoDriveLink = await uploadPhotoToDrive();
+            } catch (err) {
+                console.warn("Photo upload failed, proceeding without link.", err);
+                photoDriveLink = "";
+            }
+
+            // Add hidden field for PP (Drive link)
+            try {
+                // Remove any previous inserted PP field to avoid duplicates
+                const previous = document.querySelector(`input[name="${PP_FIELD_ENTRY_NAME}"]`);
+                if (previous) previous.remove();
+
+                const PP_Field = document.createElement("input");
+                PP_Field.type = "hidden";
+                PP_Field.name = PP_FIELD_ENTRY_NAME; // entry.705802138
+                PP_Field.value = photoDriveLink || "";
+                event.target.appendChild(PP_Field);
+            } catch (err) {
+                console.error("Failed to attach PP hidden field:", err);
+            }
+
+            // Submit to Google Form after PDF generation and after attempting upload
+            try {
+                event.target.submit();
+            } catch (err) {
+                console.error("Form submission failed:", err);
+                alert("Submission failed. Please try again.");
+            }
         }
 
     </script>
