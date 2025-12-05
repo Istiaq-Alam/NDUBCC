@@ -34,4 +34,4 @@ on going 30.10% progression
 5. Google Sheet -- Backend data
 6. Formspree.io -- Contact form
 7. Transferring Google Drive
-8. 
+8. Not Done
