@@ -3,7 +3,7 @@ const ads = [
     {
         title: "📢 Club Registration Open",
         text: "Become a part of NDUB Computer Club and explore new opportunities!",
-        img: "join-now-poster.png",
+        img: "assets/img/join-now-poster.png",
         link: "joinnow.html"
     }
     /*{
