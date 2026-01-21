@@ -30,98 +30,152 @@
     <!-- Template Stylesheet -->
     <link href="../../assets/css/style.css" rel="stylesheet">
     <style>
-        
-body {
-            background: radial-gradient(circle at top, #0f2027, #000);
-            font-family: 'Poppins', sans-serif;
-            color: #fff;
-        }
+        /* ===== CSE FEST HERO SECTION ===== */
+.csefest-hero {
+    position: relative;
+    height: 90vh;
+    min-height: 420px;
+    background: url("../../assets/img/csefest-hero.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
 
-        /* ===== HERO ===== */
-        .fest-hero {
-            padding: 90px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #00f5ff, #0066ff);
-            color: #000;
-        }
+.csefest-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.65)
+    );
+}
 
-        .fest-hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-        }
+.csefest-hero-content {
+    position: relative;
+    z-index: 2;
+}
 
-        /* ===== FEST DETAILS ===== */
-        .fest-details {
-            padding: 80px 0;
-        }
+.csefest-hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
 
-        .fest-details h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+.csefest-hero p {
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
 
-        .fest-logo img {
-            max-width: 230px;
-            filter: drop-shadow(0 0 15px rgb(255, 255, 255));
-        }
+.csefest-hero .btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 30px;
+}
 
-        /* ===== EVENTS ===== */
-        .event-card {
-            position: relative;
-            display: flex;
-            background: rgba(255,255,255,0.08);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.4s ease;
-        }
+.csefest-hero .btn-outline-light:hover {
+    background: #fff;
+    color: #000;
+}
 
-        .event-card:hover {
-            transform: scale(1.02);
-        }
+/* Responsive */
+@media (max-width: 768px) {
+    .csefest-hero {
+        height: auto;
+        padding: 100px 0;
+        text-align: center;
+    }
 
-        .event-poster {
-            width: 170px;
-            object-fit: cover;
-        }
+    .csefest-hero h1 {
+        font-size: 2.3rem;
+    }
+}
 
-        .event-content {
-            padding: 25px;
-        }
 
-        .event-hover {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,245,255,0.95), rgba(0,102,255,0.95));
-            color: #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
+/* ===== PAGE TITLE ===== */
+.csefest-title {
+    text-align: center;
+    margin: 80px 0 40px;
+}
 
-        .event-card:hover .event-hover {
-            opacity: 1;
-        }
+.csefest-title span {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
 
-        .event-hover a {
-            margin-top: 15px;
-            padding: 10px 30px;
-            border-radius: 25px;
-            background: #000;
-            color: #00f5ff;
-            text-decoration: none;
-            font-weight: 600;
-        }
+.csefest-title h1 {
+    font-weight: 800;
+    margin-top: 10px;
+}
 
-        .event-hover a:hover {
-            background: #111;
-        }
+/* ===== EVENT CARD ===== */
+.event-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.event-card {
+    display: flex;
+    gap: 25px;
+    background: #f4fdff;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Image */
+.event-img {
+    width: 280px;
+    height: 180px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.event-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content */
+.event-content h4 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.event-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.event-meta {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+    }
+
+    .event-img {
+        width: 100%;
+        height: 220px;
+    }
+}
 
         
     </style>
@@ -140,90 +194,98 @@ body {
     <!-- Navbar Start -->
      <div id="header"></div>
    
+<section class="csefest-hero">
+    <div class="container">
+        <div class="csefest-hero-content">
+            <span class="text-primary fw-bold">NDUB COMPUTER CLUB PRESENTS</span>
+            <h1>CSE FEST 2026</h1>
+            <p>
+                A celebration of technology, innovation, and competition.
+                Join coding contests, gaming tournaments, project showcases,
+                and industry-focused events — all in one fest.
+            </p>
+
+            <div class="d-flex gap-3 flex-wrap">
+                <a href="#events" class="btn btn-primary">
+                    View Events
+                </a>
+                <a href="register.html" class="btn btn-outline-light">
+                    Register Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 
      
-     <!-- ===== HERO ===== -->
-<section class="fest-hero">
-    <div class="container">
-        <h1>CSE FEST 2026</h1>
-        <p class="mt-3">Department of Computer Science & Engineering</p>
+     <div class="container" id="events">
+
+    <!-- PAGE TITLE -->
+    <div class="csefest-title">
+        <span class="text-primary">CSE FEST 2026</span>
+        <h1>EVENT LIST</h1>
     </div>
-</section>
 
-<!-- ===== FEST DETAILS ===== -->
-<section class="fest-details">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h2>About the Fest</h2>
-                <p>
-                    CSE FEST 2026 is the flagship annual event organized by NDUB Computer Club.
-                    It features competitive programming, gaming tournaments, project showcases,
-                    workshops, and industry interactions.
-                </p>
-                <ul>
-                    <li>📅 April 2026</li>
-                    <li>📍 NDUB Campus</li>
-                    <li>👥 Organized by NDUB Computer Club</li>
-                </ul>
-            </div>
-            <div class="col-lg-4 text-center fest-logo">
-                <img src="../../assets/img/NDUBCC-Logo.png" alt="CSE Fest Logo">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== EVENTS ===== -->
-<section class="pb-5">
-    <div class="container">
-        <h2 class="text-center mb-5">Fest Events</h2>
-
-        <!-- Event 1 -->
+    <!-- EVENT 1 -->
+    <a href="register-cp.html" class="event-card-link">
         <div class="event-card">
-            <img src="../../assets/img/event1.jpg" class="event-poster" alt="">
+            <div class="event-img">
+                <img src="../../assets/img/event1.jpg" alt="Competitive Programming">
+            </div>
             <div class="event-content">
                 <h4>Competitive Programming Contest</h4>
-                <p>Algorithmic problem solving challenge.</p>
-            </div>
-            <div class="event-hover">
-                <p><strong>Date:</strong> March 10, 2026</p>
-                <p>ICPC-style individual contest</p>
-                <a href="register.html">Register Now</a>
+                <p>
+                    Solve algorithmic challenges under time pressure and compete
+                    with the best problem solvers across universities.
+                </p>
+                <div class="event-meta">
+                    📅 Date: March 10, 2026 | 👤 Individual Event
+                </div>
             </div>
         </div>
+    </a>
 
-        <!-- Event 2 -->
+    <!-- EVENT 2 -->
+    <a href="register-valorant.html" class="event-card-link">
         <div class="event-card">
-            <img src="../../assets/img/event2.jpg" class="event-poster" alt="">
+            <div class="event-img">
+                <img src="../../assets/img/event2.jpg" alt="Valorant Tournament">
+            </div>
             <div class="event-content">
                 <h4>Valorant Tournament</h4>
-                <p>5v5 tactical FPS competition.</p>
-            </div>
-            <div class="event-hover">
-                <p><strong>Date:</strong> March 11, 2026</p>
-                <p>Team-based knockout format</p>
-                <a href="register.html">Register Now</a>
+                <p>
+                    Team-based 5v5 FPS tournament featuring knockout stages,
+                    strategy, and competitive gameplay.
+                </p>
+                <div class="event-meta">
+                    📅 Date: March 11, 2026 | 👥 Team Event
+                </div>
             </div>
         </div>
+    </a>
 
-        <!-- Event 3 -->
+    <!-- EVENT 3 -->
+    <a href="register-project.html" class="event-card-link">
         <div class="event-card">
-            <img src="../../assets/img/event3.jpg" class="event-poster" alt="">
+            <div class="event-img">
+                <img src="../../assets/img/event3.jpg" alt="Project Showcase">
+            </div>
             <div class="event-content">
                 <h4>Project Showcase</h4>
-                <p>Innovation & research exhibition.</p>
-            </div>
-            <div class="event-hover">
-                <p><strong>Date:</strong> March 12, 2026</p>
-                <p>Faculty & industry evaluation</p>
-                <a href="register.html">Register Now</a>
+                <p>
+                    Present innovative software, hardware, or research-based
+                    projects evaluated by faculty and industry experts.
+                </p>
+                <div class="event-meta">
+                    📅 Date: March 12, 2026 | 👥 Team / Individual
+                </div>
             </div>
         </div>
+    </a>
 
-    </div>
-</section>
+</div>
+
         
 
     <!-- Footer Start -->
