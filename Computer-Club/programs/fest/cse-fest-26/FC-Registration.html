@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>VALORANT Tournament Registration | NDUB CSE FEST</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap"
+            rel="stylesheet">
+
+        <style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Orbitron', sans-serif; }
+
+body {
+    background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)),
+    url('https://images.alphacoders.com/111/1118284.jpg') center/cover;
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #121212;
+    padding: 25px;
+    border-radius: 14px;
+    border: 2px solid #ff4655;
+}
+
+/* ---------- HEADER ---------- */
+h1 { text-align: center; color: #ff4655; margin-bottom: 5px; }
+.subtitle { text-align: center; font-size: 13px; opacity: .8; }
+
+/* ---------- PROGRESS ---------- */
+.progress {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+}
+.step {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    opacity: .4;
+}
+.step.active { opacity: 1; color: #ff4655; }
+
+/* ---------- FORM ---------- */
+label { margin-top: 15px; display: block; font-size: 13px; }
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    background: #0c0c0c;
+    border: 1px solid #ff4655;
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* ---------- ACCORDION ---------- */
+.accordion {
+    background: #0c0c0c;
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.accordion-header {
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: #161616;
+}
+.agent-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #ff4655;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-weight: bold;
+}
+.accordion-body {
+    display: none;
+    padding: 15px;
+}
+.accordion.active .accordion-body { display: block; }
+
+/* ---------- PAYMENT ---------- */
+.checkbox-group label {
+    display: block;
+    margin-top: 8px;
+}
+
+/* ---------- RULES ---------- */
+.rules {
+    background: #0b0b0b;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 25px;
+    font-size: 12px;
+}
+
+/* ---------- STICKY BUTTON ---------- */
+.sticky-submit {
+    position: sticky;
+    bottom: 0;
+    background: #121212;
+    padding: 15px;
+    margin-top: 30px;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    background: #ff4655;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ---------- CONFIRM MESSAGE ---------- */
+#success {
+    display: none;
+    text-align: center;
+    padding: 30px;
+}
+#success h2 { color: #ff4655; margin-bottom: 10px; }
+</style>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <h1>VALORANT TOURNAMENT</h1>
+            <p class="subtitle">CSE FEST 2026 – NDUB Computer Club</p>
+
+            <div class="progress">
+                <div class="step active">Team Info</div>
+                <div class="step">Members</div>
+                <div class="step">Payment</div>
+            </div>
+
+            <form id="regForm"
+                action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse"
+                method="POST" target="hidden_iframe">
+
+                <label>University Name</label>
+                <input name="entry.UNIVERSITY_ID" required>
+
+                <label>Team Name</label>
+                <input name="entry.TEAMNAME_ID" required>
+
+                <!-- MEMBERS -->
+                <div class="accordion">
+                    <div class="accordion-header"><div
+                            class="agent-icon">1</div>Member 1</div>
+                    <div class="accordion-body">
+                        <input placeholder="Name" name="entry.M1_NAME">
+                        <input placeholder="Phone" name="entry.M1_PHONE">
+                        <input placeholder="Email" name="entry.M1_EMAIL">
+                        <input placeholder="Valorant Gamertag"
+                            name="entry.M1_TAG">
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header"><div
+                            class="agent-icon">2</div>Member 2</div>
+                    <div class="accordion-body">
+                        <input placeholder="Name" name="entry.M2_NAME">
+                        <input placeholder="Phone" name="entry.M2_PHONE">
+                        <input placeholder="Email" name="entry.M2_EMAIL">
+                        <input placeholder="Valorant Gamertag"
+                            name="entry.M2_TAG">
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header"><div
+                            class="agent-icon">3</div>Member 3</div>
+                    <div class="accordion-body">
+                        <input placeholder="Name" name="entry.M3_NAME">
+                        <input placeholder="Phone" name="entry.M3_PHONE">
+                        <input placeholder="Email" name="entry.M3_EMAIL">
+                        <input placeholder="Valorant Gamertag"
+                            name="entry.M3_TAG">
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header"><div
+                            class="agent-icon">4</div>Member 4</div>
+                    <div class="accordion-body">
+                        <input placeholder="Name" name="entry.M4_NAME">
+                        <input placeholder="Phone" name="entry.M4_PHONE">
+                        <input placeholder="Email" name="entry.M4_EMAIL">
+                        <input placeholder="Valorant Gamertag"
+                            name="entry.M4_TAG">
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header"><div
+                            class="agent-icon">5</div>Member 5</div>
+                    <div class="accordion-body">
+                        <input placeholder="Name" name="entry.M5_NAME">
+                        <input placeholder="Phone" name="entry.M5_PHONE">
+                        <input placeholder="Email" name="entry.M5_EMAIL">
+                        <input placeholder="Valorant Gamertag"
+                            name="entry.M5_TAG">
+                    </div>
+                </div>
+
+                <h2>Payment</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="entry.PAYMENT"
+                            value="Bkash"> Bkash</label>
+                    <label><input type="checkbox" name="entry.PAYMENT"
+                            value="Nagad"> Nagad</label>
+                </div>
+
+                <input placeholder="Transaction ID" name="entry.TRANSACTION_ID"
+                    required>
+
+                <div class="rules">
+                    <ul>
+                        <li>Only NDUB students allowed</li>
+                        <li>5 players per team mandatory</li>
+                        <li>No cheating or smurfing</li>
+                        <li>Registration fee non-refundable</li>
+                    </ul>
+                </div>
+
+                <div class="sticky-submit">
+                    <button type="submit">REGISTER NOW</button>
+                </div>
+
+            </form>
+
+            <div id="success">
+                <h2>Registration Successful!</h2>
+                <p>Your team has been registered.<br>See you in the battlefield,
+                    Agent.</p>
+            </div>
+
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+        </div>
+
+        <script>
+// Accordion
+document.querySelectorAll('.accordion-header').forEach(h => {
+    h.onclick = () => h.parentElement.classList.toggle('active');
+});
+
+// Submit confirmation
+document.getElementById('regForm').addEventListener('submit', function () {
+    setTimeout(() => {
+        this.style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+    }, 800);
+});
+</script>
+
+    </body>
+</html>

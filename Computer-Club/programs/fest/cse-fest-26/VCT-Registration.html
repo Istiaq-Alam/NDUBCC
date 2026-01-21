@@ -14,7 +14,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Orbitron', sans-serif; }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.263)),
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url('./valo.png') center/cover;
     color: #fff;
     padding: 20px;
@@ -162,11 +162,13 @@ button {
                     <div class="accordion-header"><div
                             class="agent-icon">1</div>Member 1</div>
                     <div class="accordion-body">
-                        <input placeholder="Name" name="entry.M1_NAME">
-                        <input placeholder="Phone" name="entry.M1_PHONE">
-                        <input placeholder="Email" name="entry.M1_EMAIL">
-                        <input placeholder="Valorant Gamertag"
-                            name="entry.M1_TAG">
+                        <input placeholder="Name" name="entry.M1_NAME" required>
+                        <input placeholder="Phone" name="entry.M1_PHONE"
+                            required>
+                        <input placeholder="Email" name="entry.M1_EMAIL"
+                            required>
+                        <input placeholder="Valorant Gamertag with #tag"
+                            name="entry.M1_TAG" required>
                     </div>
                 </div>
 
@@ -174,11 +176,13 @@ button {
                     <div class="accordion-header"><div
                             class="agent-icon">2</div>Member 2</div>
                     <div class="accordion-body">
-                        <input placeholder="Name" name="entry.M2_NAME">
-                        <input placeholder="Phone" name="entry.M2_PHONE">
-                        <input placeholder="Email" name="entry.M2_EMAIL">
-                        <input placeholder="Valorant Gamertag"
-                            name="entry.M2_TAG">
+                        <input placeholder="Name" name="entry.M2_NAME" required>
+                        <input placeholder="Phone" name="entry.M2_PHONE"
+                            required>
+                        <input placeholder="Email" name="entry.M2_EMAIL"
+                            required>
+                        <input placeholder="Valorant Gamertag with #tag"
+                            name="entry.M2_TAG" required>
                     </div>
                 </div>
 
@@ -186,11 +190,13 @@ button {
                     <div class="accordion-header"><div
                             class="agent-icon">3</div>Member 3</div>
                     <div class="accordion-body">
-                        <input placeholder="Name" name="entry.M3_NAME">
-                        <input placeholder="Phone" name="entry.M3_PHONE">
-                        <input placeholder="Email" name="entry.M3_EMAIL">
-                        <input placeholder="Valorant Gamertag"
-                            name="entry.M3_TAG">
+                        <input placeholder="Name" name="entry.M3_NAME" required>
+                        <input placeholder="Phone" name="entry.M3_PHONE"
+                            required>
+                        <input placeholder="Email" name="entry.M3_EMAIL"
+                            required>
+                        <input placeholder="Valorant Gamertag with #tag"
+                            name="entry.M3_TAG" required>
                     </div>
                 </div>
 
@@ -198,11 +204,13 @@ button {
                     <div class="accordion-header"><div
                             class="agent-icon">4</div>Member 4</div>
                     <div class="accordion-body">
-                        <input placeholder="Name" name="entry.M4_NAME">
-                        <input placeholder="Phone" name="entry.M4_PHONE">
-                        <input placeholder="Email" name="entry.M4_EMAIL">
-                        <input placeholder="Valorant Gamertag"
-                            name="entry.M4_TAG">
+                        <input placeholder="Name" name="entry.M4_NAME" required>
+                        <input placeholder="Phone" name="entry.M4_PHONE"
+                            required>
+                        <input placeholder="Email" name="entry.M4_EMAIL"
+                            required>
+                        <input placeholder="Valorant Gamertag with #tag"
+                            name="entry.M4_TAG" required>
                     </div>
                 </div>
 
@@ -210,11 +218,13 @@ button {
                     <div class="accordion-header"><div
                             class="agent-icon">5</div>Member 5</div>
                     <div class="accordion-body">
-                        <input placeholder="Name" name="entry.M5_NAME">
-                        <input placeholder="Phone" name="entry.M5_PHONE">
-                        <input placeholder="Email" name="entry.M5_EMAIL">
-                        <input placeholder="Valorant Gamertag"
-                            name="entry.M5_TAG">
+                        <input placeholder="Name" name="entry.M5_NAME" required>
+                        <input placeholder="Phone" name="entry.M5_PHONE"
+                            required>
+                        <input placeholder="Email" name="entry.M5_EMAIL"
+                            required>
+                        <input placeholder="Valorant Gamertag with #tag"
+                            name="entry.M5_TAG" required>
                     </div>
                 </div>
 
@@ -238,13 +248,13 @@ button {
 
                 <div class="rules">
                     <ul>
-                        <li>Every Students are allowed to participate.</li>
+                        <li>Any Students are allowed to participate.</li>
                         <li>Each team must consist of exactly 5 players.</li>
                         <li>Smurfing and cheating will result in
                             disqualification.</li>
                         <li>Bring your own Riot account.</li>
                         <li>Registration fee is non-refundable.</li>
-                        <li>Admin’s decision will be final.</li>
+                        <li>You can Bring your own keyboard / Mouse.</li>
                     </ul>
                 </div>
 
@@ -265,7 +275,7 @@ button {
 
                 <p><strong>Payment Status:</strong>
                     <span style="color:#0f0;">Payment Submitted (Verification
-                        Pending)</span>
+                        Pending...)</span>
                 </p>
 
                 <p style="margin-top:15px;">
@@ -278,8 +288,9 @@ button {
                     See you in the battlefield, Agent.
                 </p>
             </div>
-
-            <script>
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
+        </div>
+        <script>
 // Accordion toggle
 document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', () => {
@@ -324,5 +335,5 @@ document.getElementById('regForm').addEventListener('submit', function () {
 });
 </script>
 
-        </body>
-    </html>
+    </body>
+</html>
