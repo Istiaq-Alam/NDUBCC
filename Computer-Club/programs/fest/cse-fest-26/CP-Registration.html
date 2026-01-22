@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Intra University Programming Contest Registration | NDUB CSE-FEST</title>
+        <style>
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Body & Background */
+body {
+    overflow-x: hidden;
+    background: #000;
+    color: #ffffff;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Canvas for code rain effect */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+}
+
+/* Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    z-index: -1;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+}
+header h1 {
+    font-size: 3em;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #00ffcc;
+    margin-bottom: 50px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #111;
+    color: #00ffcc;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+.payment-options label {
+    font-weight: normal;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 1.2em;
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: bold;
+    box-shadow: 0 0 15px #00ffcc;
+}
+input[type="submit"]:hover {
+    background: #00cc99;
+    box-shadow: 0 0 25px #00ffcc, 0 0 50px #00ffcc inset;
+}
+
+/* Rules Section */
+.rules {
+    margin-top: 40px;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ffcc;
+}
+.rules h2 {
+    margin-bottom: 15px;
+}
+.rules ul {
+    list-style: disc inside;
+}
+.rules ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #aaa;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+    input[type="submit"] {
+        font-size: 1em;
+        padding: 12px;
+    }
+}
+</style>
+    </head>
+    <body>
+
+        <canvas id="matrixCanvas"></canvas>
+
+        <header>
+            <h1>CSE-FEST 2026</h1>
+            <p>Intra-University Programming Contest Registration</p>
+        </header>
+
+        <div class="container">
+            <form action="GOOGLE_FORM_ACTION_URL" method="POST" target="_blank">
+                <label for="university">University Name</label>
+                <input type="text" id="university"
+                    name="entry.UNIVERSITY_FIELD_ID" required>
+
+                <label for="student">Student Name</label>
+                <input type="text" id="student" name="entry.STUDENT_FIELD_ID"
+                    required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="entry.PHONE_FIELD_ID"
+                    required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="entry.EMAIL_FIELD_ID"
+                    required>
+                <div class="rules">
+                    <h2>Contest Rules</h2>
+                    <ul>
+                        <li>Each participant must register individually; no
+                            teams allowed.</li>
+                        <li>Use of any external help or plagiarism is strictly
+                            prohibited.</li>
+                        <li>Participants should have their laptop ready with
+                            necessary software installed.</li>
+                        <li>All decisions by the contest organizers are
+                            final.</li>
+                        <li>Registration fee is non-refundable once
+                            submitted.</li>
+                    </ul>
+                </div>
+                <label>Payment Method</label>
+                <div class="payment-options">
+                    <label><input type="checkbox" name="entry.PAYMENT_FIELD_ID"
+                            value="Bkash"> Bkash</label>
+                    <label><input type="checkbox" name="entry.PAYMENT_FIELD_ID"
+                            value="Nogod"> Nogod</label>
+                </div>
+
+                <label for="transaction">Transaction ID</label>
+                <input type="text" id="transaction"
+                    name="entry.TRANSACTION_FIELD_ID" required>
+
+                <input type="submit" value="Register Now">
+            </form>
+
+        </div>
+
+        <!-- Success Confirmation -->
+        <div id="success"
+            style="display:none; background:#0a0a0a; color:#00ffcc; padding:25px; 
+    margin-top:20px; border-radius:12px; box-shadow:0 0 20px #00ffcc;">
+            <h2>Registration Successful!</h2>
+
+            <p><strong>Participant Name:</strong> <span
+                    id="participantNameOut"></span></p>
+
+            <p><strong>Payment Status:</strong>
+                <span style="color:#0f0;">Payment Submitted (Verification
+                    Pending...)</span>
+            </p>
+
+            <p style="margin-top:15px;">
+                Our team will communicate with you very shortly via the provided
+                email address.<br>
+                Please keep an eye on your inbox.
+            </p>
+
+            <p style="margin-top:20px; color:#ff4655;">
+                See you at Programming Contest..
+            </p>
+        </div>
+
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+        <script>
+// Handle form submission
+document.querySelector('form').addEventListener('submit', function(e) {
+    // Capture participant name
+    const participantName = document.getElementById('student').value;
+    document.getElementById('participantNameOut').innerText = participantName;
+
+    // Optional: hide the form after submission
+    const form = this;
+    form.style.display = 'none';
+
+    // Show the success message
+    document.getElementById('success').style.display = 'block';
+
+    // Let the form still submit to Google Forms in background
+    const formData = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+    });
+
+    // Prevent default to avoid page reload
+    e.preventDefault();
+});
+</script>
+
+        <footer>
+            © 2026 NDUB Computer Club | CSE-FEST Programming Contest | <a
+                href="../../../index.html">Home</a>
+        </footer>
+
+        <script>
+// MATRIX CODE RAIN EFFECT
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*()*&^%";
+const fontSize = 18;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for (let x = 0; x < columns; x++) drops[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ffcc";
+    ctx.font = fontSize + "px Courier New";
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 50);
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+    </body>
+</html>
