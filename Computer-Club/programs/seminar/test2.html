@@ -1,0 +1,301 @@
+<head>
+    <style>
+.seminar-wrapper {
+  font-family: 'Poppins', sans-serif;
+  padding: 80px 20px;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c92d2);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: white;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.club {
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.event-meta {
+  margin-top: 10px;
+}
+
+#countdown {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #00eaff;
+  font-weight: bold;
+}
+
+.register-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: #00eaff;
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: white;
+  transform: scale(1.05);
+}
+
+.poster-frame {
+  max-width: 350px;
+  margin: 30px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.poster-frame img {
+  width: 100%;
+  display: block;
+}
+
+.about {
+  max-width: 900px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.speaker-card {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.speaker-card img {
+  width: 200px;
+  border-radius: 20px;
+}
+
+.speaker-info h3 {
+  margin-bottom: 5px;
+}
+
+.designation {
+  color: #00eaff;
+  margin-bottom: 15px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.topic-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.topic-card:hover {
+  background: #00eaff;
+  color: black;
+  transform: translateY(-8px);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.schedule {
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.schedule ul {
+  list-style: none;
+  padding: 0;
+}
+
+.schedule li {
+  padding: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .speaker-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<section class="seminar-wrapper">
+
+  <!-- HERO -->
+  <div class="hero reveal">
+    <h1>Engineering Complexity Seminar 2026</h1>
+    <p class="club">Organized by NDUB Computer Club</p>
+    <p class="event-meta">📅 17 February 2026 | 🕒 12:30 PM</p>
+    <div id="countdown"></div>
+    <a href="#" class="register-btn">Interested</a>
+  </div>
+
+  <!-- POSTER -->
+  <div class="poster reveal">
+    <h2 align="center">Event Poster</h2>
+    <div class="poster-frame">
+      <!-- Replace with your poster -->
+      <img src="cep/Poster.png" alt="Seminar Poster">
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about reveal">
+    <h2>About The Seminar</h2>
+    <p>
+      This seminar focuses on understanding complex engineering problems
+      and complex engineering activities within professional engineering practice.
+      Participants will explore real-world decision-making, professional responsibility,
+      risk assessment, and advanced problem-solving frameworks used in modern engineering.
+    </p>
+  </div>
+
+  <!-- SPEAKER -->
+  <div class="speaker reveal">
+    <h2 align="center">Resource Person</h2>
+    <div class="speaker-card">
+      <img src="../../assets/img/advisor/saiful.webp" alt="Speaker Photo">
+      <div class="speaker-info">
+        <h3>A. H. M. Saiful Islam</h3>
+        <p class="designation">Professor & Chairman<br>
+Department of CSE<br>Notre Dame University Bangladesh</p>
+        <p>
+          A. H. M. Saiful Islam specializes in complex system design, engineering
+          decision analytics, and professional practice standards. With
+          extensive academic and industrial experience, he has worked
+          on high-impact engineering projects and accreditation frameworks.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="topics reveal">
+    <h2 align="center">Key Discussion Areas</h2>
+    <div class="topic-grid">
+      <div class="topic-card">Complex Engineering Problems</div>
+      <div class="topic-card">Engineering Activity Classification</div>
+      <div class="topic-card">Professional Ethics & Responsibility</div>
+      <div class="topic-card">Risk & Decision Frameworks</div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="schedule">
+    <h2 onclick="toggleSchedule()" align="center">Event Schedule ⬇</h2>
+    <div id="scheduleContent" class="hidden">
+      <ul>
+        <li>12:30 PM – Opening Session</li>
+        <li>12:45 PM – Keynote Presentation</li>
+        <li>01:45 PM – Interactive Discussion</li>
+        <li>01:45 PM – Q&A Session</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ===============================
+     COUNTDOWN TIMER
+  =============================== */
+  const targetDate = new Date("Feb 17, 2026 12:30:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  const timer = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      countdownEl.innerHTML = "The Seminar Has Started!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    countdownEl.innerHTML =
+      `Starts in: ${days}d ${hours}h ${minutes}m`;
+  }, 1000);
+
+
+  /* ===============================
+     SCROLL REVEAL ANIMATION
+  =============================== */
+  const reveals = document.querySelectorAll(".reveal");
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const visiblePoint = 100;
+
+      if (elementTop < windowHeight - visiblePoint) {
+        element.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll(); // trigger on load
+
+
+  /* ===============================
+     TOGGLE SCHEDULE
+  =============================== */
+  window.toggleSchedule = function () {
+    const content = document.getElementById("scheduleContent");
+    if (content) {
+      content.classList.toggle("hidden");
+    }
+  };
+
+});
+</script>

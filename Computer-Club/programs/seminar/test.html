@@ -1,0 +1,189 @@
+<section class="seminar-container">
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <h1>Engineering Complexity Seminar 2026</h1>
+    <p class="organizer">Organized by NDUB Computer Club</p>
+    <p class="date">📅 17 February 2026 | 🕒 12:30 PM</p>
+
+    <div id="countdown"></div>
+  </div>
+
+  <!-- POSTER SECTION -->
+  <div class="poster-section">
+    <h2>Event Poster</h2>
+    <div class="poster-placeholder">
+      <img src="cep/Poster.png" style="width:300px; border-radius:12px;">
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <div class="about">
+    <h2>About The Seminar</h2>
+    <p>
+      This seminar explores the nature of complex engineering problems and
+      complex engineering activities in professional engineering practice.
+      Participants will gain insights into real-world engineering challenges,
+      decision-making frameworks, and professional responsibility.
+    </p>
+  </div>
+
+  <!-- KEY TOPICS -->
+  <div class="topics">
+    <h2>Key Discussion Areas</h2>
+    <div class="cards">
+      <div class="card">Understanding Complex Engineering Problems</div>
+      <div class="card">Complex Engineering Activities</div>
+      <div class="card">Professional Engineering Practice</div>
+      <div class="card">Risk, Ethics & Decision-Making</div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="schedule">
+    <h2 onclick="toggleSchedule()">Event Schedule ⬇</h2>
+    <div id="scheduleContent" class="hidden">
+      <ul>
+        <li>12:30 PM – Opening Session</li>
+        <li>12:45 PM – Keynote Presentation</li>
+        <li>01:45 PM – Interactive Discussion</li>
+        <li>02:30 PM – Q&A Session</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+
+<style>
+.seminar-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.organizer {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.date {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+#countdown {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00e0ff;
+}
+
+.poster-section {
+  margin-top: 60px;
+}
+
+.poster-placeholder {
+  width: 300px;
+  height: 400px;
+  margin: 20px auto;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.about {
+  margin-top: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topics {
+  margin-top: 60px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: #00e0ff;
+  color: black;
+  transform: translateY(-5px);
+}
+
+.schedule {
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.schedule ul {
+  list-style: none;
+  padding: 0;
+}
+
+.schedule li {
+  padding: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+</style>
+
+
+<script>
+// COUNTDOWN TIMER
+const countdownDate = new Date("Feb 17, 2026 12:30:00").getTime();
+
+const timer = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = countdownDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("countdown").innerHTML =
+    "Starts in: " + days + "d " + hours + "h " + minutes + "m ";
+
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById("countdown").innerHTML = "The Seminar Has Started!";
+  }
+}, 1000);
+
+// TOGGLE SCHEDULE
+function toggleSchedule() {
+  const content = document.getElementById("scheduleContent");
+  content.classList.toggle("hidden");
+}
+</script>

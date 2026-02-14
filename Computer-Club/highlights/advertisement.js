@@ -1,12 +1,18 @@
 // List of ads/news with links
 const ads = [
     {
+        title: "📢 Seminar On Understanding Complex Engineering Problems",
+        text: "Bridging Academic Knowledge with Professional Engineering Competency!",
+        img: "programs/seminar/cep/Poster.png",
+        link: "programs/seminar/Complex-Engineering-Problems.html"
+    }
+  /*{
         title: "📢 Club Registration Open",
         text: "Become a part of NDUB Computer Club and explore new opportunities!",
         img: "assets/img/NDUBCC-Logo.png",
         link: "joinnow.html"
     }
-    /*{
+    {
         title: "🎉 Congratulations to Our New Leaders!",
         text: "We are delighted to announce the newly selected Moderator of NDUB Computer Club. Let's welcome them with pride!",
         img: "highlights/mod.png",
