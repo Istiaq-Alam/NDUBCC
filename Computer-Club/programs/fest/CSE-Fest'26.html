@@ -186,7 +186,94 @@
     }
 }
 
-        
+
+/* ===== FEST POSTER SECTION ===== */
+.fest-poster-container {
+    text-align: center;
+    margin: 40px 0 60px;
+    padding: 0 20px;
+}
+
+.fest-poster {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fest-poster:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MODAL STYLES ===== */
+.poster-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+}
+
+.poster-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: zoom 0.3s;
+}
+
+@keyframes zoom {
+    from { transform: translate(-50%, -50%) scale(0.7); }
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+.poster-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.poster-modal-close:hover,
+.poster-modal-close:focus {
+    color: #bbb;
+}
+
+/* Responsive for poster */
+@media (max-width: 768px) {
+    .fest-poster {
+        max-width: 100%;
+    }
+
+    .poster-modal-content {
+        max-width: 95%;
+        max-height: 85vh;
+    }
+
+    .poster-modal-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
+
+
     </style>
     </head>
 
@@ -239,6 +326,15 @@
                <h1><span class="text-primary">CSE FEST 2026</span></h1> 
                 <h1>EVENT LIST</h1>
             </div>
+            <!-- CSE FEST POSTER -->
+            <div class="fest-poster-container">
+                <img src="cse-fest-26/cseFestLogo.png"
+                     alt="CSE FEST'26 Poster"
+                     class="fest-poster"
+                     id="festPoster"
+                     onclick="openModal()">
+            </div>
+
 
             <!-- EVENT 1 -->
             <a href="cse-fest-26/CP-Registration.html" class="event-card-link">
@@ -325,6 +421,13 @@
 
         </div>
 
+
+        <!-- Poster Modal -->
+        <div id="posterModal" class="poster-modal" onclick="closeModal()">
+            <span class="poster-modal-close" onclick="closeModal()">&times;</span>
+            <img class="poster-modal-content" id="modalImage">
+        </div>
+
         <!-- Footer Start -->
         <div id="footer"></div>
 
@@ -343,6 +446,30 @@
 
         <!-- Template Javascript -->
         <script src="../../assets/js/main.js"></script>
+
+        <!-- Poster Modal Script -->
+        <script>
+            function openModal() {
+                var modal = document.getElementById('posterModal');
+                var modalImg = document.getElementById('modalImage');
+                var img = document.getElementById('festPoster');
+
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+            }
+
+            function closeModal() {
+                var modal = document.getElementById('posterModal');
+                modal.style.display = 'none';
+            }
+
+            // Close modal when pressing Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        </script>
     </body>
 
 </html>
