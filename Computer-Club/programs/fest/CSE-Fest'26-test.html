@@ -792,7 +792,11 @@
                 </div>
             </div>
         </section>
-
+        <!-- Poster Modal -->
+        <div id="posterModal" class="poster-modal" onclick="closeModal()">
+            <span class="poster-modal-close" onclick="closeModal()">&times;</span>
+            <img class="poster-modal-content" id="modalImage">
+        </div>
         <!-- Footer Start -->
         <div id="footer"></div>
 
@@ -812,6 +816,29 @@
 
         <!-- Template Javascript -->
         <script src="../../assets/js/main.js"></script>
+        <!-- Poster Modal Script -->
+        <script>
+            function openModal() {
+                var modal = document.getElementById('posterModal');
+                var modalImg = document.getElementById('modalImage');
+                var img = document.getElementById('festPoster');
+
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+            }
+
+            function closeModal() {
+                var modal = document.getElementById('posterModal');
+                modal.style.display = 'none';
+            }
+
+            // Close modal when pressing Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        </script>
     </body>
 
 </html>
