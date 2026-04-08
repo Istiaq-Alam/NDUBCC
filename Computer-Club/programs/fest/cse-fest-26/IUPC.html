@@ -1,334 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Intra University Programming Contest Registration | NDUB CSE-FEST</title>
-        <style>
-/* General Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Courier New', Courier, monospace;
-}
 
-/* Body & Background */
-body {
-    overflow-x: hidden;
-    background: #000;
-    color: #ffffff;
-    position: relative;
-    min-height: 100vh;
-}
+<head>
+    <meta charset="utf-8">
+    <title>Inter University Programming Contest | NDUB CSE-FEST 2026</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Register for Inter University Programming Contest at NDUB CSE-FEST 2026">
 
-/* Canvas for code rain effect */
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ndubcc.pages.dev/programs/fest/cse-fest-26/IUPC.html">
+    <meta property="og:title" content="Inter University Programming Contest | NDUB CSE-FEST 2026">
+    <meta property="og:description"
+        content="Join the Inter University Programming Contest at NDUB CSE-FEST 2026. Test your coding skills and compete with students from universities across Bangladesh.">
+    <meta property="og:image" content="Programming Contest Banner.png">
 
-/* Overlay */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.75);
-    z-index: -1;
-}
+    <!-- Favicon -->
+    <link href="../../../assets/img/NDUBCC-Logo.png" rel="icon">
 
-/* Header */
-header {
-    text-align: center;
-    padding: 50px 20px 20px 20px;
-}
-header h1 {
-    font-size: 3em;
-    color: #00ffcc;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-}
-header p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
-/* Container */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: rgba(0, 0, 0, 0.85);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 25px #00ffcc;
-    margin-bottom: 50px;
-}
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-}
+    <!-- Libraries Stylesheet -->
+    <link href="../../../assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../../assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-label {
-    margin-top: 15px;
-    font-weight: bold;
-}
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet">
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select {
-    padding: 12px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 8px;
-    background: #111;
-    color: #00ffcc;
-    font-size: 1em;
-    transition: 0.3s;
-}
+    <!-- Template Stylesheet -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-select:focus {
-    outline: none;
-    box-shadow: 0 0 10px #00ffcc;
-}
+    <style>
+        /* Custom styles for IUPC page */
+        .iupc-banner {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
 
-input[type="checkbox"] {
-    margin-right: 10px;
-}
+        .event-title {
+            background: linear-gradient(90deg, #06BBCC 0%, #0D6EFD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
 
-.payment-options {
-    display: flex;
-    gap: 20px;
-    margin-top: 10px;
-}
-.payment-options label {
-    font-weight: normal;
-}
+        .detail-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
 
-/* Submit Button */
-input[type="submit"] {
-    margin-top: 25px;
-    padding: 15px;
-    font-size: 1.2em;
-    background: #00ffcc;
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.4s;
-    font-weight: bold;
-    box-shadow: 0 0 15px #00ffcc;
-}
-input[type="submit"]:hover {
-    background: #00cc99;
-    box-shadow: 0 0 25px #00ffcc, 0 0 50px #00ffcc inset;
-}
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
 
-/* Rules Section */
-.rules {
-    margin-top: 40px;
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #00ffcc;
-}
-.rules h2 {
-    margin-bottom: 15px;
-}
-.rules ul {
-    list-style: disc inside;
-}
-.rules ul li {
-    margin-bottom: 10px;
-}
+        .detail-card i {
+            font-size: 3rem;
+            color: #06BBCC;
+            margin-bottom: 20px;
+        }
 
-/* Footer */
-footer {
-    text-align: center;
-    color: #aaa;
-    padding: 20px 0;
-    font-size: 0.9em;
-}
+        .news-alert {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            animation: pulse 2s infinite;
+        }
 
-/* Responsive */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2em;
-    }
-    input[type="submit"] {
-        font-size: 1em;
-        padding: 12px;
-    }
-}
-</style>
-    </head>
-    <body>
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
 
-        <canvas id="matrixCanvas"></canvas>
+        .registration-section {
+            background: linear-gradient(135deg, #06BBCC 0%, #0D6EFD 100%);
+            padding: 60px;
+            border-radius: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
 
-        <header>
-            <h1>CSE-FEST 2026</h1>
-            <p>Intra-University Programming Contest Registration</p>
-        </header>
+        .registration-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
 
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .register-btn {
+            background: white;
+            color: #06BBCC;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 20px 60px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .register-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            color: #0D6EFD;
+        }
+
+        .counter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .counter-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #06BBCC;
+            display: block;
+            margin: 20px 0;
+            animation: countUp 2s ease-in-out;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge-new {
+            background: #ff4444;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .extended-notice {
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <div id="header"></div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Banner Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="position-relative">
+            <img class="img-fluid iupc-banner" src="Programming Contest Banner.png" alt="Inter University Programming Contest">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(24, 29, 56, .5);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h1 class="display-2 text-white mb-4 animated slideInDown">
+                                <i class="fas fa-code text-primary me-3"></i>
+                                IUPC 2026
+                            </h1>
+                            <p class="fs-4 text-white mb-4 animated slideInDown">Inter University Programming Contest</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Event Title Section Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <form action="GOOGLE_FORM_ACTION_URL" method="POST" target="_blank">
-                <label for="university">University Name</label>
-                <input type="text" id="university"
-                    name="entry.UNIVERSITY_FIELD_ID" required>
-
-                <label for="student">Student Name</label>
-                <input type="text" id="student" name="entry.STUDENT_FIELD_ID"
-                    required>
-
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="entry.PHONE_FIELD_ID"
-                    required>
-
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="entry.EMAIL_FIELD_ID"
-                    required>
-                <div class="rules">
-                    <h2>Contest Rules</h2>
-                    <ul>
-                        <li>Each participant must register individually; no
-                            teams allowed.</li>
-                        <li>Use of any external help or plagiarism is strictly
-                            prohibited.</li>
-                        <li>Participants should have their laptop ready with
-                            necessary software installed.</li>
-                        <li>All decisions by the contest organizers are
-                            final.</li>
-                        <li>Registration fee is non-refundable once
-                            submitted.</li>
-                    </ul>
-                </div>
-                <label>Payment Method</label>
-                <div class="payment-options">
-                    <label><input type="checkbox" name="entry.PAYMENT_FIELD_ID"
-                            value="Bkash"> Bkash</label>
-                    <label><input type="checkbox" name="entry.PAYMENT_FIELD_ID"
-                            value="Nogod"> Nogod</label>
-                </div>
-
-                <label for="transaction">Transaction ID</label>
-                <input type="text" id="transaction"
-                    name="entry.TRANSACTION_FIELD_ID" required>
-
-                <input type="submit" value="Register Now">
-            </form>
-
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">CSE-FEST 2026</h6>
+                <h1 class="mb-4 event-title">Inter University Programming Contest</h1>
+                <p class="fs-5 text-muted mb-5">
+                    Join us for the most exciting programming competition of the year! Test your coding skills,
+                    collaborate with fellow programmers, and compete for amazing prizes.
+                </p>
+            </div>
         </div>
+    </div>
+    <!-- Event Title Section End -->
 
-        <!-- Success Confirmation -->
-        <div id="success"
-            style="display:none; background:#0a0a0a; color:#00ffcc; padding:25px; 
-    margin-top:20px; border-radius:12px; box-shadow:0 0 20px #00ffcc;">
-            <h2>Registration Successful!</h2>
-
-            <p><strong>Participant Name:</strong> <span
-                    id="participantNameOut"></span></p>
-
-            <p><strong>Payment Status:</strong>
-                <span style="color:#0f0;">Payment Submitted (Verification
-                    Pending...)</span>
-            </p>
-
-            <p style="margin-top:15px;">
-                Our team will communicate with you very shortly via the provided
-                email address.<br>
-                Please keep an eye on your inbox.
-            </p>
-
-            <p style="margin-top:20px; color:#ff4655;">
-                See you at Programming Contest..
-            </p>
+    <!-- Event Details Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Event Information</h6>
+                <h1 class="mb-5">Contest Details</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="detail-card">
+                        <div class="text-center">
+                            <i class="far fa-calendar-alt"></i>
+                            <h4 class="mb-3">Date & Time</h4>
+                            <p class="mb-2"><strong>Date:</strong> April 25, 2026</p>
+                            <p class="mb-2"><strong>Time:</strong> 10:00 AM - 3:00 PM</p>
+                            <p class="text-muted">5 Hours of Intense Coding</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="detail-card">
+                        <div class="text-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4 class="mb-3">Venue</h4>
+                            <p class="mb-2"><strong>Location:</strong> NDUB Campus</p>
+                            <p class="mb-2">Computer Lab, Building 3</p>
+                            <p class="text-muted">Arambagh, Motijheel, Dhaka</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="detail-card">
+                        <div class="text-center">
+                            <i class="fas fa-trophy"></i>
+                            <h4 class="mb-3">Prizes & Awards</h4>
+                            <p class="mb-2"><strong>1st Place:</strong> BDT 50,000</p>
+                            <p class="mb-2"><strong>2nd Place:</strong> BDT 30,000</p>
+                            <p class="text-muted">+ Certificates & Goodies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="detail-card">
+                        <div class="text-center">
+                            <i class="fas fa-users"></i>
+                            <h4 class="mb-3">Team Formation</h4>
+                            <p class="mb-2"><strong>Team Size:</strong> 3 Members</p>
+                            <p class="mb-2">From Same University</p>
+                            <p class="text-muted">Collaborative Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="detail-card">
+                        <div class="text-center">
+                            <i class="fas fa-code"></i>
+                            <h4 class="mb-3">Contest Format</h4>
+                            <p class="mb-2"><strong>Problems:</strong> 8-10 Problems</p>
+                            <p class="mb-2"><strong>Style:</strong> ACM ICPC Format</p>
+                            <p class="text-muted">Multiple Programming Languages</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="detail-card">
+                        <div class="text-center">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h4 class="mb-3">Registration Fee</h4>
+                            <p class="mb-2"><strong>Per Team:</strong> BDT 500</p>
+                            <p class="mb-2">Early Bird Discount Available</p>
+                            <p class="text-muted">Limited Slots Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <!-- Event Details End -->
 
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
+    <!-- News Section Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">
+                    <span class="badge-new">NEW</span> Latest Update
+                </h6>
+                <h1 class="mb-5">Important Announcement</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="news-alert text-center">
+                        <i class="fas fa-bullhorn fa-3x mb-4"></i>
+                        <h2 class="mb-4">Pre-Registration Extended!</h2>
+                        <div class="mb-4">
+                            <img src="IUPC_Extended.png" alt="Extended Registration Notice" class="img-fluid extended-notice"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <p class="fs-5 mb-4">
+                            Great news for all aspiring participants! We are extending our pre-registration period by
+                            <strong style="font-size: 2rem; display: block; margin: 20px 0;">7 MORE DAYS!</strong>
+                        </p>
+                        <p class="fs-6 mb-4">
+                            <i class="far fa-clock me-2"></i>
+                            New Deadline: <strong>April 18, 2026</strong>
+                        </p>
+                        <p class="mb-0">
+                            Don't miss this opportunity! Register your team now and be part of Bangladesh's premier
+                            university programming competition.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- News Section End -->
 
-        <script>
-// Handle form submission
-document.querySelector('form').addEventListener('submit', function(e) {
-    // Capture participant name
-    const participantName = document.getElementById('student').value;
-    document.getElementById('participantNameOut').innerText = participantName;
+    <!-- Registration Section Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="wow fadeInUp" data-wow-delay="0.1s">
+                <div class="registration-section text-center">
+                    <div class="position-relative" style="z-index: 1;">
+                        <h6 class="text-white mb-3">
+                            <i class="fas fa-rocket fa-2x mb-3"></i>
+                        </h6>
+                        <h1 class="display-4 text-white mb-4">Ready to Compete?</h1>
+                        <p class="fs-5 text-white mb-5">
+                            Register your team now and secure your spot in IUPC 2026!<br>
+                            Limited slots available - First come, first served!
+                        </p>
+                        <a href="#" id="registrationLink" class="register-btn">
+                            <i class="fas fa-user-plus me-3"></i>
+                            Register Now
+                            <i class="fas fa-arrow-right ms-3"></i>
+                        </a>
+                        <p class="text-white mt-4 mb-0">
+                            <small>
+                                <i class="fas fa-info-circle me-2"></i>
+                                Click the button above to access the registration form
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Registration Section End -->
 
-    // Optional: hide the form after submission
-    const form = this;
-    form.style.display = 'none';
+    <!-- Registered Students Counter Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Live Statistics</h6>
+                <h1 class="mb-5">Registration Status</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="counter-card">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-3">Total Teams Registered</h4>
+                        <span class="counter-number" id="teamCounter">0</span>
+                        <p class="text-muted mb-0">And Counting...</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="counter-card">
+                        <i class="fas fa-user-graduate fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-3">Total Participants</h4>
+                        <span class="counter-number" id="participantCounter">0</span>
+                        <p class="text-muted mb-0">Students Participating</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="counter-card">
+                        <i class="fas fa-university fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-3">Universities Represented</h4>
+                        <span class="counter-number" id="universityCounter">0</span>
+                        <p class="text-muted mb-0">Institutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="alert alert-info wow fadeInUp" data-wow-delay="0.7s">
+                        <i class="fas fa-sync-alt fa-spin me-2"></i>
+                        <strong>Real-time Updates:</strong> These numbers are updated automatically every minute from our registration database.
+                        <br><small class="text-muted">Last updated: <span id="lastUpdated">--</span></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Registered Students Counter End -->
 
-    // Show the success message
-    document.getElementById('success').style.display = 'block';
+    <!-- Contest Rules & Guidelines Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Important Information</h6>
+                <h1 class="mb-5">Contest Rules & Guidelines</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-light rounded p-4">
+                        <h4 class="text-primary mb-4"><i class="fas fa-check-circle me-2"></i>Eligibility</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Must be currently enrolled university students</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Team members must be from the same university</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Valid student ID required during registration</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>One person cannot participate in multiple teams</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded p-4">
+                        <h4 class="text-primary mb-4"><i class="fas fa-laptop-code me-2"></i>Requirements</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Bring your own laptop with power adapter</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Pre-installed compiler/IDE required</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Internet access will be provided</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>No external resources or books allowed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-light rounded p-4">
+                        <h4 class="text-primary mb-4"><i class="fas fa-code-branch me-2"></i>Supported Languages</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>C / C++</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Java</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Python</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Other languages upon request</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="bg-light rounded p-4">
+                        <h4 class="text-primary mb-4"><i class="fas fa-shield-alt me-2"></i>Code of Conduct</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>No plagiarism or cheating tolerated</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Maintain professional behavior</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Follow organizers' instructions</li>
+                            <li class="mb-3"><i class="fas fa-chevron-right text-primary me-2"></i>Decision of judges is final</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contest Rules & Guidelines End -->
 
-    // Let the form still submit to Google Forms in background
-    const formData = new FormData(form);
-    fetch(form.action, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-    });
+    <!-- Contact & Support Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Need Help?</h6>
+                <h1 class="mb-5">Contact Us</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded p-5 text-center">
+                        <p class="fs-5 mb-4">For any queries regarding the contest, feel free to reach out to us:</p>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                                <p class="mb-0"><strong>Email:</strong></p>
+                                <p>computerclub.ndub@gmail.com</p>
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                                <p class="mb-0"><strong>Phone:</strong></p>
+                                <p>+880 1XXX-XXXXXX</p>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0">
+                            <i class="fas fa-clock me-2"></i>
+                            Response Time: Within 24 hours
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact & Support End -->
 
-    // Prevent default to avoid page reload
-    e.preventDefault();
-});
-</script>
+    <!-- Footer -->
+    <div id="footer"></div>
 
-        <footer>
-            © 2026 NDUB Computer Club | CSE-FEST Programming Contest | <a
-                href="../../../index.html">Home</a>
-        </footer>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-        <script>
-// MATRIX CODE RAIN EFFECT
-const canvas = document.getElementById("matrixCanvas");
-const ctx = canvas.getContext("2d");
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/lib/wow/wow.min.js"></script>
+    <script src="../../../assets/lib/easing/easing.min.js"></script>
+    <script src="../../../assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="../../../assets/lib/owlcarousel/owl.carousel.min.js"></script>
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+    <!-- Template Javascript -->
+    <script src="../../../assets/js/main.js"></script>
 
-const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*()*&^%";
-const fontSize = 18;
-const columns = canvas.width / fontSize;
+    <!-- Custom JavaScript for IUPC Page -->
+    <script>
+        // Real-time counter simulation
+        // Replace this with actual API calls to your backend
+        function updateCounters() {
+            // Example: Fetch data from your registration database
+            // For now, we'll simulate with random increments
 
-const drops = [];
-for (let x = 0; x < columns; x++) drops[x] = 1;
+            // You can replace this with actual fetch calls like:
+            /*
+            fetch('YOUR_API_ENDPOINT/stats')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('teamCounter').textContent = data.teams;
+                    document.getElementById('participantCounter').textContent = data.participants;
+                    document.getElementById('universityCounter').textContent = data.universities;
+                });
+            */
 
-function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Simulated data for demonstration
+            const teams = Math.floor(Math.random() * 50) + 50; // 50-100 teams
+            const participants = teams * 3; // 3 members per team
+            const universities = Math.floor(Math.random() * 15) + 10; // 10-25 universities
 
-    ctx.fillStyle = "#00ffcc";
-    ctx.font = fontSize + "px Courier New";
+            animateCounter('teamCounter', teams);
+            animateCounter('participantCounter', participants);
+            animateCounter('universityCounter', universities);
 
-    for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            // Update timestamp
+            const now = new Date();
+            document.getElementById('lastUpdated').textContent = now.toLocaleTimeString();
+        }
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        // Animate counter from 0 to target value
+        function animateCounter(elementId, targetValue) {
+            const element = document.getElementById(elementId);
+            const duration = 2000; // 2 seconds
+            const steps = 60;
+            const stepValue = targetValue / steps;
+            let currentValue = 0;
 
-        drops[i]++;
-    }
-}
+            const timer = setInterval(() => {
+                currentValue += stepValue;
+                if (currentValue >= targetValue) {
+                    element.textContent = targetValue;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(currentValue);
+                }
+            }, duration / steps);
+        }
 
-setInterval(draw, 50);
+        // Update counters on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCounters();
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-</script>
+            // Update every 60 seconds
+            setInterval(updateCounters, 60000);
+        });
 
-    </body>
+        // Registration link click handler
+        document.getElementById('registrationLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Registration link will be added here by the admin.\n\nPlease update the href attribute with your Google Form or registration page URL.');
+            // When the actual link is added, remove the alert and the preventDefault
+        });
+    </script>
+</body>
+
 </html>
