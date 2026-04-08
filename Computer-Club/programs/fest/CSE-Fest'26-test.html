@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CSE FEST'26 - NDUB Computer Club</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="CSE FEST 2026, NDUB Computer Club, Programming Contest, Gaming Tournament, Tech Fest" name="keywords">
+    <meta content="Join CSE FEST 2026 organized by NDUB Computer Club featuring competitive programming, gaming tournaments, and project showcases" name="description">
+
+    <!-- Favicon -->
+    <link href="../../assets/img/NDUBCC-Logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../assets/lib/owlcarousel/assets/owl.carousel.min.css"
+        rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../../assets/css/style.css" rel="stylesheet">
+
+    <style>
+        /* ===== CSE FEST HERO SECTION ===== */
+        .csefest-hero {
+            position: relative;
+            height: 90vh;
+            min-height: 500px;
+            background: url("cse-fest-26/cseFestLogo.png") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .csefest-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(6, 28, 61, 0.88),
+                    rgba(0, 0, 0, 0.75));
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background: linear-gradient(135deg,
+                        rgba(6, 28, 61, 0.88),
+                        rgba(0, 0, 0, 0.75));
+            }
+            50% {
+                background: linear-gradient(135deg,
+                        rgba(0, 0, 0, 0.75),
+                        rgba(6, 28, 61, 0.88));
+            }
+        }
+
+        .csefest-hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .csefest-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 15px rgba(6, 123, 194, 0.5);
+        }
+
+        .csefest-hero .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .csefest-hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .csefest-hero .btn {
+            padding: 14px 35px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .csefest-hero .btn-primary {
+            background: #06ABC2;
+            border: 2px solid #06ABC2;
+        }
+
+        .csefest-hero .btn-primary:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(6, 171, 194, 0.4);
+        }
+
+        .csefest-hero .btn-outline-light:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* ===== FEST INFO SECTION ===== */
+        .fest-info {
+            background: linear-gradient(135deg, #06ABC2 0%, #067BC2 100%);
+            padding: 60px 0;
+            color: white;
+            margin-top: -5px;
+        }
+
+        .fest-info-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .fest-info-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .fest-info-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .fest-info-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .fest-info-card p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== PAGE TITLE ===== */
+        .csefest-title {
+            text-align: center;
+            margin: 80px 0 50px;
+        }
+
+        .csefest-title span {
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+        }
+
+        .csefest-title h1 {
+            font-weight: 800;
+            margin-top: 10px;
+            font-size: 2.8rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* ===== EVENT CARD ===== */
+        .event-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .event-card {
+            display: flex;
+            gap: 30px;
+            background: linear-gradient(135deg, #f8fcff 0%, #e8f6ff 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 35px;
+            align-items: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(6, 171, 194, 0.2);
+            border-color: #06ABC2;
+        }
+
+        /* Image */
+        .event-img {
+            width: 320px;
+            height: 200px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .event-card:hover .event-img img {
+            transform: scale(1.08);
+        }
+
+        /* Content */
+        .event-content h4 {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #06ABC2;
+            font-size: 1.6rem;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .event-content p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .event-meta {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #06ABC2, #067BC2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== ABOUT FEST SECTION ===== */
+        .about-fest {
+            background: #f9f9f9;
+            padding: 80px 0;
+        }
+
+        .about-fest h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            color: #06ABC2;
+            margin-bottom: 25px;
+        }
+
+        .about-fest p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .about-fest ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-fest ul li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .about-fest ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #06ABC2;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* ===== SCHEDULE SECTION ===== */
+        .schedule-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #06ABC2 0%, #067BC2 100%);
+            color: white;
+        }
+
+        .schedule-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .schedule-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .schedule-item h4 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .schedule-item .date-time {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .csefest-hero {
+                height: auto;
+                padding: 100px 0;
+                text-align: center;
+            }
+
+            .csefest-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .csefest-hero .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .event-card {
+                flex-direction: column;
+            }
+
+            .event-img {
+                width: 100%;
+                height: 220px;
+            }
+
+            .fest-info-card h3 {
+                font-size: 2rem;
+            }
+
+            .csefest-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary"
+            style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <div id="header"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="csefest-hero">
+        <div class="container">
+            <div class="csefest-hero-content">
+                <span class="text-primary fw-bold hero-subtitle">NDUB COMPUTER CLUB PRESENTS</span>
+                <h1 style="color: #fff;">CSE FEST 2026</h1>
+                <p>
+                    A premier celebration of technology, innovation, and competition.
+                    Join us for exciting coding contests, intense gaming tournaments,
+                    impressive project showcases, and industry-focused events — all in one extraordinary fest.
+                </p>
+
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#events" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt me-2"></i>View Events
+                    </a>
+                    <a href="#about" class="btn btn-outline-light">
+                        <i class="fas fa-info-circle me-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fest Info Section -->
+    <section class="fest-info">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="fest-info-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>4+</h3>
+                        <p>Exciting Events</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="fest-info-card">
+                        <i class="fas fa-users"></i>
+                        <h3>500+</h3>
+                        <p>Expected Participants</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="fest-info-card">
+                        <i class="fas fa-gift"></i>
+                        <h3>₹50K+</h3>
+                        <p>Prize Pool</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="fest-info-card">
+                        <i class="fas fa-calendar-day"></i>
+                        <h3>3 Days</h3>
+                        <p>Of Tech Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <div class="container" id="events">
+        <!-- PAGE TITLE -->
+        <div class="csefest-title">
+            <h6><span class="text-primary">CSE FEST 2026</span></h6>
+            <h1>EVENT LINEUP</h1>
+            <p class="text-muted">Compete, Showcase, and Excel in Multiple Domains</p>
+        </div>
+
+        <!-- EVENT 1: Competitive Programming -->
+        <a href="cse-fest-26/CP-Registration.html" class="event-card-link">
+            <div class="event-card">
+                <div class="event-img">
+                    <img src="cse-fest-26/CP.png" alt="Competitive Programming">
+                </div>
+                <div class="event-content">
+                    <h4>Competitive Programming Contest</h4>
+                    <p>
+                        Test your algorithmic skills and problem-solving abilities under time pressure.
+                        Compete with the brightest minds from universities across the region and prove
+                        your coding prowess in this intense programming challenge.
+                    </p>
+                    <div class="event-meta">
+                        <i class="fas fa-calendar-alt"></i> Date: March 10, 2026 |
+                        <i class="fas fa-user"></i> Individual Event
+                    </div>
+                    <span class="event-badge">💻 Coding Challenge</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- EVENT 2: Valorant Tournament -->
+        <a href="cse-fest-26/VCT-Registration.html" class="event-card-link">
+            <div class="event-card">
+                <div class="event-img">
+                    <img src="cse-fest-26/valo.png" alt="Valorant Tournament">
+                </div>
+                <div class="event-content">
+                    <h4>Valorant Championship Tournament</h4>
+                    <p>
+                        Assemble your squad for the ultimate 5v5 tactical FPS showdown. Navigate through
+                        intense knockout stages, showcase strategic gameplay, and dominate the battlefield.
+                        Only the most coordinated teams will emerge victorious.
+                    </p>
+                    <div class="event-meta">
+                        <i class="fas fa-calendar-alt"></i> Date: March 11, 2026 |
+                        <i class="fas fa-users"></i> Team Event (5 Members)
+                    </div>
+                    <span class="event-badge">🎮 Gaming Tournament</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- EVENT 3: FC-25 Tournament -->
+        <a href="cse-fest-26/FC-Registration.html" class="event-card-link">
+            <div class="event-card">
+                <div class="event-img">
+                    <img src="cse-fest-26/fc.webp" alt="FC-25 Tournament">
+                </div>
+                <div class="event-content">
+                    <h4>FC'25 Gaming Tournament</h4>
+                    <p>
+                        Experience the thrill of virtual football at its finest. Build your dream team,
+                        master your tactics, and compete in this exciting football simulation tournament.
+                        Show off your gaming skills and strategic planning abilities.
+                    </p>
+                    <div class="event-meta">
+                        <i class="fas fa-calendar-alt"></i> Date: March 11, 2026 |
+                        <i class="fas fa-user"></i> Individual Event
+                    </div>
+                    <span class="event-badge">⚽ Sports Gaming</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- EVENT 4: Project Showcase -->
+        <a href="register-project.html" class="event-card-link">
+            <div class="event-card">
+                <div class="event-img">
+                    <img src="../../assets/img/event3.jpg" alt="Project Showcase">
+                </div>
+                <div class="event-content">
+                    <h4>Innovation Project Showcase</h4>
+                    <p>
+                        Present your innovative software, hardware, or research-based projects to a panel
+                        of distinguished faculty members and industry experts. This is your opportunity to
+                        demonstrate creativity, technical excellence, and real-world problem-solving.
+                    </p>
+                    <div class="event-meta">
+                        <i class="fas fa-calendar-alt"></i> Date: March 12, 2026 |
+                        <i class="fas fa-users"></i> Team / Individual
+                    </div>
+                    <span class="event-badge">🚀 Innovation</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- About Fest Section -->
+    <section class="about-fest" id="about">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h6 class="text-primary text-uppercase mb-3">About CSE FEST 2026</h6>
+                    <h2>The Ultimate Tech Celebration</h2>
+                    <p>
+                        CSE FEST 2026 is the flagship event organized by NDUB Computer Club, bringing together
+                        students, tech enthusiasts, and industry professionals for a three-day celebration of
+                        technology, innovation, and competition.
+                    </p>
+                    <p>
+                        This year's fest promises to be bigger and better with a diverse range of events designed
+                        to challenge participants across multiple domains - from competitive programming to gaming
+                        tournaments, and from project showcases to tech talks.
+                    </p>
+                    <ul>
+                        <li>Multiple competitive events with exciting prizes</li>
+                        <li>Opportunities to network with industry professionals</li>
+                        <li>Learn from expert speakers and mentors</li>
+                        <li>Showcase your projects and innovations</li>
+                        <li>Experience the latest in technology and gaming</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img class="img-fluid rounded" src="cse-fest-26/cseFestLogo.png" alt="CSE FEST 2026">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule-section">
+        <div class="container">
+            <h2>Event Schedule</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="schedule-item">
+                        <h4>Day 1 - March 10, 2026</h4>
+                        <div class="date-time">
+                            <i class="fas fa-clock me-2"></i>10:00 AM - 5:00 PM
+                        </div>
+                        <p>Competitive Programming Contest</p>
+                        <p class="mb-0"><small>Algorithmic challenges and problem-solving</small></p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="schedule-item">
+                        <h4>Day 2 - March 11, 2026</h4>
+                        <div class="date-time">
+                            <i class="fas fa-clock me-2"></i>9:00 AM - 6:00 PM
+                        </div>
+                        <p>Gaming Tournaments</p>
+                        <p class="mb-0"><small>Valorant Championship & FC'25 Tournament</small></p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="schedule-item">
+                        <h4>Day 3 - March 12, 2026</h4>
+                        <div class="date-time">
+                            <i class="fas fa-clock me-2"></i>10:00 AM - 4:00 PM
+                        </div>
+                        <p>Project Showcase & Closing Ceremony</p>
+                        <p class="mb-0"><small>Innovation presentations and prize distribution</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Start -->
+    <div id="footer"></div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/lib/wow/wow.min.js"></script>
+    <script src="../../assets/lib/easing/easing.min.js"></script>
+    <script src="../../assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="../../assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+
+</html>
