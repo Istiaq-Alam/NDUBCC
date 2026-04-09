@@ -99,7 +99,7 @@ This project is licensed under the [MIT License](LICENSE).
 * Club Membership form ✅
 * Membership form authentication ✅
 * Contact Form ✅
-* CSE FEST Page ⛏️ 
+* CSE FEST Page ✅ 
 * Backend ⛏️ google
 * Club Gallery ✅
 * Present committe profile link ✅
