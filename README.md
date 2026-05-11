@@ -3,11 +3,11 @@
 🚀 Official repository for the <b>NDUB Computer Club</b> website.  
 This project represents our university computer club, showcasing events, members, achievements, and activities. It is built with a modern web stack for performance and reliability.
 </p>
-
+     
 -----
-    
+        
 ## 📌 Features
-
+     
 - 🏫 **About Us** – Learn about NDUB Computer Club
 - 👥 **Executive Members** – Committee member profiles
 - 📰 **Events & Announcements** – Stay updated with the latest activities
