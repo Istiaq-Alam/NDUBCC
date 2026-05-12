@@ -5,27 +5,27 @@ This project represents our university computer club, showcasing events, members
 </p>
      
 -----
-        
+         
 ## 📌 Features
-     
-- 🏫 **About Us** – Learn about NDUB Computer Club
-- 👥 **Executive Members** – Committee member profiles
+      
+- 🏫 **About Us** – Learn about NDUB Computer Club 
+- 👥 **Executive Members** – Committee member profiles 
 - 📰 **Events & Announcements** – Stay updated with the latest activities
 - 📸 **Gallery** – Club moments and achievements
 - 📬 **Contact Form** – Reach out to us
 - 🔑 **Member Login (planned)** – For managing internal club activities
 
----
+--- 
 
 ## 🛠️ Tech Stack
-
+ 
 - **Frontend:** HTML, CSS, JavaScript 
 - **UI Framework:** TailwindCSS / Bootstrap 
 - **Backend:** Google Backend
 - **Database:** Google Database
 - **Hosting:** Cloudflare (for frontend + Security) 
 
----
+--- 
 
 ## 📂 Project Structure
 
