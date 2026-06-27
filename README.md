@@ -4,12 +4,12 @@
 This project represents our university computer club, showcasing events, members, achievements, and activities. It is built with a modern web stack for performance and reliability.
 </p>
      
------
-          
+-----  
+             
 ## 📌 Features
        
 - 🏫 **About Us** – Learn about NDUB Computer Club 
-- 👥 **Executive Members** – Committee member profiles    
+- 👥 **Executive Members** – Committee member profiles      
 - 📰 **Events & Announcements** – Stay updated with the latest activities
 - 📸 **Gallery** – Club moments and achievements
 - 📬 **Contact Form** – Reach out to us
