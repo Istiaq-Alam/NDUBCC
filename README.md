@@ -3,19 +3,19 @@
 🚀 Official repository for the <b>NDUB Computer Club</b> website.  
 This project represents our university computer club, showcasing events, members, achievements, and activities. It is built with a modern web stack for performance and reliability.
 </p>
-             
+                
 -----       
                          
-## 📌 Features
+## 📌 Features  
        
 - 🏫 **About Us** – Learn about NDUB Computer Club 
 - 👥 **Executive Members** – Committee member profiles      
-- 📰 **Events & Announcements** – Stay updated with the latest activities
+- 📰 **Events & Announcements** – Stay updated with the latest activities   
 - 📸 **Gallery** – Club moments and achievements
 - 📬 **Contact Form** – Reach out to us
 - 🔑 **Member Login (planned)** – For managing internal club activities
 
---- 
+---   
 
 ## 🛠️ Tech Stack
  
@@ -73,7 +73,7 @@ Any new commits pushed to the `main` branch are automatically deployed.
 Live Website 👉 [NDUBCC Website](https://ndubcc.pages.dev/)
 
 ---
-
+    
 ## 👥 Contributors
 
 * [@Istiaq-Alam](https://github.com/Istiaq-Alam) (Design & Maintainer)
