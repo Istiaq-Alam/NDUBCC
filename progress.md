@@ -15,8 +15,8 @@ on going 81.10% progression
 * 07-07-25 : Event directory fix    
 * 08-07-25 : Event Post pending...
 * 09-07-25 : Event Post done
-* 10-07-25 : Careers in web development page temp        
-* 11-07-25 : temp page setup        
+* 10-07-25 : Careers in web development page temp           
+* 11-07-25 : temp page setup           
 * 12-07-25 : Page resource setup     
 * 13-07-25 : Page banner \& first deployment
 * 14-07-25 : Gallery setup 
