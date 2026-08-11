@@ -1,8 +1,8 @@
 # NDUBCC
 
-Notre Dame University Bangladesh Computer Club Website portal
+Notre Dame University Bangladesh Computer Club Website portal    
 on going 81.10% progression 
-                              
+                                  
        
 * 29-06-25 : Final template ready
 * 30-06-25 : Template editing on going
