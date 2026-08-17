@@ -1,7 +1,7 @@
 # NDUBCC
 
 Notre Dame University Bangladesh Computer Club Website portal        
-on going 81.10% progression    
+on going 81.20% progression    
                                            
        
 * 29-06-25 : Final template ready
